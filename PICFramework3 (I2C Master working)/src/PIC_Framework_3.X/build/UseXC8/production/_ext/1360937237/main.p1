@@ -29,7 +29,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _init_i2c `(v ~T0 @X0 0 ef1`*S585 ]
 "6 ../src/timer1_thread.h
 [v _init_timer1_lthread `(v ~T0 @X0 0 ef1`*S587 ]
-"43 ../src/messages.h
+"44 ../src/messages.h
 [v _init_queues `(v ~T0 @X0 0 ef ]
 "2722 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f45j10.h
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
@@ -61,8 +61,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S219 . . . ]
 "3591
 [v _PIE1bits `VS219 ~T0 @X0 0 e@3997 ]
-"44 ../src/my_i2c.h
-[v _i2c_configure_master `(v ~T0 @X0 0 ef ]
+"43 ../src/my_i2c.h
+[v _i2c_configure_slave `(v ~T0 @X0 0 ef1`uc ]
 "581 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib\usart.h
 [v _OpenUSART `(v ~T0 @X0 0 ef2`uc`ui ]
 [s S246 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -91,15 +91,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OpenADC `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 "2084
 [v _SetChanADC `(v ~T0 @X0 0 ef1`uc ]
-"51 ../src/messages.h
+"52 ../src/messages.h
 [v _block_on_To_msgqueues `(v ~T0 @X0 0 ef ]
-"65
+"66
 [v _ToMainHigh_recvmsg `(c ~T0 @X0 0 ef3`uc`*uc`*v ]
 "6 ../src/timer0_thread.h
 [v _timer0_lthread `(i ~T0 @X0 0 ef4`*S588`i`i`*uc ]
 "21 ../src/my_uart.h
 [v _uart_trans `(v ~T0 @X0 0 ef2`uc`*uc ]
-"58 ../src/messages.h
+"59 ../src/messages.h
 [v _ToMainLow_recvmsg `(c ~T0 @X0 0 ef3`uc`*uc`*v ]
 "7 ../src/timer1_thread.h
 [v _timer1_lthread `(i ~T0 @X0 0 ef4`*S587`i`i`*uc ]
@@ -4744,17 +4744,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 19: unsigned char cur_write_ind;
 [; ;messages.h: 20: unsigned char cur_read_ind;
 [; ;messages.h: 21: } msg_queue;
-[; ;messages.h: 43: void init_queues(void);
-[; ;messages.h: 47: void SleepIfOkay(void);
-[; ;messages.h: 51: void block_on_To_msgqueues(void);
-[; ;messages.h: 57: signed char ToMainLow_sendmsg(unsigned char,unsigned char,void *);
-[; ;messages.h: 58: signed char ToMainLow_recvmsg(unsigned char,unsigned char *,void *);
-[; ;messages.h: 64: signed char ToMainHigh_sendmsg(unsigned char,unsigned char,void *);
-[; ;messages.h: 65: signed char ToMainHigh_recvmsg(unsigned char,unsigned char *,void *);
-[; ;messages.h: 71: signed char FromMainLow_sendmsg(unsigned char,unsigned char,void *);
-[; ;messages.h: 72: signed char FromMainLow_recvmsg(unsigned char,unsigned char *,void *);
-[; ;messages.h: 78: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
-[; ;messages.h: 79: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
+"23 ../src/messages.h
+[v _UART_timeout `ui ~T0 @X0 1 e ]
+[; ;messages.h: 23: unsigned int UART_timeout;
+[; ;messages.h: 44: void init_queues(void);
+[; ;messages.h: 48: void SleepIfOkay(void);
+[; ;messages.h: 52: void block_on_To_msgqueues(void);
+[; ;messages.h: 58: signed char ToMainLow_sendmsg(unsigned char,unsigned char,void *);
+[; ;messages.h: 59: signed char ToMainLow_recvmsg(unsigned char,unsigned char *,void *);
+[; ;messages.h: 65: signed char ToMainHigh_sendmsg(unsigned char,unsigned char,void *);
+[; ;messages.h: 66: signed char ToMainHigh_recvmsg(unsigned char,unsigned char *,void *);
+[; ;messages.h: 72: signed char FromMainLow_sendmsg(unsigned char,unsigned char,void *);
+[; ;messages.h: 73: signed char FromMainLow_recvmsg(unsigned char,unsigned char *,void *);
+[; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
+[; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
 [; ;my_uart.h: 11: unsigned char buffer[5];
 [; ;my_uart.h: 12: unsigned char buflen;
@@ -4917,9 +4920,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 281: IPR1bits.SSPIP = 1;
 "281
 [e = . . _IPR1bits 1 1 -> -> 1 `i `uc ]
-[; ;main.c: 292: i2c_configure_master();
-"292
-[e ( _i2c_configure_master ..  ]
+[; ;main.c: 298: i2c_configure_slave(0xBE);
+"298
+[e ( _i2c_configure_slave (1 -> -> 190 `i `uc ]
 [; ;main.c: 317: PIE1bits.SSPIE = 1;
 "317
 [e = . . _PIE1bits 1 1 -> -> 1 `i `uc ]
@@ -4944,8 +4947,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 355: SetChanADC(0b10001111);
 "355
 [e ( _SetChanADC (1 -> -> 143 `i `uc ]
-[v F5211 `uc ~T0 @X0 -> 2 `i s ]
-[i F5211
+[v F5212 `uc ~T0 @X0 -> 2 `i s ]
+[i F5212
 :U ..
 "366
 -> -> 1 `i `uc
@@ -4954,7 +4957,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _msg `uc ~T0 @X0 -> 2 `i a ]
 [; ;main.c: 366: unsigned char msg[2] = {0x01, 0x02};
-[e = _msg F5211 ]
+[e = _msg F5212 ]
 [; ;main.c: 373: while (1) {
 "373
 [e :U 591 ]

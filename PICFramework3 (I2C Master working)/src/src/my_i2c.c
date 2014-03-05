@@ -410,14 +410,16 @@ void i2c_slave_int_handler() {
         //ToMainHigh_sendmsg(0, MSGT_I2C_RQST, (void *) ic_ptr->buffer);
         if(ic_ptr->buffer[0] == 0xAA){
             length = 5;
-            unsigned char sensormsg[5] = {0x01, 0x01, 0x02, 0x03, 0x07};
+            
+            unsigned char sensormsg[5] = {0x01, 0x01, 0x02, 0x03, ((0x01 + 0x02 + 0x03) & 0x17)};
             start_i2c_slave_reply(length, sensormsg);
             //adcbuffer[0] = 0; // reset count after send
         } else if(ic_ptr->buffer[0] == 0xBA){
             // motor stuff
             length = 5;
-            unsigned char motormsg[5] = {0x02, 0x03, 0x04, 0x09};
-            start_i2c_slave_reply(length, ic_ptr->buffer);
+           
+            unsigned char motormsg[5] = {0x03, 0x04, ((0x04) & 0x17), 0x00, 0x00};
+            start_i2c_slave_reply(length, motormsg);
         }
         msg_to_send = 0;
     }

@@ -20,6 +20,7 @@ typedef struct __msg_queue {
     unsigned char cur_read_ind;
 } msg_queue;
 
+unsigned int UART_timeout;
 // Error Codes
 // Too many messages in the queue
 #define MSGQUEUE_FULL -1
