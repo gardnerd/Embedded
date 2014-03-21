@@ -1,0 +1,74 @@
+
+# 1 "../src/motor.c"
+
+# 10 "../src/messages.h"
+typedef struct __msg {
+unsigned char full;
+unsigned char length;
+unsigned char msgtype;
+unsigned char data[10];
+} msg;
+
+typedef struct __msg_queue {
+msg queue[5];
+unsigned char cur_write_ind;
+unsigned char cur_read_ind;
+} msg_queue;
+
+unsigned int UART_timeout;
+
+# 44
+void init_queues(void);
+
+
+
+void SleepIfOkay(void);
+
+
+
+void block_on_To_msgqueues(void);
+
+# 58
+signed char ToMainLow_sendmsg(unsigned char,unsigned char,void *);
+signed char ToMainLow_recvmsg(unsigned char,unsigned char *,void *);
+
+# 65
+signed char ToMainHigh_sendmsg(unsigned char,unsigned char,void *);
+signed char ToMainHigh_recvmsg(unsigned char,unsigned char *,void *);
+
+# 72
+signed char FromMainLow_sendmsg(unsigned char,unsigned char,void *);
+signed char FromMainLow_recvmsg(unsigned char,unsigned char *,void *);
+
+# 79
+signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
+signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
+
+# 10 "../src/my_uart.h"
+typedef struct __uart_comm {
+unsigned char buffer[5];
+unsigned char buflen;
+unsigned char txBuff[5];
+unsigned char txBuflen;
+unsigned char txBufind;
+} uart_comm;
+
+void init_uart_recv(uart_comm *);
+void uart_recv_int_handler(void);
+
+void uart_trans(unsigned char, unsigned char *);
+void uart_trans_int_handler();
+
+# 14 "../src/motor.h"
+unsigned char distDesired;
+unsigned char distMoved;
+
+
+void motorMove(unsigned char , unsigned char*);
+
+# 5 "../src/motor.c"
+void motorMove(unsigned char distance, unsigned char* direction)
+{
+distDesired = distance;
+uart_trans(2, direction);
+}

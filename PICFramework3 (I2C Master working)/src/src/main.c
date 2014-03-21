@@ -234,7 +234,7 @@ void main(void) {
 
 #ifndef __USE18F26J50
     // set direction for PORTB to output
-    TRISB = 0x0;
+    TRISB = 0xFF; //input
     LATB = 0x0;
 
     PORTA = 0x0;
@@ -252,7 +252,14 @@ void main(void) {
      */
 
     // initialize Timers
+
+#ifdef MOTORPIC
+    
+    OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_EXT & T0_EDGE_RISE & T0_PS_1_1);
+    
+#else
     OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_INT & T0_PS_1_64);
+#endif
     
 #ifdef __USE18F26J50
     // MTJ added second argument for OpenTimer1()
@@ -261,7 +268,8 @@ void main(void) {
 #ifdef __USE18F46J50
     OpenTimer1(TIMER_INT_ON & T1_SOURCE_FOSC_4 & T1_PS_1_8 & T1_16BIT_RW & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF,0x0);
 #else
-    OpenTimer1(TIMER_INT_ON & T1_8BIT_RW & T1_PS_1_1 & T1_SOURCE_INT & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF);
+    OpenTimer1(TIMER_INT_ON & T1_8BIT_RW & T1_PS_1_1 & T1_SOURCE_EXT & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF);
+    TRISC = 0xFF; // C as input
 #endif
 #endif
 
@@ -273,6 +281,8 @@ void main(void) {
     PIE1bits.ADIE = 1;
     // Timer1 interrupt
     IPR1bits.TMR1IP = 0;
+    // Timer0 interrupt
+    INTCON2bits.TMR0IP = 1;
     // USART RX interrupt
     IPR1bits.RCIP = 0;
     // USART TX interrupt
@@ -370,6 +380,7 @@ void main(void) {
       //uart_trans(2, msg);
       //WriteUSART(0xAA);
 
+
     while (1) {
         // Call a routine that blocks until either on the incoming
         // messages queues has a message (this may put the processor into
@@ -443,6 +454,8 @@ void main(void) {
                 case MSGT_OVERRUN:
                 case MSGT_UART_DATA:
                 {
+                    //uart_trans(2, msgbuffer);
+                    
                     if(msgbuffer[0] == 0xBA){
                         // motor command
                         i2c_master_send(5, 5, msgbuffer, 0xBE);

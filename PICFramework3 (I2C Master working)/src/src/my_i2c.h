@@ -2,6 +2,7 @@
 #define __my_i2c_h
 
 #include "messages.h"
+#include "motor.h"
 
 #define MAXI2CBUF MSGLEN
 typedef struct __i2c_comm {

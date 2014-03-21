@@ -418,8 +418,28 @@ void i2c_slave_int_handler() {
             // motor stuff
             length = 5;
            
-            unsigned char motormsg[5] = {0x03, 0x04, ((0x04) & 0x17), 0x00, 0x00};
-            start_i2c_slave_reply(length, motormsg);
+            
+
+            unsigned char motorcomm[2] = {0x9F, 0x1F};
+            if(ic_ptr->buffer[1] == 0xFF){ // forward
+                motorMove(ic_ptr->buffer[2], motorcomm);
+            } else if(ic_ptr->buffer[1] == 0xBB){ // back
+                motorcomm[0] = 0xE1;
+                motorcomm[1] = 0x62;
+                motorMove(ic_ptr->buffer[2], motorcomm);
+            } else if(ic_ptr->buffer[1] == 0x22){ // left
+                motorcomm[0] = 0xE1;
+                motorcomm[1] = 0x1F;
+                motorMove(ic_ptr->buffer[2], motorcomm);
+            } else if(ic_ptr->buffer[1] == 0x55){ // right
+                motorcomm[0] = 0x9F;
+                motorcomm[1] = 0x62;
+                motorMove(ic_ptr->buffer[2], motorcomm);
+            } else if(ic_ptr->buffer[1] == 0x00){ // stop
+                motorcomm[0] = 0x00;
+                motorMove(0, motorcomm);
+            }
+            
         }
         msg_to_send = 0;
     }

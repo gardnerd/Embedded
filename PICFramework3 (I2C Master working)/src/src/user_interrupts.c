@@ -9,6 +9,7 @@
 #endif
 #include "user_interrupts.h"
 #include "messages.h"
+#include "motor.h"
 
 // A function called by the interrupt handler
 // This one does the action I wanted for this program on a timer0 interrupt
@@ -31,6 +32,20 @@ void timer0_int_handler() {
 //    }
 
     UART_timeout++;
+
+    //unsigned char motorcomm[2] = {0x9F, 0x1F};
+    distMoved++;
+    if(distMoved >= distDesired){
+
+        unsigned char motormsg[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
+        motormsg[1] = distMoved;
+        motormsg[2] = (distMoved & 0x17);
+        start_i2c_slave_reply(5, motormsg);
+
+        distMoved = 0;
+        unsigned char motorcomm[2] = {0x00, 0x00};
+        motorMove(0, motorcomm);
+    }
     //ConvertADC();
     //while( BusyADC()) {
         //LATBbits.LATB1 = 1;

@@ -1,0 +1,1684 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+end_init CODE 0 C6 C6 4 1
+reset_vec CODE 0 0 0 4 1
+config CONFIG 0 7FF8 7FF8 6 1
+$dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+intcodelo CODE 0 18 18 AE 1
+intcode CODE 0 8 8 C 1
+text59 CODE 0 23FA 23FA 6 1
+text58 CODE 0 2208 2208 36 1
+text57 CODE 0 23C4 23C4 12 1
+text56 CODE 0 1FE0 1FE0 46 1
+text55 CODE 0 1E0C 1E0C 6A 1
+text54 CODE 0 1336 1336 10E 1
+text53 CODE 0 1F3C 1F3C 5E 1
+text52 CODE 0 FEE FEE 12C 1
+text51 CODE 0 21D2 21D2 36 1
+text50 CODE 0 1444 1444 CC 1
+text49 CODE 0 1744 1744 B4 1
+text48 CODE 0 22F8 22F8 20 1
+text47 CODE 0 1228 1228 10E 1
+text46 CODE 0 CA CA 86E 1
+text45 CODE 0 23F4 23F4 6 1
+text44 CODE 0 23B2 23B2 12 1
+text43 CODE 0 19B0 19B0 8A 1
+intcode_body CODE 0 1AC0 1AC0 86 1
+text41 CODE 0 22B6 22B6 22 1
+text40 CODE 0 23A0 23A0 12 1
+text39 CODE 0 23D6 23D6 E 1
+text38 CODE 0 2336 2336 1E 1
+text37 CODE 0 17F8 17F8 9C 1
+text36 CODE 0 20EE 20EE 40 1
+text35 CODE 0 15D0 15D0 C0 1
+text34 CODE 0 2290 2290 26 1
+text33 CODE 0 1510 1510 C0 1
+text32 CODE 0 1E76 1E76 68 1
+text30 CODE 0 1B46 1B46 84 1
+text29 CODE 0 223E 223E 2A 1
+text28 CODE 0 212E 212E 38 1
+text27 CODE 0 1894 1894 92 1
+text26 CODE 0 22D8 22D8 20 1
+text25 CODE 0 111A 111A 10E 1
+text24 CODE 0 1EDE 1EDE 5E 1
+text23 CODE 0 C26 C26 15E 1
+text22 CODE 0 20AC 20AC 42 1
+text21 CODE 0 206A 206A 42 1
+text20 CODE 0 2354 2354 16 1
+text19 CODE 0 219C 219C 36 1
+text18 CODE 0 238E 238E 12 1
+text17 CODE 0 1F9A 1F9A 46 1
+text16 CODE 0 2026 2026 44 1
+text15 CODE 0 1BCA 1BCA 7E 1
+text14 CODE 0 23E4 23E4 8 1
+text13 CODE 0 2268 2268 28 1
+text12 CODE 0 D84 D84 13E 1
+text11 CODE 0 1DA2 1DA2 6A 1
+text10 CODE 0 1C48 1C48 7A 1
+text9 CODE 0 1D34 1D34 6E 1
+text8 CODE 0 237C 237C 12 1
+text7 CODE 0 2318 2318 1E 1
+text6 CODE 0 236A 236A 12 1
+text5 CODE 0 EC2 EC2 12C 1
+text4 CODE 0 2166 2166 36 1
+text3 CODE 0 1926 1926 8A 1
+text2 CODE 0 1CC2 1CC2 72 1
+text1 CODE 0 1690 1690 B4 1
+text0 CODE 0 938 938 2EE 1
+cstackCOMRAM COMRAM 1 1 1 2C 1
+cstackBANK0 BANK0 1 80 80 3C 1
+cstackBANK1 BANK1 1 186 186 64 1
+bssBANK2 BANK2 1 200 200 86 1
+dataBANK1 BANK1 1 1EA 1EA 2 1
+bssBANK1 BANK1 1 100 100 86 1
+dataBANK0 BANK0 1 BC BC 7 1
+dataCOMRAM COMRAM 1 51 51 5 1
+bssCOMRAM COMRAM 1 2D 2D 24 1
+cinit CODE 0 1A3A 1A3A 86 1
+nvBANK0 BANK0 1 C3 C3 2 1
+nvCOMRAM COMRAM 1 56 56 2 1
+idataBANK1 CODE 0 2405 2405 2 1
+idataBANK0 CODE 0 23EC 23EC 7 1
+idataCOMRAM CODE 0 2400 2400 5 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+BANK0 000C5-000FF 1
+BANK1 001EC-001FF 1
+BANK2 00286-002FF 1
+BANK3 00300-003FF 1
+BIGRAM 00058-0007F 1
+BIGRAM 000C5-000FF 1
+BIGRAM 001EC-001FF 1
+BIGRAM 00286-003FF 1
+CODE 00004-00007 1
+CODE 00014-00017 1
+CODE 023F3-023F3 1
+CODE 02407-07FF7 1
+COMRAM 00058-0007F 1
+CONST 00004-00007 1
+CONST 00014-00017 1
+CONST 023F3-023F3 1
+CONST 02407-07FF7 1
+MEDIUMCONST 023F3-023F3 1
+MEDIUMCONST 02407-07FF7 1
+RAM 000C5-000FF 1
+RAM 001EC-001FF 1
+RAM 00286-003FF 1
+SFR 00F80-00FFF 1
+SMALLCONST 023F3-023F3 1
+SMALLCONST 02407-07FF7 1
+STACK 00286-003FF 1
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <file name>:<line number> <address> <psect name> <class name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":84 8 intcode CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":87 8 intcode CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":128 18 intcodelo CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":89 18 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":130 5C intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":132 60 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":133 62 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":137 66 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":138 6A intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":139 6C intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":143 70 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":145 72 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":148 76 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":149 7A intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":151 7C intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":155 80 intcodelo CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":248 CA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":250 CA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":251 DA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":252 EA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":253 FA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":254 10A text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":258 11A text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":259 11E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":263 120 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":264 136 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":265 146 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":266 15A text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":269 170 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":270 174 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":271 178 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":274 188 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":276 192 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":279 192 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":280 196 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":282 1A0 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":283 1B8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":284 1C8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":289 1D6 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":292 1D6 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":295 1DA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":296 1EE text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":297 1F8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":298 1FC text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":299 20C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":300 20E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":301 222 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":303 238 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":305 23A text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":306 244 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":307 258 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":308 25C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":309 260 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":311 276 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":317 28E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":318 2A2 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":319 2B8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":326 2CE text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":327 302 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":328 340 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":329 354 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":332 362 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":336 366 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":339 366 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":341 36A text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":342 37E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":343 388 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":344 38C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":345 3C4 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":348 3DA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":349 3EE text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":350 404 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":353 41C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":355 42C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":356 42E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":357 438 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":358 44C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":359 450 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":360 488 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":361 49C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":362 49E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":363 4A2 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":364 4B8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":365 4C8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":367 4D8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":368 4E8 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":370 4EA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":371 4EA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":275 500 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":378 52C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":381 52C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":383 53E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":384 540 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":389 542 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":390 562 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":391 578 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":392 58C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":395 5A2 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":396 5AC text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":397 5F4 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":398 634 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":399 63C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":400 654 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":401 66E text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":402 688 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":403 6A2 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":404 6CC text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":406 6E2 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":407 6EC text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":411 6FA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":412 708 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":414 716 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":415 728 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":417 746 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":419 756 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":423 764 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":424 76C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":425 784 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":426 7B0 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":427 7CA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":428 7DA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":429 7EA text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":430 816 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":431 830 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":432 840 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":433 850 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":434 87C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":435 896 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":436 8A6 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":437 8B6 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":438 8E2 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":439 8FC text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":440 90C text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":444 926 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":186 938 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":205 938 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":446 938 text46 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":206 93C text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":224 93E text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":227 956 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":230 96E text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":233 986 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":237 98A text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":238 98C text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":240 990 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":241 994 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":242 998 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":258 99C text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":271 9A2 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":272 9A8 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":280 9AA text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":281 9AC text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":283 9AE text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":285 9B0 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":287 9B2 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":289 9B4 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":291 9B6 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":308 9B8 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":327 9BE text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":339 9C0 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":340 9D4 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":341 9D6 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":348 9D8 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":364 9DC text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":365 A02 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":376 A08 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":388 A10 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":395 A14 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":396 A48 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":405 A52 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":406 AA2 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":409 AA4 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":413 AA4 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":414 AA8 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":420 AAA text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":423 AC8 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":402 ACA text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":441 AEA text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":442 B1E text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":451 B28 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":452 B78 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":459 B7A text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":461 B86 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":462 BC0 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":464 BCE text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":467 C08 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":469 C0A text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":448 C0C text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c":480 C26 text0 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":63 C26 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":72 C26 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":73 C40 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":74 C62 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":76 C70 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":77 C8E text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":80 C92 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":81 CB8 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":87 CF4 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":89 D4E text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":91 D6C text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":92 D78 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":94 D80 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":96 D84 text23 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":44 D84 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":46 D88 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":47 DA0 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":46 E10 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":50 E4A text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":51 E62 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":52 E7A text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":53 E92 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":54 EA8 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":56 EBE text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":24 EC2 text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":28 EC2 text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":59 EC2 text12 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":38 ED0 text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":39 EEA text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":41 F0C text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":42 F1A text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":46 F1E text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":47 F36 text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":55 F4E text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":56 F84 text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":59 FDE text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":60 FEA text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":24 FEE text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":28 FEE text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":61 FEE text5 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":38 FFC text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":39 1016 text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":41 1038 text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":42 1046 text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":46 104A text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":47 1062 text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":55 107A text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":56 10B0 text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":59 110A text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":60 1116 text52 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":61 111A text52 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":8 111A text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":13 111A text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":14 112A text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":15 1142 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":16 1150 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":18 1160 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":19 1178 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":20 1186 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":21 1192 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":22 11A2 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":23 11A4 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":24 11B0 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":22 11B6 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":27 11BE text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":28 11DA text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":29 11F2 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":30 11FE text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":32 1206 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":33 1210 text25 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":34 121E text25 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":92 1228 text47 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":35 1228 text25 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":94 122C text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":95 1244 text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":94 12B4 text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":97 12EE text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":98 1306 text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":101 131C text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":104 1332 text47 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":106 1334 text47 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":8 1336 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":13 1336 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":14 1346 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":15 135E text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":16 136C text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":18 137C text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":19 1394 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":20 13A2 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":21 13AE text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":22 13BE text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":23 13C0 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":24 13CC text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":22 13D2 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":27 13DA text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":28 13F6 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":29 140E text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":30 141A text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":32 1422 text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":33 142C text54 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":34 143A text54 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":110 1444 text50 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":35 1444 text54 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":111 1448 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":112 145E text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":114 1474 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":115 147E text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":118 1482 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":119 1498 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":120 14AC text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":121 14C2 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":122 14C4 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":123 14C8 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":124 14DE text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":125 14E0 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":129 14F8 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":131 1510 text50 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":11 1510 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":20 1510 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":21 1514 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":25 153A text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":26 1548 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":27 1554 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":28 1564 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":32 156C text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":33 157E text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":34 15A0 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":43 15B0 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":48 15B4 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":49 15B6 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":50 15B8 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":24 15D0 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":28 15D0 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":52 15D0 text33 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":38 15D6 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":39 15E6 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":41 15F6 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":42 1604 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":46 1608 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":47 1618 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":55 1628 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":56 1648 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":59 1680 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":60 168C text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":61 1690 text35 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":61 1690 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":63 1694 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":65 16A6 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":63 1702 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":68 1730 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":69 1740 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":70 1742 text1 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":61 1744 text49 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":63 1748 text49 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":65 175A text49 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":63 17B6 text49 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":68 17E4 text49 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":69 17F4 text49 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":70 17F6 text49 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":8 17F8 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":13 17F8 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":14 1800 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":15 1814 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":16 181C text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":18 1824 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":19 1838 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":20 1840 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":21 1848 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":22 1850 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":23 1852 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":24 1858 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":22 185A text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":27 185E text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":28 186A text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":29 1872 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":30 1878 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":32 187C text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":33 1882 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":34 188A text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c":35 1894 text37 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":73 1894 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":75 1898 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":76 189C text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":78 18A0 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":79 18A6 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":81 18A8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":83 18B0 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":84 18B2 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":87 18B4 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":88 18BA text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":90 18BC text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":91 18C4 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":92 18C8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":93 18C8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":95 18CA text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":96 18D0 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":98 18D2 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":100 18D4 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":101 18DA text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":103 18DC text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":104 18E4 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":105 18E8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":106 18E8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":108 18EA text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":110 18EC text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":111 18F4 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":112 18F8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":113 18F8 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":115 18FA text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":116 18FE text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":118 1912 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":119 1914 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":137 1916 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":138 191A text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":139 1922 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":8 1926 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":13 1926 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uopen.c":143 1926 text27 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":14 1932 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":15 1942 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":16 1944 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":17 1950 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":15 1956 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":20 195E text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":21 197A text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":22 1992 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":23 199E text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":24 19A6 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":25 19A6 text3 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\lwmod.c":26 19AE text3 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":17 19B0 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":18 19B0 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":34 19C2 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":37 19C6 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":38 19C8 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":40 19D0 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":41 19E2 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":42 19E6 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":43 19F0 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":45 1A0A text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":46 1A16 text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":47 1A1E text43 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":56 1A3A text43 CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":2976 1A3A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":2978 1A3A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":2981 1A3A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3049 1A3A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3050 1A3E cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3051 1A40 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3052 1A40 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3053 1A42 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3054 1A44 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3057 1A46 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3058 1A4A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3059 1A4C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3060 1A4C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3061 1A4E cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3062 1A50 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3065 1A52 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3066 1A56 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3067 1A58 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3068 1A58 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3069 1A5A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3070 1A5C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3075 1A5E cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3076 1A60 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3077 1A62 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3078 1A64 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3079 1A66 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3080 1A68 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3081 1A6A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3082 1A6C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3083 1A70 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3084 1A72 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3088 1A76 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3089 1A78 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3090 1A7A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3091 1A7C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3092 1A7E cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3093 1A80 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3094 1A82 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3095 1A86 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3096 1A8A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3097 1A8A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3098 1A8C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3099 1A90 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3100 1A92 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3101 1A94 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3105 1A96 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3106 1A98 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3107 1A9A cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3108 1A9C cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3109 1A9E cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3110 1AA0 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3111 1AA2 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3112 1AA6 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3113 1AAA cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3114 1AAA cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3115 1AAC cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3116 1AB0 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3117 1AB2 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3118 1AB4 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3124 1AB6 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3125 1AB6 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3126 1AB6 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3127 1AB8 cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3128 1ABA cinit CODE
+"C:\Users\Devon\AppData\Local\Temp\s3q0.":3129 1ABC cinit CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":84 1AC0 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":89 1AF0 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":91 1AF4 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":94 1AF6 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":100 1AFA intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":101 1AFE intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":103 1B00 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":104 1B02 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":105 1B06 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":115 1B08 intcode_body CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":116 1B0C intcode_body CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":68 1B46 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":72 1B4A text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":73 1B4E text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":75 1B52 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":77 1B5E text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":80 1B7E text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":82 1BB8 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":84 1BC0 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":85 1BC2 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":86 1BC4 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":87 1BC6 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":88 1BC6 text30 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcopen.c":89 1BC8 text30 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":258 1BCA text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":259 1BCA text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":263 1BDC text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":265 1BE8 text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":266 1C06 text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":272 1C14 text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":273 1C32 text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":279 1C40 text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":14 1C48 text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":17 1C48 text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":284 1C48 text15 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":18 1C5E text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":19 1C74 text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":20 1C90 text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":19 1CB0 text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":22 1CC2 text10 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":14 1CC2 text2 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":17 1CC2 text2 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":20 1CD0 text2 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":21 1D06 text2 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":194 1D34 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":195 1D34 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":26 1D34 text2 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":196 1D40 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":197 1D58 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":198 1D70 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":199 1D88 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":200 1DA0 text9 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":451 1DA2 text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":452 1DA2 text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":453 1DB2 text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":454 1DC8 text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":455 1DDE text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":456 1DF4 text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":457 1E0A text11 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":228 1E0C text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":230 1E0C text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":235 1E12 text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":240 1E24 text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":247 1E36 text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":250 1E54 text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":253 1E70 text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":254 1E74 text55 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":73 1E76 text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":75 1E76 text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":76 1E7A text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":77 1E9E text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":79 1ECA text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":80 1ED8 text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":81 1EDA text32 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":83 1EDE text32 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":11 1EDE text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":24 1EDE text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":25 1EEE text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 1EFE text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":27 1F00 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 1F24 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":32 1F38 text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 1F3A text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":11 1F3C text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":24 1F3C text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":32 1F3C text24 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":25 1F4C text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 1F5C text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":27 1F5E text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 1F82 text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":32 1F96 text53 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 1F98 text53 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":31 1F9A text17 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":32 1F9A text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":32 1F9A text53 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":33 1F9E text17 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":34 1FAE text17 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":35 1FC0 text17 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":37 1FD0 text17 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":31 1FE0 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":32 1FE0 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":39 1FE0 text17 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":33 1FE4 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":34 1FF4 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":35 2006 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":37 2016 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":39 2026 text56 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":41 2026 text16 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":42 2026 text16 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":43 204A text16 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":45 205A text16 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":47 206A text16 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":112 206A text21 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":118 206E text21 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":119 20AC text21 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":135 20AC text22 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":141 20B0 text22 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":142 20EE text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":11 20EE text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":24 20EE text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":25 20F6 text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 20FE text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":27 2100 text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 211C text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":32 212A text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":26 212C text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\memcpy.c":32 212E text36 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":16 212E text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":18 2132 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":21 213C text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":22 2144 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":23 2148 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":24 2148 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":26 214A text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":27 214E text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":28 2152 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":30 2154 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":31 215C text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":32 2160 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":33 2160 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":35 2162 text28 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1open.c":36 2164 text28 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":174 2166 text4 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":180 216A text4 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":181 219C text4 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":222 219C text19 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":223 219C text19 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":126 21D2 text51 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":224 21D2 text19 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":132 21D6 text51 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":133 2208 text51 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":222 2208 text58 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":223 2208 text58 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":224 223E text58 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":18 223E text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":20 2242 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":21 224C text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":22 2250 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":23 2254 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":25 2256 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":26 225E text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":27 2262 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":28 2262 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":30 2264 text29 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0open.c":31 2266 text29 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":462 2268 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":474 226C text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":475 226E text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":480 2270 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":482 2274 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":483 2278 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":484 227C text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":485 2280 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":486 2284 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":489 2286 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":490 2288 text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":511 228A text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":512 228C text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":514 228E text13 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":103 2290 text34 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":109 2294 text34 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":110 22B6 text34 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":76 22B6 text41 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":78 22B6 text41 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":79 22BE text41 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":86 22C2 text41 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":87 22D6 text41 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcsetch.c":30 22D8 text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcsetch.c":34 22DC text26 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\ADC\adcsetch.c":36 22F6 text26 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/motor.c":5 22F8 text48 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/motor.c":7 22FC text48 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/motor.c":8 2300 text48 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/motor.c":9 2316 text48 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":54 2318 text7 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":57 2318 text7 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":58 2324 text7 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c":59 2334 text7 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":15 2336 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":19 2336 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":21 233A text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":23 233E text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":24 2340 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":25 2342 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":26 2344 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":28 2344 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":29 2346 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":31 2348 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":32 234A text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":34 234C text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":36 2350 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\d1ktcyx.c":8 2354 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\USART\uread.c":37 2354 text38 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\d1ktcyx.c":10 2358 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\d1ktcyx.c":11 2358 text20 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\d1ktcyx.c":12 2360 text20 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer0_thread.c":9 236A text6 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer0_thread.c":12 236A text6 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\d1ktcyx.c":13 236A text20 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer0_thread.c":16 237A text6 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":6 237C text8 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":7 237C text8 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/timer1_thread.c":8 238C text8 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":23 238E text18 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":24 238E text18 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":25 23A0 text18 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c":14 23A0 text40 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c":18 23A0 text40 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c":20 23A8 text40 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c":21 23AC text40 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c":22 23B0 text40 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c":16 23B2 text44 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c":20 23B2 text44 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c":22 23BA text44 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c":23 23BE text44 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c":24 23C2 text44 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":23 23C4 text57 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":24 23C4 text57 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":25 23D6 text57 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":61 23D6 text39 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":73 23D6 text39 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c":74 23E2 text39 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":15 23E4 text14 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":18 23E4 text14 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":19 23E6 text14 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":20 23E8 text14 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c":21 23EA text14 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":139 23F4 text45 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":143 23F4 text45 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c":145 23F8 text45 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":202 23FA text59 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":204 23FA text59 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":213 23FC text59 CODE
+"C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/messages.c":218 23FE text59 CODE
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__size_of_ToMainHigh_sendmsg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_XINST$OFF 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi1_send_msg 1690 0 CODE 0 text35 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2_uart_trans 17F8 0 CODE 0 text49 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@tlength 12 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@tlength 91 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ToMainHigh_MQ 100 0 BANK1 1 bssBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_OpenUSART 1926 0 CODE 0 text27 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+start_i2c_slave_reply@length 84 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__S0 7FFE 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__S1 286 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__S2 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2_send_msg 111A 0 CODE 0 text52 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_start_i2c_slave_reply 1336 0 CODE 0 text47 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainLow_recvmsg@maxlength 1A2 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1memcpy@d 7 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2memcpy@d 86 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_init_i2c 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_ToMainHigh_sendmsg 2208 0 CODE 0 text51 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_timer1_lthread 1D34 0 CODE 0 text2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_init_timer1_lthread 237C 0 CODE 0 text8 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_LATA F89 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_LATB F8A 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_ToMainHigh_recvmsg 20EE 0 CODE 0 text22 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@msg_ready AA 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2uart_trans@length 84 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_ToMainHigh_recvmsg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_main 938 0 CODE 0 text0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+_timer0_int_handler 19B0 0 CODE 0 text43 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+init_i2c@ic 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_timer1_int_handler 23D6 0 CODE 0 text39 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SetChanADC 22D8 0 CODE 0 text26 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+start C6 0 CODE 0 init C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+_MQ_Main_Willing_to_block 4D 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_start_i2c_slave_reply 1228 0 CODE 0 text47 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1memcpy@d1 1 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2memcpy@d1 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_FromMainHigh_MQ 200 0 BANK2 1 bssBANK2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_timer0_int_handler 1A3A 0 CODE 0 text43 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TMR0H FD7 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TMR1H FCF 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TMR0L FD6 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TMR1L FCE 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?_in_high_int 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_RCREG FAE 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TRISA F92 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_RCSTA FAB 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TRISB F93 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TRISC F94 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TXREG FAD 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_PORTA F80 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SPBRG FAF 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TXSTA FAC 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HRAM 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_uart_trans 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LRAM 1 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_T0CON FD5 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_T1CON FCD 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@qmsg 15 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@qmsg 94 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_configure_slave@addr 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_int_handler@F5112 51 0 COMRAM 1 dataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenTimer0@config 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@msgtype E 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@msgtype 8D 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2_uart_trans 1744 0 CODE 0 text49 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_int_handler@F5114 4B 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_WDTPS$32768 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hconfig 7FFE 0 CONFIG 0 config dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lconfig 7FF8 0 CONFIG 0 config dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer1_lthread@retval 1A9 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenTimer1@config 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?___awmod 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?___lwmod 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+WriteTimer0@timer 82 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+WriteTimer0@timer0 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1memcpy@n 5 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2memcpy@n 84 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2_check_msg 2208 0 CODE 0 text58 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_enter_sleep_mode 23FA 0 CODE 0 text59 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hram 0 0 ABS 0 ram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lram 0 0 ABS 0 ram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_ReadUSART 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_send_msg EC2 0 CODE 0 text5 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?_in_main 18A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lsfr 0 0 ABS 0 sfr dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_recv_msg C26 0 CODE 0 text23 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi1___awmod 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@length D 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@length 8C 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+WriteTimer1@timer 3 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_timer1_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+WriteTimer1@timer1 1 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1___awmod@sign 7 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2___awmod@sign 86 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@length A6 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_enter_sleep_mode 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@F5217 1EA 0 BANK1 1 dataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ADCON0 FC2 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ADCON1 FC1 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2___awmod 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ADCON2 FC0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2_in_high_int 23D6 0 CODE 0 text57 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_PIE1bits F9D 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+init_queue@i 189 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_init_timer1_lthread 238E 0 CODE 0 text8 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_PIR1bits F9E 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_IPR1bits F9F 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_lthread@msgbuffer 18C 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1___awmod@dividend 1 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2___awmod@dividend 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_LATBbits F8A 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer1_lthread@msgbuffer 1A6 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPADD FC8 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_int_handler@motorcomm 8E 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_RCONbits FD0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1memcpy@s 9 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2memcpy@s 88 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2_in_high_int 23C4 0 CODE 0 text57 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hramtop 400 0 RAM 0 ramtop dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lramtop 400 0 RAM 0 ramtop dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SPBRGH FB0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2_in_low_int 1FE0 0 CODE 0 text56 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_timer0_lthread 236A 0 CODE 0 text6 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hintcode 14 0 CODE 0 intcode dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPBUF FC9 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lintcode 8 0 CODE 0 intcode dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_timer1_lthread 1CC2 0 CODE 0 text2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ADRESH FC4 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pintcode 8 0 CODE 0 intcode dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@sensormsg 9C 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OSCCON FD3 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1___awmod@counter 6 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2___awmod@counter 85 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_distMoved 50 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@msgbuffer 1AF 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@slot 199 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+FromMainHigh_sendmsg@data 19D 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@slot 199 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1_memcpy 20EE 0 CODE 0 text36 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@F5133 BC 0 BANK0 1 dataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2_memcpy 1F3C 0 CODE 0 text53 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenADC@portconfig 187 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pnvCOMRAM 56 0 COMRAM 1 nvCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@msgtype 1BE 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_in_high_int 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_block_on_To_msgqueues 1BCA 0 CODE 0 text15 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1memcpy@s1 3 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2memcpy@s1 82 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1___awmod 17F8 0 CODE 0 text37 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2___awmod 1336 0 CODE 0 text54 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_Delay1KTCYx 236A 0 CODE 0 text20 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+uart_trans@length 18A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_enable_interrupts 23EC 0 CODE 0 text14 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@ic 1CD 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of___awmod 1228 0 CODE 0 text25 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@F5135 C1 0 BANK0 1 dataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@uc 1C0 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hdata 0 0 ABS 0 data dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ldata 0 0 ABS 0 data dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_motorMove 22F8 0 CODE 0 text48 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@qmsg 19A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@qmsg 19C 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_block_on_To_msgqueues 1C48 0 CODE 0 text15 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+stackhi 3FF 0 ABS 0 - C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+_check_msg 219C 0 CODE 0 text19 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pcstackBANK0 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___awmod@sign 18C 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_send_msg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+stacklo 286 0 ABS 0 - C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hinit C6 0 CODE 0 init dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Linit C6 0 CODE 0 init dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hintcodelo C6 0 CODE 0 intcodelo dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lintcodelo 18 0 CODE 0 intcodelo dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_SetChanADC 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_main C26 0 CODE 0 text0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pintcodelo 18 0 CODE 0 intcodelo dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ic_ptr C3 0 BANK0 1 nvBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_uc_ptr 56 0 COMRAM 1 nvCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_check_msg 21D2 0 CODE 0 text19 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext 0 0 ABS 0 text dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext 0 0 ABS 0 text dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_memcpy 1EDE 0 CODE 0 text24 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HdataBANK0 0 0 ABS 0 dataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LdataBANK0 0 0 ABS 0 dataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_Delay1KTCYx 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@qptr B 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@qptr 8A 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pdataBANK0 BC 0 BANK0 1 dataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi1_send_msg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+end_of_initialization 1AB6 0 CODE 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainHigh_sendmsg@length 99 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2_uart_trans 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+init_queue@qptr 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+SetChanADC@channel 187 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenUSART@spbrg 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_adcbuffer 2D 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@qptr 190 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@qptr 190 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HnvBANK0 0 0 ABS 0 nvBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LnvBANK0 0 0 ABS 0 nvBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_in_low_int 1FE0 0 CODE 0 text17 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pnvBANK0 C3 0 BANK0 1 nvBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2_send_msg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPCON1 FC6 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_adc_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPCON2 FC5 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+init_uart_recv@uc 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ToMainLow_sendmsg 2290 0 CODE 0 text34 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_handle_start 1510 0 CODE 0 text50 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HdataBANK1 0 0 ABS 0 dataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LdataBANK1 0 0 ABS 0 dataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_timer1_lthread 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pdataBANK1 1EA 0 BANK1 1 dataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_handle_start 1444 0 CODE 0 text50 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OpenTimer0 223E 0 CODE 0 text29 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_i2c_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_uart_trans_int_handler 1E76 0 CODE 0 text32 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+FromMainHigh_sendmsg@msgtype 19C 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_RCSTAbits FAB 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TRISCbits F94 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_PORTAbits F80 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_TXSTAbits FAC 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_T0CONbits FD5 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_T1CONbits FCD 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SleepIfOkay 1E0C 0 CODE 0 text55 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ToMainHigh_sendmsg 21D2 0 CODE 0 text51 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+motorMove@distance 87 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OpenTimer1 212E 0 CODE 0 text28 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_i2c_int_handler 23F4 0 CODE 0 text45 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_uart_recv_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OpenADC 1B46 0 CODE 0 text30 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_adc_int_handler 22B6 0 CODE 0 text41 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?i2_in_high_int 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?i2_in_low_int 82 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_InterruptHandlerLow 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_OpenADC 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@data 194 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_master_send@msg 187 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@data 195 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_ToMainLow_sendmsg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_OpenTimer0 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_OpenTimer1 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_FOSC2$ON 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_recv_msg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainLow_sendmsg@data 18 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hpowerup C6 0 CODE 0 powerup dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPSTAT FC7 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lpowerup C6 0 CODE 0 powerup dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_timer1_int_handler 23E4 0 CODE 0 text39 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2uart_trans@data 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPCON1bits FC6 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext0 938 0 CODE 0 text0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_INTCON2bits FF1 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPCON2bits FC5 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_lthread@tptr 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext1 1690 0 CODE 0 text1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer1_lthread@tptr 1A0 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext2 1CC2 0 CODE 0 text2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainLow_sendmsg@msgtype 17 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainHigh_sendmsg@data 97 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext3 1926 0 CODE 0 text3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_ToMainLow_recvmsg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_SleepIfOkay 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext4 2166 0 CODE 0 text4 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext5 EC2 0 CODE 0 text5 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext6 236A 0 CODE 0 text6 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenUSART@config 18B 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext7 2318 0 CODE 0 text7 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@tlength 197 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pbssCOMRAM 2D 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_uart_trans_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext8 237C 0 CODE 0 text8 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@tlength 19A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext9 1D34 0 CODE 0 text9 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pcstackBANK1 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_timer0_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_int_handler@motormsg 89 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_WriteTimer0 23C4 0 CODE 0 text44 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_WriteTimer1 23B2 0 CODE 0 text40 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_WriteTimer0 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_WriteTimer1 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainHigh_sendmsg@msgtype 96 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_i2c_master_send EC2 0 CODE 0 text12 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2_in_low_int 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_ToMainLow_sendmsg 22B6 0 CODE 0 text34 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OSCTUNEbits F9B 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_memcpy 1F3C 0 CODE 0 text24 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of__initialization 1AB6 0 CODE 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1___awmod@divisor 3 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2___awmod@divisor 82 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_in_main 206A 0 CODE 0 text16 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_i2c_configure_slave 2268 0 CODE 0 text13 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_CCP2MX$DEFAULT 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@error_buf A1 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?i1___awmod 1 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+?i2___awmod 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_ToMainLow_recvmsg 20AC 0 CODE 0 text21 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+memcpy@d 18C 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_InterruptHandlerLow 18 0 CODE 0 intcodelo dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_SSPSTATbits FC7 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_init_queues 1D34 0 CODE 0 text9 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_motorMove 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+init_timer1_lthread@tptr 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+memcpy@n 18A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_USART_Status 4E 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+motorMove@direction 85 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ReadUSART@data 1 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_InterruptHandlerHigh 8 0 CODE 0 intcode dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+memcpy@s 18E 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_in_high_int 238E 0 CODE 0 text18 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainLow_recvmsg@data 1A0 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hidloc 0 0 IDLOC 0 idloc dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lidloc 0 0 IDLOC 0 idloc dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_STVREN$OFF 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi1___awmod 1894 0 CODE 0 text37 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+int_func 1AC0 0 CODE 0 intcode_body dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@msg 1AC 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@length 192 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_init_queue 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___awmod 111A 0 CODE 0 text25 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___lwmod 1926 0 CODE 0 text3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hparam 0 0 ABS 0 param0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lparam 0 0 ABS 0 param0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1_send_msg 15D0 0 CODE 0 text35 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2_send_msg FEE 0 CODE 0 text52 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_InterruptHandlerHigh 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2___awmod 1444 0 CODE 0 text54 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainLow_recvmsg@msgtype 19E 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_IESO$ON 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_in_main 2026 0 CODE 0 text16 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_init_queue 1C48 0 CODE 0 text10 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hsmallconst 0 0 SMALLCONST 0 smallconst dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lsmallconst 0 0 SMALLCONST 0 smallconst dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_start_i2c_slave_reply 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenADC@config 18A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pcinit 1A3A 0 CODE 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@length 1BF 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ramtop 400 0 RAM 0 ramtop C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+?_in_low_int 188 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_init_queues 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2_in_low_int 2026 0 CODE 0 text56 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_i2c_slave_int_handler CA 0 CODE 0 text46 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ToMainLow_recvmsg 206A 0 CODE 0 text21 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hconst 0 0 CODE 0 const dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lconst 0 0 CODE 0 const dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_OpenUSART 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@data F 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@data 8E 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_UART_timeout 49 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_motorMove 2318 0 CODE 0 text48 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HidataBANK0 0 0 ABS 0 idataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LidataBANK0 0 0 ABS 0 idataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pidataBANK0 23EC 0 CODE 0 idataBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_FromMainHigh_sendmsg 219C 0 CODE 0 text4 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2check_msg@qptr 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_check_msg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_in_main 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_uart_trans_int_handler 1EDE 0 CODE 0 text32 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainHigh_recvmsg@maxlength 1A2 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+check_msg@qptr 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_Delay1KTCYx 2354 0 CODE 0 text20 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_init_uart_recv 2318 0 CODE 0 text7 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_in_high_int 23A0 0 CODE 0 text18 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_init_uart_recv 2336 0 CODE 0 text7 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_i2c_configure_slave 2290 0 CODE 0 text13 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_timer0_lthread 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_uart_recv_int_handler 15D0 0 CODE 0 text33 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_lthread@msgval 18E 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ToMainLow_MQ 143 0 BANK1 1 bssBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_master_send@slave_addr 189 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HbssBANK1 0 0 ABS 0 bssBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LbssBANK1 0 0 ABS 0 bssBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+handle_start@data_read 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_timer0_lthread 237C 0 CODE 0 text6 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_InterruptHandlerLow C6 0 CODE 0 intcodelo dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pbssBANK1 100 0 BANK1 1 bssBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_master_send@sendlength 18C 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_OpenTimer0 2268 0 CODE 0 text29 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_OpenTimer1 2166 0 CODE 0 text28 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_master_send@recvlength 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_enter_sleep_mode 2400 0 CODE 0 text59 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext10 1C48 0 CODE 0 text10 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext30 0 0 ABS 0 text30 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext30 0 0 ABS 0 text30 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext20 2354 0 CODE 0 text20 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainHigh_recvmsg@data 1A0 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext40 0 0 ABS 0 text40 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@maxlength 192 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext40 0 0 ABS 0 text40 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext11 1DA2 0 CODE 0 text11 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext30 1B46 0 CODE 0 text30 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext50 0 0 ABS 0 text50 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext50 0 0 ABS 0 text50 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext21 206A 0 CODE 0 text21 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext40 23A0 0 CODE 0 text40 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_uart_recv_int_handler 1510 0 CODE 0 text33 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext41 0 0 ABS 0 text41 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_i2c_slave_int_handler 938 0 CODE 0 text46 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext41 0 0 ABS 0 text41 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext12 D84 0 CODE 0 text12 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext50 1444 0 CODE 0 text50 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext51 0 0 ABS 0 text51 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext32 0 0 ABS 0 text32 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext51 0 0 ABS 0 text51 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext32 0 0 ABS 0 text32 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HbssBANK2 0 0 ABS 0 bssBANK2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext22 20AC 0 CODE 0 text22 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext41 22B6 0 CODE 0 text41 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LbssBANK2 0 0 ABS 0 bssBANK2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext13 2268 0 CODE 0 text13 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext32 1E76 0 CODE 0 text32 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext51 21D2 0 CODE 0 text51 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pbssBANK2 200 0 BANK2 1 bssBANK2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ADCON0bits FC2 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext52 0 0 ABS 0 text52 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext33 0 0 ABS 0 text33 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___extmem_base 20000 0 ABS 0 - C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__Ltext52 0 0 ABS 0 text52 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext33 0 0 ABS 0 text33 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext23 C26 0 CODE 0 text23 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HidataBANK1 0 0 ABS 0 idataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LidataBANK1 0 0 ABS 0 idataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_i2c_master_send D84 0 CODE 0 text12 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@t0thread_data 1BA 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext43 0 0 ABS 0 text43 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext43 0 0 ABS 0 text43 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext14 23E4 0 CODE 0 text14 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext33 1510 0 CODE 0 text33 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext52 FEE 0 CODE 0 text52 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@t1thread_data 1BC 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pidataBANK1 2405 0 CODE 0 idataBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext53 0 0 ABS 0 text53 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext34 0 0 ABS 0 text34 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext53 0 0 ABS 0 text53 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext34 0 0 ABS 0 text34 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext24 1EDE 0 CODE 0 text24 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext43 19B0 0 CODE 0 text43 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext44 0 0 ABS 0 text44 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext25 0 0 ABS 0 text25 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_WriteTimer0 23B2 0 CODE 0 text44 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext44 0 0 ABS 0 text44 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext25 0 0 ABS 0 text25 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext15 1BCA 0 CODE 0 text15 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext34 2290 0 CODE 0 text34 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext53 1F3C 0 CODE 0 text53 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_FromMainLow_MQ 243 0 BANK2 1 bssBANK2 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+uart_trans@data 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext54 0 0 ABS 0 text54 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext35 0 0 ABS 0 text35 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext16 0 0 ABS 0 text16 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext54 0 0 ABS 0 text54 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext35 0 0 ABS 0 text35 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext25 111A 0 CODE 0 text25 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext44 23B2 0 CODE 0 text44 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext45 0 0 ABS 0 text45 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext45 0 0 ABS 0 text45 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext16 2026 0 CODE 0 text16 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext35 15D0 0 CODE 0 text35 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext54 1336 0 CODE 0 text54 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext55 0 0 ABS 0 text55 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2_check_msg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext36 0 0 ABS 0 text36 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext55 0 0 ABS 0 text55 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext36 0 0 ABS 0 text36 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext26 22D8 0 CODE 0 text26 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext45 23F4 0 CODE 0 text45 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+FromMainHigh_sendmsg@length 19F 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext46 0 0 ABS 0 text46 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext46 0 0 ABS 0 text46 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext17 1F9A 0 CODE 0 text17 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext36 20EE 0 CODE 0 text36 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext55 1E0C 0 CODE 0 text55 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___awmod@divisor 188 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext56 0 0 ABS 0 text56 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext37 0 0 ABS 0 text37 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of___lwmod 19B0 0 CODE 0 text3 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext56 0 0 ABS 0 text56 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext37 0 0 ABS 0 text37 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainHigh_recvmsg@msgtype 19E 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext27 1894 0 CODE 0 text27 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext46 CA 0 CODE 0 text46 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___lwmod@divisor 188 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext47 0 0 ABS 0 text47 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext47 0 0 ABS 0 text47 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext18 238E 0 CODE 0 text18 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext37 17F8 0 CODE 0 text37 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext56 1FE0 0 CODE 0 text56 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext57 0 0 ABS 0 text57 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext38 0 0 ABS 0 text38 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext57 0 0 ABS 0 text57 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext38 0 0 ABS 0 text38 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext28 212E 0 CODE 0 text28 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext47 1228 0 CODE 0 text47 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_i2c_master_send 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi1_memcpy 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_WDTEN$OFF 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext48 0 0 ABS 0 text48 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext48 0 0 ABS 0 text48 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext19 219C 0 CODE 0 text19 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext38 2336 0 CODE 0 text38 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext57 23C4 0 CODE 0 text57 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__Htext58 0 0 ABS 0 text58 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext39 0 0 ABS 0 text39 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext58 0 0 ABS 0 text58 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext39 0 0 ABS 0 text39 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext29 223E 0 CODE 0 text29 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext48 22F8 0 CODE 0 text48 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_lthread@msgtype 188 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer1_lthread@msgtype 1A2 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@msg_to_send A9 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext49 0 0 ABS 0 text49 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext49 0 0 ABS 0 text49 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext39 23D6 0 CODE 0 text39 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext58 2208 0 CODE 0 text58 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Htext59 0 0 ABS 0 text59 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ReadUSART 2336 0 CODE 0 text38 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OSCCONbits FD3 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ltext59 0 0 ABS 0 text59 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext49 1744 0 CODE 0 text49 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_INTCONbits FF2 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__ptext59 23FA 0 CODE 0 text59 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_OpenUSART 1894 0 CODE 0 text27 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_send_msg FEE 0 CODE 0 text5 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hend_init CA 0 CODE 0 end_init dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lend_init C6 0 CODE 0 end_init dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2_memcpy 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_WriteTimer1 23A0 0 CODE 0 text40 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_init_queue 1CC2 0 CODE 0 text10 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+memcpy@d1 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_InterruptHandlerHigh 1B46 0 CODE 0 intcode_body dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pidataCOMRAM 2400 0 CODE 0 idataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_uart_trans 1690 0 CODE 0 text1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_FOSC$HSPLL 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hjflash_buffer 7800 0 CODE 0 jflash_buffer dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_ReadUSART 2354 0 CODE 0 text38 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Ljflash_buffer 7800 0 CODE 0 jflash_buffer dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@overrun_error A5 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+OpenADC@config2 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+send_msg@msgtype 193 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_init_queues 1DA2 0 CODE 0 text9 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+recv_msg@msgtype 193 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_CP0$OFF 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__end_of_OpenADC 1BCA 0 CODE 0 text30 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_in_low_int 1F9A 0 CODE 0 text17 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_FromMainHigh_sendmsg 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_enable_interrupts 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+memcpy@s1 188 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__accesstop 80 0 ABS 0 - C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__end_of_SetChanADC 22F8 0 CODE 0 text26 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_recv_msg D84 0 CODE 0 text23 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hparam0 0 0 ABS 0 param0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lparam0 0 0 ABS 0 param0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_distDesired 4F 0 COMRAM 1 bssCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pintcode_body 1AC0 0 CODE 0 intcode_body dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_enable_interrupts 23E4 0 CODE 0 text14 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+intlevel0 0 0 CODE 0 text C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+__size_of_block_on_To_msgqueues 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@motorcomm AB 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+intlevel1 0 0 CODE 0 text C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+intlevel2 0 0 CODE 0 text C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+intlevel3 0 0 CODE 0 text C:\Users\Devon\AppData\Local\Temp\s3q0.obj
+i2c_slave_int_handler@data_read AD 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+ToMainLow_sendmsg@length 1A 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_init_uart_recv 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@data_written A4 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_ofi2_in_high_int 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i1send_msg@slot 14 0 COMRAM 1 cstackCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2send_msg@slot 93 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__pdataCOMRAM 51 0 COMRAM 1 dataCOMRAM dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+i2c_slave_int_handler@i2c_data A8 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_init_timer1_lthread 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_SleepIfOkay 1E76 0 CODE 0 text55 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_ToMainHigh_recvmsg 20AC 0 CODE 0 text22 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+start_initialization 1A3A 0 CODE 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_init_i2c 1E0C 0 CODE 0 text11 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi1_memcpy 212E 0 CODE 0 text36 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+main@last_reg_recvd 1AE 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2_memcpy 1F9A 0 CODE 0 text53 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of___awmod 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_init_i2c 1DA2 0 CODE 0 text11 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__initialization 1A3A 0 CODE 0 cinit dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+start_i2c_slave_reply@msg 80 0 BANK0 1 cstackBANK0 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_i2c_slave_int_handler 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_in_low_int 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___awmod@dividend 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___lwmod@dividend 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__activetblptr 2 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_adc_int_handler 22D8 0 CODE 0 text41 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___awmod@counter 18B 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_ofi2_check_msg 223E 0 CODE 0 text58 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+___lwmod@counter 18B 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_uart_trans 1744 0 CODE 0 text1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__CFG_FCMEN$ON 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__end_of_i2c_int_handler 23FA 0 CODE 0 text45 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_i2c_configure_slave 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+_FromMainHigh_sendmsg 2166 0 CODE 0 text4 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer0_lthread@length 18A 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+timer1_lthread@length 1A4 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+Delay1KTCYx@unit 186 0 BANK1 1 cstackBANK1 dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_handle_start 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+__size_of_memcpy 0 0 ABS 0 - dist/UseXC8/production\PIC_Framework_3_SLAVE.X.production.obj
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect in on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+reset_vec 0 0 0 4 1
+intcode 0 8 8 C 1
+intcodelo 0 18 18 23DB 1
+config 0 7FF8 7FF8 6 1
+cstackCOMRAM 1 1 1 57 1
+cstackBANK0 1 80 80 45 1
+bssBANK1 1 100 100 EC 1
+bssBANK2 1 200 200 86 1
+text45 0 23F4 23F4 13 1
