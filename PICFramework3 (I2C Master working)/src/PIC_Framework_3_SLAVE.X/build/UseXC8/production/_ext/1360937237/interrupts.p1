@@ -4696,13 +4696,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.h: 19: void uart_recv_int_handler(void);
 [; ;my_uart.h: 21: void uart_trans(unsigned char, unsigned char *);
 [; ;my_uart.h: 22: void uart_trans_int_handler();
-"14 ../src/motor.h
+"15 ../src/motor.h
 [v _distDesired `uc ~T0 @X0 1 e ]
-[; ;motor.h: 14: unsigned char distDesired;
-"15
+[; ;motor.h: 15: unsigned char distDesired;
+"16
 [v _distMoved `uc ~T0 @X0 1 e ]
-[; ;motor.h: 15: unsigned char distMoved;
-[; ;motor.h: 18: void motorMove(unsigned char , unsigned char*);
+[; ;motor.h: 16: unsigned char distMoved;
+"17
+[v _leftEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 17: unsigned char leftEncoder;
+"18
+[v _rightEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 18: unsigned char rightEncoder;
+[; ;motor.h: 21: void motorMove(unsigned char , unsigned char, unsigned char);
 [; ;my_i2c.h: 8: typedef struct __i2c_comm {
 [; ;my_i2c.h: 9: unsigned char buffer[10];
 [; ;my_i2c.h: 10: unsigned char buflen;
@@ -4851,9 +4857,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "47
 [e :UE 593 ]
 }
-[v F5122 `(v ~T0 @X0 1 tf ]
+[v F5125 `(v ~T0 @X0 1 tf ]
 "84
-[v _InterruptHandlerHigh `IF5122 ~T0 @X0 1 e ]
+[v _InterruptHandlerHigh `IF5125 ~T0 @X0 1 e ]
 {
 [; ;interrupts.c: 79: interrupt
 [; ;interrupts.c: 84: void InterruptHandlerHigh() {
@@ -4900,9 +4906,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "116
 [e :UE 596 ]
 }
-[v F5124 `(v ~T0 @X0 1 tf ]
+[v F5127 `(v ~T0 @X0 1 tf ]
 "128
-[v _InterruptHandlerLow `ILF5124 ~T0 @X0 1 e ]
+[v _InterruptHandlerLow `ILF5127 ~T0 @X0 1 e ]
 {
 [; ;interrupts.c: 123: interrupt low_priority
 [; ;interrupts.c: 128: void InterruptHandlerLow() {

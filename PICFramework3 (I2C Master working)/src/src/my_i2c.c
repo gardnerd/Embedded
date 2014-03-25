@@ -414,32 +414,17 @@ void i2c_slave_int_handler() {
             unsigned char sensormsg[5] = {0x01, 0x01, 0x02, 0x03, ((0x01 + 0x02 + 0x03) & 0x17)};
             start_i2c_slave_reply(length, sensormsg);
             //adcbuffer[0] = 0; // reset count after send
-        } else if(ic_ptr->buffer[0] == 0xBA){
+        } else if(ic_ptr->buffer[0] == 0xBA){ // motor command
             // motor stuff
             length = 5;
-           
-            
-
-            unsigned char motorcomm[2] = {0x9F, 0x1F};
-            if(ic_ptr->buffer[1] == 0xFF){ // forward
-                motorMove(ic_ptr->buffer[2], motorcomm);
-            } else if(ic_ptr->buffer[1] == 0xBB){ // back
-                motorcomm[0] = 0xE1;
-                motorcomm[1] = 0x62;
-                motorMove(ic_ptr->buffer[2], motorcomm);
-            } else if(ic_ptr->buffer[1] == 0x22){ // left
-                motorcomm[0] = 0xE1;
-                motorcomm[1] = 0x1F;
-                motorMove(ic_ptr->buffer[2], motorcomm);
-            } else if(ic_ptr->buffer[1] == 0x55){ // right
-                motorcomm[0] = 0x9F;
-                motorcomm[1] = 0x62;
-                motorMove(ic_ptr->buffer[2], motorcomm);
-            } else if(ic_ptr->buffer[1] == 0x00){ // stop
-                motorcomm[0] = 0x00;
-                motorMove(0, motorcomm);
-            }
-            
+            //unsigned char ack[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
+            //start_i2c_slave_reply(length, ack)
+            motorMove(ic_ptr->buffer[1], ic_ptr->buffer[2], ic_ptr->buffer[3]);
+        }
+        else if(ic_ptr->buffer[0] == 0xBB) { // distance check
+            unsigned char dist[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
+            dist[1] = distMoved;
+            start_i2c_slave_reply(length, dist);
         }
         msg_to_send = 0;
     }

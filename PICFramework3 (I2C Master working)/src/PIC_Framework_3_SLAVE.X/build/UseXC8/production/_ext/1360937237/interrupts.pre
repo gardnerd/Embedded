@@ -5981,12 +5981,14 @@ void uart_recv_int_handler(void);
 void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
-# 14 "../src/motor.h"
+# 15 "../src/motor.h"
 unsigned char distDesired;
 unsigned char distMoved;
+unsigned char leftEncoder;
+unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char*);
+void motorMove(unsigned char , unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {

@@ -5969,12 +5969,14 @@ void uart_recv_int_handler(void);
 void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
-# 14 "../src/motor.h"
+# 15 "../src/motor.h"
 unsigned char distDesired;
 unsigned char distMoved;
+unsigned char leftEncoder;
+unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char*);
+void motorMove(unsigned char , unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {
@@ -6390,27 +6392,12 @@ start_i2c_slave_reply(length, sensormsg);
 length = 5;
 
 
-
-unsigned char motorcomm[2] = {0x9F, 0x1F};
-if(ic_ptr->buffer[1] == 0xFF){
-motorMove(ic_ptr->buffer[2], motorcomm);
-} else if(ic_ptr->buffer[1] == 0xBB){
-motorcomm[0] = 0xE1;
-motorcomm[1] = 0x62;
-motorMove(ic_ptr->buffer[2], motorcomm);
-} else if(ic_ptr->buffer[1] == 0x22){
-motorcomm[0] = 0xE1;
-motorcomm[1] = 0x1F;
-motorMove(ic_ptr->buffer[2], motorcomm);
-} else if(ic_ptr->buffer[1] == 0x55){
-motorcomm[0] = 0x9F;
-motorcomm[1] = 0x62;
-motorMove(ic_ptr->buffer[2], motorcomm);
-} else if(ic_ptr->buffer[1] == 0x00){
-motorcomm[0] = 0x00;
-motorMove(0, motorcomm);
+motorMove(ic_ptr->buffer[1], ic_ptr->buffer[2], ic_ptr->buffer[3]);
 }
-
+else if(ic_ptr->buffer[0] == 0xBB) {
+unsigned char dist[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
+dist[1] = distMoved;
+start_i2c_slave_reply(length, dist);
 }
 msg_to_send = 0;
 }
@@ -6432,7 +6419,7 @@ ic_ptr->error_count = 0;
 
 void i2c_configure_slave(unsigned char addr) {
 
-# 474
+# 459
 TRISCbits.TRISC3 = 1;
 TRISCbits.TRISC4 = 1;
 
@@ -6451,7 +6438,7 @@ SSPSTAT |= 0b10000000;
 TRISCbits.TRISC3 = 1;
 TRISCbits.TRISC4 = 1;
 
-# 511
+# 496
 SSPCON2bits.SEN = 1;
 SSPCON1 |= 0b00100000;
 

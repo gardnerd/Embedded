@@ -253,10 +253,8 @@ void main(void) {
 
     // initialize Timers
 
-#ifdef MOTORPIC
-    
-    OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_EXT & T0_EDGE_RISE & T0_PS_1_1);
-    
+#ifdef MOTORPIC  
+    OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_EXT & T0_EDGE_RISE & T0_PS_1_1);   
 #else
     OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_INT & T0_PS_1_64);
 #endif

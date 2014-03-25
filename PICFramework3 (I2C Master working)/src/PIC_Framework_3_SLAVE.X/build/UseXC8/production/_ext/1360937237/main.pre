@@ -6037,12 +6037,14 @@ void uart_recv_int_handler(void);
 void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
-# 14 "../src/motor.h"
+# 15 "../src/motor.h"
 unsigned char distDesired;
 unsigned char distMoved;
+unsigned char leftEncoder;
+unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char*);
+void motorMove(unsigned char , unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {
@@ -6160,14 +6162,14 @@ PORTA = 0x0;
 LATA = 0x0;
 TRISA = 0x0F;
 
-# 258
+# 257
 OpenTimer0(0b11111111 & 0b11111111 & 0b11111111 & 0b11101111 & 0b11111111);
 
-# 271
+# 269
 OpenTimer1(0b11111111 & 0b10111111 & 0b11001111 & 0b11111111 & 0b11110111 & 0b11111111);
 TRISC = 0xFF;
 
-# 280
+# 278
 IPR1bits.ADIP = 0;
 PIE1bits.ADIE = 1;
 
@@ -6181,38 +6183,38 @@ IPR1bits.TXIP = 0;
 
 IPR1bits.SSPIP = 1;
 
-# 308
+# 306
 i2c_configure_slave(0xBE);
 
-# 327
+# 325
 PIE1bits.SSPIE = 1;
 
-# 338
+# 336
 OpenUSART(0b11111111 & 0b11111111 & 0b11111110 & 0b11111101 &
 0b11111111 & 0b11111111, 38);
 RCSTAbits.SPEN = 1;
 TRISC = 0xFF;
 
-# 348
+# 346
 enable_interrupts();
 
-# 362
+# 360
 OpenADC(0b11011111 & 0b01111111 & 0b11110011,
 0b10001111 & 0b01111111 & 0b11111110 & 0b11111101,
 0b1011);
 SetChanADC(0b10001111);
 
-# 376
+# 374
 unsigned char msg[2] = {0x01, 0x02};
 
-# 384
+# 382
 while (1) {
 
 
 
 block_on_To_msgqueues();
 
-# 395
+# 393
 length = ToMainHigh_recvmsg(10, &msgtype, (void *) msgbuffer);
 if (length < 0) {
 

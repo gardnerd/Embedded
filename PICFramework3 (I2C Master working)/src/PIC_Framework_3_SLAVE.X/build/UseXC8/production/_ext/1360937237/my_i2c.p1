@@ -170,8 +170,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATBbits `VS147 ~T0 @X0 0 e@3978 ]
 "65 ../src/messages.h
 [v _ToMainHigh_sendmsg `(c ~T0 @X0 0 ef3`uc`uc`*v ]
-"18 ../src/motor.h
-[v _motorMove `(v ~T0 @X0 0 ef2`uc`*uc ]
+"21 ../src/motor.h
+[v _motorMove `(v ~T0 @X0 0 ef3`uc`uc`uc ]
 [; ;htc.h: 22: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45j10.h: 44: extern volatile unsigned char PORTA @ 0xF80;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f45j10.h
@@ -4782,13 +4782,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.h: 19: void uart_recv_int_handler(void);
 [; ;my_uart.h: 21: void uart_trans(unsigned char, unsigned char *);
 [; ;my_uart.h: 22: void uart_trans_int_handler();
-"14 ../src/motor.h
+"15 ../src/motor.h
 [v _distDesired `uc ~T0 @X0 1 e ]
-[; ;motor.h: 14: unsigned char distDesired;
-"15
+[; ;motor.h: 15: unsigned char distDesired;
+"16
 [v _distMoved `uc ~T0 @X0 1 e ]
-[; ;motor.h: 15: unsigned char distMoved;
-[; ;motor.h: 18: void motorMove(unsigned char , unsigned char*);
+[; ;motor.h: 16: unsigned char distMoved;
+"17
+[v _leftEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 17: unsigned char leftEncoder;
+"18
+[v _rightEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 18: unsigned char rightEncoder;
+[; ;motor.h: 21: void motorMove(unsigned char , unsigned char, unsigned char);
 [; ;my_i2c.h: 8: typedef struct __i2c_comm {
 [; ;my_i2c.h: 9: unsigned char buffer[10];
 [; ;my_i2c.h: 10: unsigned char buflen;
@@ -5891,8 +5897,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_i2c.c: 412: length = 5;
 "412
 [e = _length -> 5 `i ]
-[v F5133 `uc ~T0 @X0 -> 5 `i s ]
-[i F5133
+[v F5136 `uc ~T0 @X0 -> 5 `i s ]
+[i F5136
 :U ..
 "414
 -> -> 1 `i `uc
@@ -5904,7 +5910,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _sensormsg `uc ~T0 @X0 -> 5 `i a ]
 [; ;my_i2c.c: 414: unsigned char sensormsg[5] = {0x01, 0x01, 0x02, 0x03, ((0x01 + 0x02 + 0x03) & 0x17)};
-[e = _sensormsg F5133 ]
+[e = _sensormsg F5136 ]
 [; ;my_i2c.c: 415: start_i2c_slave_reply(length, sensormsg);
 "415
 [e ( _start_i2c_slave_reply (2 , -> _length `uc &U _sensormsg ]
@@ -5918,179 +5924,125 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_i2c.c: 419: length = 5;
 "419
 [e = _length -> 5 `i ]
-[v F5135 `uc ~T0 @X0 -> 2 `i s ]
-[i F5135
-:U ..
+[; ;my_i2c.c: 422: motorMove(ic_ptr->buffer[1], ic_ptr->buffer[2], ic_ptr->buffer[3]);
+"422
+[e ( _motorMove (3 , , *U + &U . *U _ic_ptr 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux *U + &U . *U _ic_ptr 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux *U + &U . *U _ic_ptr 0 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux ]
 "423
--> -> 159 `i `uc
--> -> 31 `i `uc
+}
+[; ;my_i2c.c: 423: }
+[e $U 674  ]
+"424
+[e :U 673 ]
+[; ;my_i2c.c: 424: else if(ic_ptr->buffer[0] == 0xBB) {
+[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 187 `i 675  ]
+{
+[v F5138 `uc ~T0 @X0 -> 5 `i s ]
+[i F5138
+:U ..
+"425
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
 ..
 ]
-[v _motorcomm `uc ~T0 @X0 -> 2 `i a ]
-[; ;my_i2c.c: 423: unsigned char motorcomm[2] = {0x9F, 0x1F};
-[e = _motorcomm F5135 ]
-[; ;my_i2c.c: 424: if(ic_ptr->buffer[1] == 0xFF){
-"424
-[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 255 `i 674  ]
-{
-[; ;my_i2c.c: 425: motorMove(ic_ptr->buffer[2], motorcomm);
-"425
-[e ( _motorMove (2 , *U + &U . *U _ic_ptr 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux &U _motorcomm ]
+[v _dist `uc ~T0 @X0 -> 5 `i a ]
+[; ;my_i2c.c: 425: unsigned char dist[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
+[e = _dist F5138 ]
+[; ;my_i2c.c: 426: dist[1] = distMoved;
 "426
-}
-[; ;my_i2c.c: 426: } else if(ic_ptr->buffer[1] == 0xBB){
-[e $U 675  ]
-[e :U 674 ]
-[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 187 `i 676  ]
-{
-[; ;my_i2c.c: 427: motorcomm[0] = 0xE1;
+[e = *U + &U _dist * -> -> -> 1 `i `ui `ux -> -> # *U &U _dist `ui `ux _distMoved ]
+[; ;my_i2c.c: 427: start_i2c_slave_reply(length, dist);
 "427
-[e = *U + &U _motorcomm * -> -> -> 0 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 225 `i `uc ]
-[; ;my_i2c.c: 428: motorcomm[1] = 0x62;
+[e ( _start_i2c_slave_reply (2 , -> _length `uc &U _dist ]
 "428
-[e = *U + &U _motorcomm * -> -> -> 1 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 98 `i `uc ]
-[; ;my_i2c.c: 429: motorMove(ic_ptr->buffer[2], motorcomm);
+}
+[e :U 675 ]
 "429
-[e ( _motorMove (2 , *U + &U . *U _ic_ptr 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux &U _motorcomm ]
+[e :U 674 ]
+[e :U 672 ]
+[; ;my_i2c.c: 428: }
+[; ;my_i2c.c: 429: msg_to_send = 0;
+[e = _msg_to_send -> -> 0 `i `uc ]
 "430
 }
-[; ;my_i2c.c: 430: } else if(ic_ptr->buffer[1] == 0x22){
-[e $U 677  ]
-[e :U 676 ]
-[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 34 `i 678  ]
-{
-[; ;my_i2c.c: 431: motorcomm[0] = 0xE1;
-"431
-[e = *U + &U _motorcomm * -> -> -> 0 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 225 `i `uc ]
-[; ;my_i2c.c: 432: motorcomm[1] = 0x1F;
-"432
-[e = *U + &U _motorcomm * -> -> -> 1 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 31 `i `uc ]
-[; ;my_i2c.c: 433: motorMove(ic_ptr->buffer[2], motorcomm);
-"433
-[e ( _motorMove (2 , *U + &U . *U _ic_ptr 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux &U _motorcomm ]
-"434
-}
-[; ;my_i2c.c: 434: } else if(ic_ptr->buffer[1] == 0x55){
-[e $U 679  ]
-[e :U 678 ]
-[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 85 `i 680  ]
-{
-[; ;my_i2c.c: 435: motorcomm[0] = 0x9F;
-"435
-[e = *U + &U _motorcomm * -> -> -> 0 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 159 `i `uc ]
-[; ;my_i2c.c: 436: motorcomm[1] = 0x62;
-"436
-[e = *U + &U _motorcomm * -> -> -> 1 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 98 `i `uc ]
-[; ;my_i2c.c: 437: motorMove(ic_ptr->buffer[2], motorcomm);
-"437
-[e ( _motorMove (2 , *U + &U . *U _ic_ptr 0 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux &U _motorcomm ]
-"438
-}
-[; ;my_i2c.c: 438: } else if(ic_ptr->buffer[1] == 0x00){
-[e $U 681  ]
-[e :U 680 ]
-[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 0 `i 682  ]
-{
-[; ;my_i2c.c: 439: motorcomm[0] = 0x00;
-"439
-[e = *U + &U _motorcomm * -> -> -> 0 `i `ui `ux -> -> # *U &U _motorcomm `ui `ux -> -> 0 `i `uc ]
-[; ;my_i2c.c: 440: motorMove(0, motorcomm);
-"440
-[e ( _motorMove (2 , -> -> 0 `i `uc &U _motorcomm ]
-"441
-}
-[e :U 682 ]
-"443
-[e :U 681 ]
-[e :U 679 ]
-[e :U 677 ]
-[e :U 675 ]
-}
-[e :U 673 ]
-"444
-[e :U 672 ]
-[; ;my_i2c.c: 441: }
-[; ;my_i2c.c: 443: }
-[; ;my_i2c.c: 444: msg_to_send = 0;
-[e = _msg_to_send -> -> 0 `i `uc ]
-"445
-}
 [e :U 670 ]
-[; ;my_i2c.c: 445: }
-[; ;my_i2c.c: 446: }
-"446
+[; ;my_i2c.c: 430: }
+[; ;my_i2c.c: 431: }
+"431
 [e :UE 629 ]
 }
-"451
+"436
 [v _init_i2c `(v ~T0 @X0 1 ef1`*S584 ]
 {
-[; ;my_i2c.c: 451: void init_i2c(i2c_comm *ic) {
+[; ;my_i2c.c: 436: void init_i2c(i2c_comm *ic) {
 [e :U _init_i2c ]
 [v _ic `*S584 ~T0 @X0 1 r1 ]
 [f ]
-[; ;my_i2c.c: 452: ic_ptr = ic;
-"452
+[; ;my_i2c.c: 437: ic_ptr = ic;
+"437
 [e = _ic_ptr _ic ]
-[; ;my_i2c.c: 453: ic_ptr->buflen = 0;
-"453
+[; ;my_i2c.c: 438: ic_ptr->buflen = 0;
+"438
 [e = . *U _ic_ptr 1 -> -> 0 `i `uc ]
-[; ;my_i2c.c: 454: ic_ptr->event_count = 0;
-"454
+[; ;my_i2c.c: 439: ic_ptr->event_count = 0;
+"439
 [e = . *U _ic_ptr 3 -> -> 0 `i `uc ]
-[; ;my_i2c.c: 455: ic_ptr->status = 0x5;
-"455
+[; ;my_i2c.c: 440: ic_ptr->status = 0x5;
+"440
 [e = . *U _ic_ptr 4 -> -> 5 `i `uc ]
-[; ;my_i2c.c: 456: ic_ptr->error_count = 0;
-"456
+[; ;my_i2c.c: 441: ic_ptr->error_count = 0;
+"441
 [e = . *U _ic_ptr 6 -> -> 0 `i `uc ]
-[; ;my_i2c.c: 457: }
-"457
-[e :UE 683 ]
+[; ;my_i2c.c: 442: }
+"442
+[e :UE 676 ]
 }
-"462
+"447
 [v _i2c_configure_slave `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;my_i2c.c: 462: void i2c_configure_slave(unsigned char addr) {
+[; ;my_i2c.c: 447: void i2c_configure_slave(unsigned char addr) {
 [e :U _i2c_configure_slave ]
 [v _addr `uc ~T0 @X0 1 r1 ]
 [f ]
+[; ;my_i2c.c: 459: TRISCbits.TRISC3 = 1;
+"459
+[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
+[; ;my_i2c.c: 460: TRISCbits.TRISC4 = 1;
+"460
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+[; ;my_i2c.c: 465: SSPADD = addr;
+"465
+[e = _SSPADD _addr ]
+[; ;my_i2c.c: 467: SSPSTAT = 0x0;
+"467
+[e = _SSPSTAT -> -> 0 `i `uc ]
+[; ;my_i2c.c: 468: SSPCON1 = 0x0;
+"468
+[e = _SSPCON1 -> -> 0 `i `uc ]
+[; ;my_i2c.c: 469: SSPCON2 = 0x0;
+"469
+[e = _SSPCON2 -> -> 0 `i `uc ]
+[; ;my_i2c.c: 470: SSPCON1 |= 0x0E;
+"470
+[e =| _SSPCON1 -> -> 14 `i `uc ]
+[; ;my_i2c.c: 471: SSPSTAT |= 0b10000000;
+"471
+[e =| _SSPSTAT -> -> 128 `i `uc ]
 [; ;my_i2c.c: 474: TRISCbits.TRISC3 = 1;
 "474
 [e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
 [; ;my_i2c.c: 475: TRISCbits.TRISC4 = 1;
 "475
 [e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-[; ;my_i2c.c: 480: SSPADD = addr;
-"480
-[e = _SSPADD _addr ]
-[; ;my_i2c.c: 482: SSPSTAT = 0x0;
-"482
-[e = _SSPSTAT -> -> 0 `i `uc ]
-[; ;my_i2c.c: 483: SSPCON1 = 0x0;
-"483
-[e = _SSPCON1 -> -> 0 `i `uc ]
-[; ;my_i2c.c: 484: SSPCON2 = 0x0;
-"484
-[e = _SSPCON2 -> -> 0 `i `uc ]
-[; ;my_i2c.c: 485: SSPCON1 |= 0x0E;
-"485
-[e =| _SSPCON1 -> -> 14 `i `uc ]
-[; ;my_i2c.c: 486: SSPSTAT |= 0b10000000;
-"486
-[e =| _SSPSTAT -> -> 128 `i `uc ]
-[; ;my_i2c.c: 489: TRISCbits.TRISC3 = 1;
-"489
-[e = . . _TRISCbits 0 3 -> -> 1 `i `uc ]
-[; ;my_i2c.c: 490: TRISCbits.TRISC4 = 1;
-"490
-[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-[; ;my_i2c.c: 511: SSPCON2bits.SEN = 1;
-"511
+[; ;my_i2c.c: 496: SSPCON2bits.SEN = 1;
+"496
 [e = . . _SSPCON2bits 0 0 -> -> 1 `i `uc ]
-[; ;my_i2c.c: 512: SSPCON1 |= 0b00100000;
-"512
+[; ;my_i2c.c: 497: SSPCON1 |= 0b00100000;
+"497
 [e =| _SSPCON1 -> -> 32 `i `uc ]
-[; ;my_i2c.c: 514: }
-"514
-[e :UE 684 ]
+[; ;my_i2c.c: 499: }
+"499
+[e :UE 677 ]
 }

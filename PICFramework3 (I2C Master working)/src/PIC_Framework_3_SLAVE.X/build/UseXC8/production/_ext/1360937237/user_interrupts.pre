@@ -5969,12 +5969,14 @@ void uart_recv_int_handler(void);
 void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
-# 14 "../src/motor.h"
+# 15 "../src/motor.h"
 unsigned char distDesired;
 unsigned char distMoved;
+unsigned char leftEncoder;
+unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char*);
+void motorMove(unsigned char , unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {
@@ -6009,24 +6011,21 @@ unsigned char adcbuffer[28];
 void timer0_int_handler() {
 WriteTimer0(0);
 
-# 34
-UART_timeout++;
-
-
+# 36
 distMoved++;
 if(distMoved >= distDesired){
 
-unsigned char motormsg[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
+unsigned char motormsg[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
 motormsg[1] = distMoved;
 motormsg[2] = (distMoved & 0x17);
 start_i2c_slave_reply(5, motormsg);
 
 distMoved = 0;
 unsigned char motorcomm[2] = {0x00, 0x00};
-motorMove(0, motorcomm);
+motorMove(0x00, 0x00, 0);
 }
 
-# 56
+# 57
 }
 
 
@@ -6034,7 +6033,7 @@ motorMove(0, motorcomm);
 
 void timer1_int_handler() {
 
-# 73
+# 74
 WriteTimer1(0);
 }
 
@@ -6043,6 +6042,6 @@ void adc_int_handler(){
 if(adcbuffer[0] < 27)
 adcbuffer[0] = adcbuffer[0] + 1;
 
-# 86
+# 87
 adcbuffer[adcbuffer[0]] = ADRESH;
 }

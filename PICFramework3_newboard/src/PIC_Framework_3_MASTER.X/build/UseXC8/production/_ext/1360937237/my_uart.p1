@@ -8426,9 +8426,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.c: 25: uc_ptr->buflen++;
 "25
 [e ++ . *U _uc_ptr 1 -> -> 1 `i `uc ]
-[; ;my_uart.c: 26: if(UART_timeout > 200){
+[; ;my_uart.c: 26: if(UART_timeout > 20000){
 "26
-[e $ ! > _UART_timeout -> -> 200 `i `ui 1136  ]
+[e $ ! > _UART_timeout -> -> 20000 `i `ui 1136  ]
 {
 [; ;my_uart.c: 27: uc_ptr->buflen = 1;
 "27

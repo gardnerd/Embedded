@@ -462,6 +462,8 @@ void main(void) {
                     if(msgbuffer[0] == 0xBA){
                         // motor command
                         i2c_master_send(5, 5, msgbuffer, 0xBE);
+                        unsigned char motorAck[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
+                        uart_trans(5, motorAck);
                     } else if(msgbuffer[0] == 0xAA){
                         // sensor command
                         i2c_master_send(1, 5, msgbuffer, 0x9E);

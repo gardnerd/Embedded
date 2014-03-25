@@ -8928,45 +8928,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 464: i2c_master_send(5, 5, msgbuffer, 0xBE);
 "464
 [e ( _i2c_master_send (4 , , , -> -> 5 `i `uc -> -> 5 `i `uc &U _msgbuffer -> -> 190 `i `uc ]
+[v F9248 `uc ~T0 @X0 -> 5 `i s ]
+[i F9248
+:U ..
 "465
+-> -> 3 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v _motorAck `uc ~T0 @X0 -> 5 `i a ]
+[; ;main.c: 465: unsigned char motorAck[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
+[e = _motorAck F9248 ]
+[; ;main.c: 466: uart_trans(5, motorAck);
+"466
+[e ( _uart_trans (2 , -> -> 5 `i `uc &U _motorAck ]
+"467
 }
-[; ;main.c: 465: } else if(msgbuffer[0] == 0xAA){
+[; ;main.c: 467: } else if(msgbuffer[0] == 0xAA){
 [e $U 1163  ]
 [e :U 1162 ]
 [e $ ! == -> *U + &U _msgbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _msgbuffer `ui `ux `i -> 170 `i 1164  ]
 {
-[; ;main.c: 467: i2c_master_send(1, 5, msgbuffer, 0x9E);
-"467
+[; ;main.c: 469: i2c_master_send(1, 5, msgbuffer, 0x9E);
+"469
 [e ( _i2c_master_send (4 , , , -> -> 1 `i `uc -> -> 5 `i `uc &U _msgbuffer -> -> 158 `i `uc ]
-"468
+"470
 }
 [e :U 1164 ]
-"470
-[e :U 1163 ]
-[; ;main.c: 468: }
-[; ;main.c: 470: LATBbits.LATB2 = 0;
-[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 472: break;
 "472
-[e $U 1157  ]
-"473
-}
-[; ;main.c: 473: };
-[; ;main.c: 474: default:
+[e :U 1163 ]
+[; ;main.c: 470: }
+[; ;main.c: 472: LATBbits.LATB2 = 0;
+[e = . . _LATBbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 474: break;
 "474
-[e :U 1165 ]
-[; ;main.c: 475: {
-"475
-{
-[; ;main.c: 477: break;
-"477
 [e $U 1157  ]
-"478
+"475
 }
-[; ;main.c: 478: };
+[; ;main.c: 475: };
+[; ;main.c: 476: default:
+"476
+[e :U 1165 ]
+[; ;main.c: 477: {
+"477
+{
+[; ;main.c: 479: break;
 "479
+[e $U 1157  ]
+"480
 }
-[; ;main.c: 479: };
+[; ;main.c: 480: };
+"481
+}
+[; ;main.c: 481: };
 [e $U 1157  ]
 "451
 [e :U 1158 ]
@@ -8974,20 +8991,20 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 30 `i `uc 1160
  , $ -> -> 31 `i `uc 1161
  1165 ]
-"479
+"481
 [e :U 1157 ]
-"480
+"482
 }
 [e :U 1156 ]
-"481
+"483
 }
 [e :U 1140 ]
 "387
 [e $U 1141  ]
 [e :U 1142 ]
-[; ;main.c: 480: }
-[; ;main.c: 481: }
+[; ;main.c: 482: }
 [; ;main.c: 483: }
-"483
+[; ;main.c: 485: }
+"485
 [e :UE 1139 ]
 }

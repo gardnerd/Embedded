@@ -23,7 +23,7 @@ void uart_recv_int_handler() {
 #endif
 
         uc_ptr->buflen++;
-        if(UART_timeout > 200){
+        if(UART_timeout > 20000){
             uc_ptr->buflen = 1;
             UART_timeout = 0;
         }
