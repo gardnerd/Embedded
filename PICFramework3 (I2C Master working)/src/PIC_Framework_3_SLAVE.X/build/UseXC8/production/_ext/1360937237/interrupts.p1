@@ -4686,9 +4686,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
 [; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
-[; ;my_uart.h: 11: unsigned char buffer[5];
+[; ;my_uart.h: 11: unsigned char buffer[6];
 [; ;my_uart.h: 12: unsigned char buflen;
-[; ;my_uart.h: 13: unsigned char txBuff[5];
+[; ;my_uart.h: 13: unsigned char txBuff[6];
 [; ;my_uart.h: 14: unsigned char txBuflen;
 [; ;my_uart.h: 15: unsigned char txBufind;
 [; ;my_uart.h: 16: } uart_comm;
@@ -4697,18 +4697,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.h: 21: void uart_trans(unsigned char, unsigned char *);
 [; ;my_uart.h: 22: void uart_trans_int_handler();
 "15 ../src/motor.h
-[v _distDesired `uc ~T0 @X0 1 e ]
-[; ;motor.h: 15: unsigned char distDesired;
+[v _stopCond `uc ~T0 @X0 1 e ]
+[; ;motor.h: 15: unsigned char stopCond;
 "16
-[v _distMoved `uc ~T0 @X0 1 e ]
-[; ;motor.h: 16: unsigned char distMoved;
+[v _leftDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 16: unsigned char leftDistDesired;
 "17
-[v _leftEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 17: unsigned char leftEncoder;
+[v _rightDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 17: unsigned char rightDistDesired;
 "18
+[v _distMoved `uc ~T0 @X0 1 e ]
+[; ;motor.h: 18: unsigned char distMoved;
+"19
+[v _leftEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 19: unsigned char leftEncoder;
+"20
 [v _rightEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 18: unsigned char rightEncoder;
-[; ;motor.h: 21: void motorMove(unsigned char , unsigned char, unsigned char);
+[; ;motor.h: 20: unsigned char rightEncoder;
+[; ;motor.h: 23: void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 [; ;my_i2c.h: 8: typedef struct __i2c_comm {
 [; ;my_i2c.h: 9: unsigned char buffer[10];
 [; ;my_i2c.h: 10: unsigned char buflen;
@@ -4857,9 +4863,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "47
 [e :UE 593 ]
 }
-[v F5125 `(v ~T0 @X0 1 tf ]
+[v F5128 `(v ~T0 @X0 1 tf ]
 "84
-[v _InterruptHandlerHigh `IF5125 ~T0 @X0 1 e ]
+[v _InterruptHandlerHigh `IF5128 ~T0 @X0 1 e ]
 {
 [; ;interrupts.c: 79: interrupt
 [; ;interrupts.c: 84: void InterruptHandlerHigh() {
@@ -4886,15 +4892,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 101: INTCONbits.TMR0IF = 0;
 "101
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;interrupts.c: 103: PORTAbits.AN0 = 1;
+[; ;interrupts.c: 103: PORTAbits.RA0 = 1;
 "103
-[e = . . _PORTAbits 1 0 -> -> 1 `i `uc ]
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 [; ;interrupts.c: 104: timer0_int_handler();
 "104
 [e ( _timer0_int_handler ..  ]
-[; ;interrupts.c: 105: PORTAbits.AN0 = 0;
+[; ;interrupts.c: 105: PORTAbits.RA0 = 0;
 "105
-[e = . . _PORTAbits 1 0 -> -> 0 `i `uc ]
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 "106
 }
 [e :U 598 ]
@@ -4906,9 +4912,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "116
 [e :UE 596 ]
 }
-[v F5127 `(v ~T0 @X0 1 tf ]
+[v F5130 `(v ~T0 @X0 1 tf ]
 "128
-[v _InterruptHandlerLow `ILF5127 ~T0 @X0 1 e ]
+[v _InterruptHandlerLow `ILF5130 ~T0 @X0 1 e ]
 {
 [; ;interrupts.c: 123: interrupt low_priority
 [; ;interrupts.c: 128: void InterruptHandlerLow() {
@@ -4935,39 +4941,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupts.c: 138: PIR1bits.TMR1IF = 0;
 "138
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;interrupts.c: 139: timer1_int_handler();
-"139
-[e ( _timer1_int_handler ..  ]
+[; ;interrupts.c: 140: PORTAbits.RA1 = 1;
+"140
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+[; ;interrupts.c: 141: timer1_int_handler();
 "141
+[e ( _timer1_int_handler ..  ]
+[; ;interrupts.c: 142: PORTAbits.RA1 = 0;
+"142
+[e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
+"144
 }
 [e :U 601 ]
-[; ;interrupts.c: 141: }
-[; ;interrupts.c: 143: if (PIR1bits.TXIF) {
-"143
+[; ;interrupts.c: 144: }
+[; ;interrupts.c: 146: if (PIR1bits.TXIF) {
+"146
 [e $ ! != -> . . _PIR1bits 0 4 `i -> -> -> 0 `i `Vuc `i 602  ]
 {
-[; ;interrupts.c: 145: uart_trans_int_handler();
-"145
+[; ;interrupts.c: 148: uart_trans_int_handler();
+"148
 [e ( _uart_trans_int_handler ..  ]
-"146
+"149
 }
 [e :U 602 ]
-[; ;interrupts.c: 146: }
-[; ;interrupts.c: 148: if (PIR1bits.RCIF) {
-"148
+[; ;interrupts.c: 149: }
+[; ;interrupts.c: 151: if (PIR1bits.RCIF) {
+"151
 [e $ ! != -> . . _PIR1bits 0 5 `i -> -> -> 0 `i `Vuc `i 603  ]
 {
-[; ;interrupts.c: 149: PIR1bits.RCIF = 0;
-"149
+[; ;interrupts.c: 152: PIR1bits.RCIF = 0;
+"152
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-[; ;interrupts.c: 151: uart_recv_int_handler();
-"151
+[; ;interrupts.c: 154: uart_recv_int_handler();
+"154
 [e ( _uart_recv_int_handler ..  ]
-"153
+"156
 }
 [e :U 603 ]
-[; ;interrupts.c: 153: }
-[; ;interrupts.c: 155: }
-"155
+[; ;interrupts.c: 156: }
+[; ;interrupts.c: 158: }
+"158
 [e :UE 599 ]
 }

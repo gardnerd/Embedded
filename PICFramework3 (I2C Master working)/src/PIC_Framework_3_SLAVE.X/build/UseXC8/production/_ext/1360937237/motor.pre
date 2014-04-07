@@ -5014,9 +5014,9 @@ signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 
 # 10 "../src/my_uart.h"
 typedef struct __uart_comm {
-unsigned char buffer[5];
+unsigned char buffer[6];
 unsigned char buflen;
-unsigned char txBuff[5];
+unsigned char txBuff[6];
 unsigned char txBuflen;
 unsigned char txBufind;
 } uart_comm;
@@ -5028,19 +5028,32 @@ void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
 # 15 "../src/motor.h"
-unsigned char distDesired;
+unsigned char stopCond;
+unsigned char leftDistDesired;
+unsigned char rightDistDesired;
 unsigned char distMoved;
 unsigned char leftEncoder;
 unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char, unsigned char);
+void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 
 # 5 "../src/motor.c"
-void motorMove(unsigned char left, unsigned char right, unsigned char distance)
+void motorMove(unsigned char left, unsigned char right, unsigned char leftDistance, unsigned char rightDistance)
 {
-distDesired = distance;
-WriteTimer0(0);
+if(leftDistance != 0 && rightDistance != 0){
+leftDistDesired = leftDistance;
+rightDistDesired = rightDistance;
+}
+
+if(left != 0x00 && right != 0x00){
+stopCond = 0x00;
+} else {
+stopCond = 0x01;
+}
+
+WriteTimer0(0x7F);
+WriteTimer1(0xFF7F);
 unsigned char direction[2];
 direction[0] = left;
 direction[1] = right;

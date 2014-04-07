@@ -100,9 +100,7 @@ void InterruptHandlerHigh() {
     if (INTCONbits.TMR0IF) {
         INTCONbits.TMR0IF = 0; // clear this interrupt flag
         // call whatever handler you want (this is "user" defined)
-        PORTAbits.AN0 = 1;
         timer0_int_handler();
-        PORTAbits.AN0 = 0;
     }
 
     // here is where you would check other interrupt flags.

@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "10 ../src/my_uart.h
-[s S583 `uc -> 5 `i `uc 1 `uc -> 5 `i `uc 1 `uc 1 ]
+[s S583 `uc -> 6 `i `uc 1 `uc -> 6 `i `uc 1 `uc 1 ]
 [n S583 __uart_comm buffer buflen txBuff txBuflen txBufind ]
 [s S223 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S223 . TMR1IF TMR2IF CCP1IF SSP1IF TXIF RCIF ADIF PSPIF ]
@@ -4660,9 +4660,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
 [; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
-[; ;my_uart.h: 11: unsigned char buffer[5];
+[; ;my_uart.h: 11: unsigned char buffer[6];
 [; ;my_uart.h: 12: unsigned char buflen;
-[; ;my_uart.h: 13: unsigned char txBuff[5];
+[; ;my_uart.h: 13: unsigned char txBuff[6];
 [; ;my_uart.h: 14: unsigned char txBuflen;
 [; ;my_uart.h: 15: unsigned char txBufind;
 [; ;my_uart.h: 16: } uart_comm;
@@ -4703,9 +4703,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 586 ]
 [; ;my_uart.c: 29: }
-[; ;my_uart.c: 32: if (uc_ptr->buflen == 5) {
+[; ;my_uart.c: 32: if (uc_ptr->buflen == 6) {
 "32
-[e $ ! == -> . *U _uc_ptr 1 `i -> 5 `i 587  ]
+[e $ ! == -> . *U _uc_ptr 1 `i -> 6 `i 587  ]
 {
 [; ;my_uart.c: 33: ToMainLow_sendmsg(uc_ptr->buflen, 31, (void *) uc_ptr->buffer);
 "33

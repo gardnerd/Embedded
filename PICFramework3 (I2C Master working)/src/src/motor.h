@@ -12,13 +12,15 @@
 #include "messages.h"
 #include "my_uart.h"
 
-unsigned char distDesired;
+unsigned char stopCond;
+unsigned char leftDistDesired;
+unsigned char rightDistDesired;
 unsigned char distMoved;
 unsigned char leftEncoder;
 unsigned char rightEncoder;
 
 // accepts distance and direction
-void motorMove(unsigned char , unsigned char, unsigned char);
+void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 
 #endif	/* MOTOR_H */
 

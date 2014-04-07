@@ -1,6 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "121 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib/timers.h
 [v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
+"239
+[v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
 "21 ../src/my_uart.h
 [v _uart_trans `(v ~T0 @X0 0 ef2`uc`*uc ]
 [; ;htc.h: 22: extern void __builtin_software_breakpoint(void);
@@ -3932,9 +3934,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
 [; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
-[; ;my_uart.h: 11: unsigned char buffer[5];
+[; ;my_uart.h: 11: unsigned char buffer[6];
 [; ;my_uart.h: 12: unsigned char buflen;
-[; ;my_uart.h: 13: unsigned char txBuff[5];
+[; ;my_uart.h: 13: unsigned char txBuff[6];
 [; ;my_uart.h: 14: unsigned char txBuflen;
 [; ;my_uart.h: 15: unsigned char txBufind;
 [; ;my_uart.h: 16: } uart_comm;
@@ -3943,50 +3945,91 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.h: 21: void uart_trans(unsigned char, unsigned char *);
 [; ;my_uart.h: 22: void uart_trans_int_handler();
 "15 ../src/motor.h
-[v _distDesired `uc ~T0 @X0 1 e ]
-[; ;motor.h: 15: unsigned char distDesired;
+[v _stopCond `uc ~T0 @X0 1 e ]
+[; ;motor.h: 15: unsigned char stopCond;
 "16
-[v _distMoved `uc ~T0 @X0 1 e ]
-[; ;motor.h: 16: unsigned char distMoved;
+[v _leftDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 16: unsigned char leftDistDesired;
 "17
-[v _leftEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 17: unsigned char leftEncoder;
+[v _rightDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 17: unsigned char rightDistDesired;
 "18
+[v _distMoved `uc ~T0 @X0 1 e ]
+[; ;motor.h: 18: unsigned char distMoved;
+"19
+[v _leftEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 19: unsigned char leftEncoder;
+"20
 [v _rightEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 18: unsigned char rightEncoder;
-[; ;motor.h: 21: void motorMove(unsigned char , unsigned char, unsigned char);
+[; ;motor.h: 20: unsigned char rightEncoder;
+[; ;motor.h: 23: void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 "5 ../src/motor.c
-[v _motorMove `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+[v _motorMove `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
 "6
 {
-[; ;motor.c: 5: void motorMove(unsigned char left, unsigned char right, unsigned char distance)
+[; ;motor.c: 5: void motorMove(unsigned char left, unsigned char right, unsigned char leftDistance, unsigned char rightDistance)
 [; ;motor.c: 6: {
 [e :U _motorMove ]
 "5
 [v _left `uc ~T0 @X0 1 r1 ]
 [v _right `uc ~T0 @X0 1 r2 ]
-[v _distance `uc ~T0 @X0 1 r3 ]
+[v _leftDistance `uc ~T0 @X0 1 r3 ]
+[v _rightDistance `uc ~T0 @X0 1 r4 ]
 "6
 [f ]
-[; ;motor.c: 7: distDesired = distance;
+[; ;motor.c: 7: if(leftDistance != 0 && rightDistance != 0){
 "7
-[e = _distDesired _distance ]
-[; ;motor.c: 8: WriteTimer0(0);
+[e $ ! && != -> _leftDistance `i -> 0 `i != -> _rightDistance `i -> 0 `i 550  ]
+{
+[; ;motor.c: 8: leftDistDesired = leftDistance;
 "8
-[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
+[e = _leftDistDesired _leftDistance ]
+[; ;motor.c: 9: rightDistDesired = rightDistance;
 "9
-[v _direction `uc ~T0 @X0 -> 2 `i a ]
-[; ;motor.c: 9: unsigned char direction[2];
-[; ;motor.c: 10: direction[0] = left;
+[e = _rightDistDesired _rightDistance ]
 "10
-[e = *U + &U _direction * -> -> -> 0 `i `ui `ux -> -> # *U &U _direction `ui `ux _left ]
-[; ;motor.c: 11: direction[1] = right;
-"11
-[e = *U + &U _direction * -> -> -> 1 `i `ui `ux -> -> # *U &U _direction `ui `ux _right ]
-[; ;motor.c: 12: uart_trans(2, direction);
+}
+[e :U 550 ]
+[; ;motor.c: 10: }
+[; ;motor.c: 12: if(left != 0x00 && right != 0x00){
 "12
-[e ( _uart_trans (2 , -> -> 2 `i `uc &U _direction ]
-[; ;motor.c: 13: }
+[e $ ! && != -> _left `i -> 0 `i != -> _right `i -> 0 `i 551  ]
+{
+[; ;motor.c: 13: stopCond = 0x00;
 "13
+[e = _stopCond -> -> 0 `i `uc ]
+"14
+}
+[; ;motor.c: 14: } else {
+[e $U 552  ]
+[e :U 551 ]
+{
+[; ;motor.c: 15: stopCond = 0x01;
+"15
+[e = _stopCond -> -> 1 `i `uc ]
+"16
+}
+[e :U 552 ]
+[; ;motor.c: 16: }
+[; ;motor.c: 18: WriteTimer0(0x7F);
+"18
+[e ( _WriteTimer0 (1 -> -> 127 `i `ui ]
+[; ;motor.c: 19: WriteTimer1(0xFF7F);
+"19
+[e ( _WriteTimer1 (1 -> 65407 `ui ]
+"20
+[v _direction `uc ~T0 @X0 -> 2 `i a ]
+[; ;motor.c: 20: unsigned char direction[2];
+[; ;motor.c: 21: direction[0] = left;
+"21
+[e = *U + &U _direction * -> -> -> 0 `i `ui `ux -> -> # *U &U _direction `ui `ux _left ]
+[; ;motor.c: 22: direction[1] = right;
+"22
+[e = *U + &U _direction * -> -> -> 1 `i `ui `ux -> -> # *U &U _direction `ui `ux _right ]
+[; ;motor.c: 23: uart_trans(2, direction);
+"23
+[e ( _uart_trans (2 , -> -> 2 `i `uc &U _direction ]
+[; ;motor.c: 24: }
+"24
 [e :UE 549 ]
 }

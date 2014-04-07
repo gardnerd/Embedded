@@ -15,7 +15,7 @@
 // This one does the action I wanted for this program on a timer0 interrupt
 
 void timer0_int_handler() {
-    WriteTimer0(0);
+    WriteTimer0(0x7F);
 //    unsigned int val;
 //    int length, msgtype;
 
@@ -33,21 +33,24 @@ void timer0_int_handler() {
 
     //unsigned char motorcomm[2] = {0x9F, 0x1F};
 #ifdef MOTORPIC
-    distMoved++;
-    if(distMoved >= distDesired){
+    rightEncoder++;
+    if(rightEncoder >= rightDistDesired){
 
-        unsigned char motormsg[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
-        motormsg[1] = distMoved;
-        motormsg[2] = (distMoved & 0x17);
-        start_i2c_slave_reply(5, motormsg);
-
-        distMoved = 0;
-        unsigned char motorcomm[2] = {0x00, 0x00};
-        motorMove(0x00, 0x00, 0);
+        unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+        motormsg[1] = rightEncoder;
+        motormsg[2] = (rightEncoder & 0x17);
+        //start_i2c_slave_reply(6, motormsg);
+        unsigned char motorcomm[2] = {0x40, 0x40};
+        motorMove(0x40, 0x40, leftDistDesired, rightDistDesired);
+        if(leftEncoder >= leftDistDesired){
+            stopCond = 0x01; // I've stopped
+        }
     }
 #endif
-    
-    //ConvertADC();
+
+#ifdef SENSORPIC
+    ConvertADC();
+#endif
     //while( BusyADC()) {
         //LATBbits.LATB1 = 1;
     //}
@@ -71,18 +74,61 @@ void timer1_int_handler() {
     //ToMainLow_sendmsg(0, MSGT_TIMER1, (void *) 0);
 
     // reset the timer
-    WriteTimer1(0);
+    WriteTimer1(0xFF7F);
+
+    leftEncoder++;
+    if(leftEncoder >= leftDistDesired){
+
+        unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+        motormsg[1] = leftEncoder;
+        motormsg[2] = (leftEncoder & 0x17);
+        //start_i2c_slave_reply(6, motormsg);
+
+        unsigned char motorcomm[2] = {0xC0, 0xC0};
+        motorMove(0xC0, 0xC0, leftDistDesired, rightDistDesired);
+
+        if(rightEncoder >= rightDistDesired){
+            stopCond = 0x01; // I've stopped
+        }
+    }
 }
 
 void adc_int_handler(){
 
-    if(adcbuffer[0] < 27)                 // increment counter
+   // adcbuffer[0] stores the count
+    if(adcbuffer[0] < 3)                 // increment counter
         adcbuffer[0] = adcbuffer[0] + 1;
-//    else {                               // shift out first value
-//        for (int i = 1; i < 27; i++)
-//        {
-//            adcbuffer[i] = adcbuffer[i+1];
-//        }
-//    }
-    adcbuffer[adcbuffer[0]] = ADRESH;    // put value in current count
+    else
+        adcbuffer[0] = 1;
+
+    // Converts ADRESH to a voltage
+    int k = (int)ADRESH;
+    float voltage = 3.4*k/256;
+    int roundDist;
+
+    // If the voltage is larger than .5 V this runs it through a simplifed equation to return the approximate distance
+    // WARNING:  This equation is not completely accurate so results may vary until it is improved
+    if (voltage > .5) {
+        float dist = 24/(voltage - 0.1);
+        roundDist = (int)(dist + 0.5);
+    }
+    // If the voltage is too small then the object is assumed to be too far away so we send back 0xFF
+    else
+        roundDist = 0xFF;
+
+    // Reads the current channel from the count of the adcbuffer[0]
+    // Puts the current distance of the respective sensor in the adcbuffer then changes to the next channel
+    int channel = (int)adcbuffer[0] % 3;
+    if (channel == 0) {
+        adcbuffer[3] = roundDist;
+        SetChanADC(ADC_CH1);
+    }
+    else if (channel == 1) {
+        adcbuffer[1] = roundDist;
+        SetChanADC(ADC_CH2);
+    }
+    else {
+        adcbuffer[2] = roundDist;
+        SetChanADC(ADC_CH3);
+    }
 }

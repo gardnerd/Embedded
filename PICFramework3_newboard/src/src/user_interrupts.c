@@ -47,6 +47,7 @@ void timer0_int_handler() {
 // A function called by the interrupt handler
 // This one does the action I wanted for this program on a timer1 interrupt
 
+unsigned int t1Mult;
 void timer1_int_handler() {
     //unsigned int result;
 
@@ -55,8 +56,12 @@ void timer1_int_handler() {
     LATBbits.LATB1 = !LATBbits.LATB1;
 #endif
 
+    t1Mult++;
     //result = ReadTimer1();
-    //ToMainLow_sendmsg(0, MSGT_TIMER1, (void *) 0);
+    if(t1Mult == 2){
+      ToMainLow_sendmsg(0, MSGT_TIMER1, (void *) 0);
+      t1Mult = 0;
+    }
 
     // reset the timer
     WriteTimer1(0);
@@ -64,13 +69,4 @@ void timer1_int_handler() {
 
 void adc_int_handler(){
 
-    if(adcbuffer[0] < 27)                 // increment counter
-        adcbuffer[0] = adcbuffer[0] + 1;
-//    else {                               // shift out first value
-//        for (int i = 1; i < 27; i++)
-//        {
-//            adcbuffer[i] = adcbuffer[i+1];
-//        }
-//    }
-    adcbuffer[adcbuffer[0]] = ADRESH;    // put value in current count
 }

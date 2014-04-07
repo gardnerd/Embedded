@@ -10947,9 +10947,9 @@ signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 
 # 10 "../src/my_uart.h"
 typedef struct __uart_comm {
-unsigned char buffer[5];
+unsigned char buffer[6];
 unsigned char buflen;
-unsigned char txBuff[5];
+unsigned char txBuff[6];
 unsigned char txBuflen;
 unsigned char txBufind;
 } uart_comm;
@@ -11093,15 +11093,15 @@ LATB = 0x0;
 
 PORTA = 0x0;
 LATA = 0x0;
-TRISA = 0x0F;
+TRISA = 0x00;
 
-# 261
+# 259
 OpenTimer0(0b11111111 & 0b11111111 & 0b11011111 & 0b11110101);
 
-# 269
+# 267
 OpenTimer1(0b11111111 & 0b10011111 & 0b11111111 & 0b11111111 & 0b11111011 & 0b11111111,0x0);
 
-# 279
+# 277
 IPR1bits.ADIP = 0;
 PIE1bits.ADIE = 1;
 
@@ -11115,33 +11115,36 @@ IPR1bits.TXIP = 0;
 
 IPR1bits.SSPIP = 1;
 
-# 301
+# 299
 i2c_configure_master();
 
-# 326
+# 324
 PIE1bits.SSPIE = 1;
 
-# 334
+# 332
 Open1USART(0b11111111 & 0b11111111 & 0b11111110 & 0b11111101 &
 0b11111111 & 0b11101111, 38);
 RCSTAbits.SPEN = 1;
 TRISC = 0xFF;
 
-# 349
+# 347
 enable_interrupts();
 
-# 363
+# 361
 OpenADC(0b11011111 & 0b01111111 & 0b11110011,
 0b10001111 & 0b01111111 & 0b11111110 & 0b11111101,
 0b1011);
 SetChanADC(0b10001111);
 
-# 377
+# 375
 unsigned char msg[2] = {0x01, 0x02};
 
-# 384
-unsigned char motorcomm[2] = {0x9F, 0x1F};
-uart_trans(2, motorcomm);
+# 393
+unsigned char lastMotors[2];
+unsigned int state = 0;
+LATAbits.LA1 = 0;
+LATAbits.LA2 = 0;
+LATAbits.LA3 = 0;
 
 while (1) {
 
@@ -11149,7 +11152,7 @@ while (1) {
 
 block_on_To_msgqueues();
 
-# 398
+# 410
 length = ToMainHigh_recvmsg(10, &msgtype, (void *) msgbuffer);
 if (length < 0) {
 
@@ -11174,8 +11177,54 @@ break;
 case 45:
 {
 
+if(msgbuffer[0] == 0x04){
+if(msgbuffer[1] == 0x01){
+state = 0;
+LATAbits.LA1 = 0;
+LATAbits.LA2 = 0;
+LATAbits.LA3 = 0;
+}
+}
 
-uart_trans(length, msgbuffer);
+unsigned char stop[6] = {0xBC, 0x00, 0x00, 0x00, 0x00, 0x00};
+unsigned char correct[6] = {0xBC, 0x00, 0x00, 0x00, 0x00};
+if(msgbuffer[0] == 0x01){
+if(state == 0){
+uart_trans(6, msgbuffer);
+}else if(state == 3){
+if(msgbuffer[3] >= 0x5A){
+i2c_master_send(6, 6, stop, 0xBE);
+state = 0;
+LATAbits.LA1 = 0;
+LATAbits.LA2 = 0;
+LATAbits.LA3 = 1;
+}
+}else if(state == 1){
+if(msgbuffer[1] <= 0x20){
+i2c_master_send(6, 6, stop, 0xBE);
+state = 0;
+LATAbits.LA1 = 0;
+LATAbits.LA2 = 0;
+LATAbits.LA3 = 0;
+
+}else if(msgbuffer[2] >= 0x5A){
+state = 3;
+LATAbits.LA1 = 1;
+LATAbits.LA2 = 1;
+LATAbits.LA3 = 0;
+}
+
+# 485
+else{
+correct[1] = lastMotors[0];
+correct[2] = lastMotors[1];
+i2c_master_send(6, 6, correct, 0xBE);
+}
+}
+
+} else if (msgbuffer[0] != 0x00){
+uart_trans(6, msgbuffer);
+}
 
 
 break;
@@ -11206,22 +11255,45 @@ if (length != -4) {
 switch (msgtype) {
 case 11:
 {
-timer1_lthread(&t1thread_data, msgtype, length, msgbuffer);
+LATAbits.LA0 = 1;
+unsigned char sensorMsg[1] = {0xAA};
+
+if(state == 1 || state == 3){
+i2c_master_send(1, 6, sensorMsg, 0x9E);
+}
+LATAbits.LA0 = 0;
 break;
 };
 case 30:
 case 31:
 {
 
+if(msgbuffer[0] == 0xBA || msgbuffer[0] == 0xCA || msgbuffer[0] == 0x0BC){
+
+if(msgbuffer[0] == 0x0BA || msgbuffer[0] == 0xBC){
+
+lastMotors[0] = msgbuffer[1];
+lastMotors[1] = msgbuffer[2];
 
 if(msgbuffer[0] == 0xBA){
+state = 2;
+LATAbits.LA1 = 0;
+LATAbits.LA2 = 1;
+LATAbits.LA3 = 0;
+} else if(msgbuffer[0] == 0xBC){
+state = 1;
+LATAbits.LA1 = 1;
+LATAbits.LA2 = 0;
+LATAbits.LA3 = 0;
+}
 
-i2c_master_send(5, 5, msgbuffer, 0xBE);
-unsigned char motorAck[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
-uart_trans(5, motorAck);
+}
+i2c_master_send(6, 6, msgbuffer, 0xBE);
+
+
 } else if(msgbuffer[0] == 0xAA){
 
-i2c_master_send(1, 5, msgbuffer, 0x9E);
+i2c_master_send(1, 6, msgbuffer, 0x9E);
 }
 
 LATBbits.LATB2 = 0;

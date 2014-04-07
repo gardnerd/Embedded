@@ -1,14 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "121 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib\timers.h
 [v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
-"43 ../src/my_i2c.h
-[v _start_i2c_slave_reply `(v ~T0 @X0 0 ef2`uc`*uc ]
-"21 ../src/motor.h
-[v _motorMove `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"23 ../src/motor.h
+[v _motorMove `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
 "239 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib\timers.h
 [v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
 "5877 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f45j10.h
 [v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
+"2084 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib\adc.h
+[v _SetChanADC `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 22: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45j10.h: 44: extern volatile unsigned char PORTA @ 0xF80;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f45j10.h
@@ -4609,9 +4609,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
 [; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
-[; ;my_uart.h: 11: unsigned char buffer[5];
+[; ;my_uart.h: 11: unsigned char buffer[6];
 [; ;my_uart.h: 12: unsigned char buflen;
-[; ;my_uart.h: 13: unsigned char txBuff[5];
+[; ;my_uart.h: 13: unsigned char txBuff[6];
 [; ;my_uart.h: 14: unsigned char txBuflen;
 [; ;my_uart.h: 15: unsigned char txBufind;
 [; ;my_uart.h: 16: } uart_comm;
@@ -4620,18 +4620,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.h: 21: void uart_trans(unsigned char, unsigned char *);
 [; ;my_uart.h: 22: void uart_trans_int_handler();
 "15 ../src/motor.h
-[v _distDesired `uc ~T0 @X0 1 e ]
-[; ;motor.h: 15: unsigned char distDesired;
+[v _stopCond `uc ~T0 @X0 1 e ]
+[; ;motor.h: 15: unsigned char stopCond;
 "16
-[v _distMoved `uc ~T0 @X0 1 e ]
-[; ;motor.h: 16: unsigned char distMoved;
+[v _leftDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 16: unsigned char leftDistDesired;
 "17
-[v _leftEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 17: unsigned char leftEncoder;
+[v _rightDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 17: unsigned char rightDistDesired;
 "18
+[v _distMoved `uc ~T0 @X0 1 e ]
+[; ;motor.h: 18: unsigned char distMoved;
+"19
+[v _leftEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 19: unsigned char leftEncoder;
+"20
 [v _rightEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 18: unsigned char rightEncoder;
-[; ;motor.h: 21: void motorMove(unsigned char , unsigned char, unsigned char);
+[; ;motor.h: 20: unsigned char rightEncoder;
+[; ;motor.h: 23: void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 [; ;my_i2c.h: 8: typedef struct __i2c_comm {
 [; ;my_i2c.h: 9: unsigned char buffer[10];
 [; ;my_i2c.h: 10: unsigned char buflen;
@@ -4663,18 +4669,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user_interrupts.c: 17: void timer0_int_handler() {
 [e :U _timer0_int_handler ]
 [f ]
-[; ;user_interrupts.c: 18: WriteTimer0(0);
+[; ;user_interrupts.c: 18: WriteTimer0(0x7F);
 "18
-[e ( _WriteTimer0 (1 -> -> 0 `i `ui ]
-[; ;user_interrupts.c: 36: distMoved++;
+[e ( _WriteTimer0 (1 -> -> 127 `i `ui ]
+[; ;user_interrupts.c: 36: rightEncoder++;
 "36
-[e ++ _distMoved -> -> 1 `i `uc ]
-[; ;user_interrupts.c: 37: if(distMoved >= distDesired){
+[e ++ _rightEncoder -> -> 1 `i `uc ]
+[; ;user_interrupts.c: 37: if(rightEncoder >= rightDistDesired){
 "37
-[e $ ! >= -> _distMoved `i -> _distDesired `i 586  ]
+[e $ ! >= -> _rightEncoder `i -> _rightDistDesired `i 586  ]
 {
-[v F5115 `uc ~T0 @X0 -> 5 `i s ]
-[i F5115
+[v F5118 `uc ~T0 @X0 -> 6 `i s ]
+[i F5118
 :U ..
 "39
 -> -> 4 `i `uc
@@ -4682,75 +4688,223 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
+-> -> 0 `i `uc
 ..
 ]
-[v _motormsg `uc ~T0 @X0 -> 5 `i a ]
-[; ;user_interrupts.c: 39: unsigned char motormsg[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
-[e = _motormsg F5115 ]
-[; ;user_interrupts.c: 40: motormsg[1] = distMoved;
+[v _motormsg `uc ~T0 @X0 -> 6 `i a ]
+[; ;user_interrupts.c: 39: unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+[e = _motormsg F5118 ]
+[; ;user_interrupts.c: 40: motormsg[1] = rightEncoder;
 "40
-[e = *U + &U _motormsg * -> -> -> 1 `i `ui `ux -> -> # *U &U _motormsg `ui `ux _distMoved ]
-[; ;user_interrupts.c: 41: motormsg[2] = (distMoved & 0x17);
+[e = *U + &U _motormsg * -> -> -> 1 `i `ui `ux -> -> # *U &U _motormsg `ui `ux _rightEncoder ]
+[; ;user_interrupts.c: 41: motormsg[2] = (rightEncoder & 0x17);
 "41
-[e = *U + &U _motormsg * -> -> -> 2 `i `ui `ux -> -> # *U &U _motormsg `ui `ux -> & -> _distMoved `i -> 23 `i `uc ]
-[; ;user_interrupts.c: 42: start_i2c_slave_reply(5, motormsg);
-"42
-[e ( _start_i2c_slave_reply (2 , -> -> 5 `i `uc &U _motormsg ]
-[; ;user_interrupts.c: 44: distMoved = 0;
-"44
-[e = _distMoved -> -> 0 `i `uc ]
-[v F5117 `uc ~T0 @X0 -> 2 `i s ]
-[i F5117
+[e = *U + &U _motormsg * -> -> -> 2 `i `ui `ux -> -> # *U &U _motormsg `ui `ux -> & -> _rightEncoder `i -> 23 `i `uc ]
+[v F5120 `uc ~T0 @X0 -> 2 `i s ]
+[i F5120
 :U ..
-"45
--> -> 0 `i `uc
--> -> 0 `i `uc
+"43
+-> -> 64 `i `uc
+-> -> 64 `i `uc
 ..
 ]
 [v _motorcomm `uc ~T0 @X0 -> 2 `i a ]
-[; ;user_interrupts.c: 45: unsigned char motorcomm[2] = {0x00, 0x00};
-[e = _motorcomm F5117 ]
-[; ;user_interrupts.c: 46: motorMove(0x00, 0x00, 0);
+[; ;user_interrupts.c: 43: unsigned char motorcomm[2] = {0x40, 0x40};
+[e = _motorcomm F5120 ]
+[; ;user_interrupts.c: 44: motorMove(0x40, 0x40, leftDistDesired, rightDistDesired);
+"44
+[e ( _motorMove (4 , , , -> -> 64 `i `uc -> -> 64 `i `uc _leftDistDesired _rightDistDesired ]
+[; ;user_interrupts.c: 45: if(leftEncoder >= leftDistDesired){
+"45
+[e $ ! >= -> _leftEncoder `i -> _leftDistDesired `i 587  ]
+{
+[; ;user_interrupts.c: 46: stopCond = 0x01;
 "46
-[e ( _motorMove (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[e = _stopCond -> -> 1 `i `uc ]
 "47
+}
+[e :U 587 ]
+"48
 }
 [e :U 586 ]
 [; ;user_interrupts.c: 47: }
-[; ;user_interrupts.c: 57: }
-"57
+[; ;user_interrupts.c: 48: }
+[; ;user_interrupts.c: 60: }
+"60
 [e :UE 585 ]
 }
-"62
+"65
 [v _timer1_int_handler `(v ~T0 @X0 1 ef ]
 {
-[; ;user_interrupts.c: 62: void timer1_int_handler() {
+[; ;user_interrupts.c: 65: void timer1_int_handler() {
 [e :U _timer1_int_handler ]
 [f ]
-[; ;user_interrupts.c: 74: WriteTimer1(0);
-"74
-[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-[; ;user_interrupts.c: 75: }
-"75
-[e :UE 587 ]
-}
+[; ;user_interrupts.c: 77: WriteTimer1(0xFF7F);
 "77
+[e ( _WriteTimer1 (1 -> 65407 `ui ]
+[; ;user_interrupts.c: 79: leftEncoder++;
+"79
+[e ++ _leftEncoder -> -> 1 `i `uc ]
+[; ;user_interrupts.c: 80: if(leftEncoder >= leftDistDesired){
+"80
+[e $ ! >= -> _leftEncoder `i -> _leftDistDesired `i 589  ]
+{
+[v F5122 `uc ~T0 @X0 -> 6 `i s ]
+[i F5122
+:U ..
+"82
+-> -> 4 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v _motormsg `uc ~T0 @X0 -> 6 `i a ]
+[; ;user_interrupts.c: 82: unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+[e = _motormsg F5122 ]
+[; ;user_interrupts.c: 83: motormsg[1] = leftEncoder;
+"83
+[e = *U + &U _motormsg * -> -> -> 1 `i `ui `ux -> -> # *U &U _motormsg `ui `ux _leftEncoder ]
+[; ;user_interrupts.c: 84: motormsg[2] = (leftEncoder & 0x17);
+"84
+[e = *U + &U _motormsg * -> -> -> 2 `i `ui `ux -> -> # *U &U _motormsg `ui `ux -> & -> _leftEncoder `i -> 23 `i `uc ]
+[v F5124 `uc ~T0 @X0 -> 2 `i s ]
+[i F5124
+:U ..
+"87
+-> -> 192 `i `uc
+-> -> 192 `i `uc
+..
+]
+[v _motorcomm `uc ~T0 @X0 -> 2 `i a ]
+[; ;user_interrupts.c: 87: unsigned char motorcomm[2] = {0xC0, 0xC0};
+[e = _motorcomm F5124 ]
+[; ;user_interrupts.c: 88: motorMove(0xC0, 0xC0, leftDistDesired, rightDistDesired);
+"88
+[e ( _motorMove (4 , , , -> -> 192 `i `uc -> -> 192 `i `uc _leftDistDesired _rightDistDesired ]
+[; ;user_interrupts.c: 90: if(rightEncoder >= rightDistDesired){
+"90
+[e $ ! >= -> _rightEncoder `i -> _rightDistDesired `i 590  ]
+{
+[; ;user_interrupts.c: 91: stopCond = 0x01;
+"91
+[e = _stopCond -> -> 1 `i `uc ]
+"92
+}
+[e :U 590 ]
+"93
+}
+[e :U 589 ]
+[; ;user_interrupts.c: 92: }
+[; ;user_interrupts.c: 93: }
+[; ;user_interrupts.c: 94: }
+"94
+[e :UE 588 ]
+}
+"96
 [v _adc_int_handler `(v ~T0 @X0 1 ef ]
 {
-[; ;user_interrupts.c: 77: void adc_int_handler(){
+[; ;user_interrupts.c: 96: void adc_int_handler(){
 [e :U _adc_int_handler ]
 [f ]
-[; ;user_interrupts.c: 79: if(adcbuffer[0] < 27)
-"79
-[e $ ! < -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 27 `i 589  ]
-[; ;user_interrupts.c: 80: adcbuffer[0] = adcbuffer[0] + 1;
-"80
+[; ;user_interrupts.c: 99: if(adcbuffer[0] < 3)
+"99
+[e $ ! < -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 3 `i 592  ]
+[; ;user_interrupts.c: 100: adcbuffer[0] = adcbuffer[0] + 1;
+"100
 [e = *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> + -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 1 `i `uc ]
-[e :U 589 ]
-[; ;user_interrupts.c: 87: adcbuffer[adcbuffer[0]] = ADRESH;
-"87
-[e = *U + &U _adcbuffer * -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `ux -> -> # *U &U _adcbuffer `ui `ux _ADRESH ]
-[; ;user_interrupts.c: 88: }
-"88
-[e :UE 588 ]
+[e $U 593  ]
+"101
+[e :U 592 ]
+[; ;user_interrupts.c: 101: else
+[; ;user_interrupts.c: 102: adcbuffer[0] = 1;
+"102
+[e = *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> -> 1 `i `uc ]
+[e :U 593 ]
+"105
+[v _k `i ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 105: int k = (int)ADRESH;
+[e = _k -> _ADRESH `i ]
+"106
+[v _voltage `f ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 106: float voltage = 3.4*k/256;
+[e = _voltage -> / * .3.4 -> _k `d -> -> 256 `i `d `f ]
+"107
+[v _roundDist `i ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 107: int roundDist;
+[; ;user_interrupts.c: 111: if (voltage > .5) {
+"111
+[e $ ! > -> _voltage `d .0.5 594  ]
+{
+"112
+[v _dist `f ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 112: float dist = 24/(voltage - 0.1);
+[e = _dist -> / -> -> 24 `i `d - -> _voltage `d .0.1 `f ]
+[; ;user_interrupts.c: 113: roundDist = (int)(dist + 0.5);
+"113
+[e = _roundDist -> + -> _dist `d .0.5 `i ]
+"114
+}
+[; ;user_interrupts.c: 114: }
+[e $U 595  ]
+"116
+[e :U 594 ]
+[; ;user_interrupts.c: 116: else
+[; ;user_interrupts.c: 117: roundDist = 0xFF;
+"117
+[e = _roundDist -> 255 `i ]
+[e :U 595 ]
+"121
+[v _channel `i ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 121: int channel = (int)adcbuffer[0] % 3;
+[e = _channel % -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 3 `i ]
+[; ;user_interrupts.c: 122: if (channel == 0) {
+"122
+[e $ ! == _channel -> 0 `i 596  ]
+{
+[; ;user_interrupts.c: 123: adcbuffer[3] = roundDist;
+"123
+[e = *U + &U _adcbuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
+[; ;user_interrupts.c: 124: SetChanADC(0b10001111);
+"124
+[e ( _SetChanADC (1 -> -> 143 `i `uc ]
+"125
+}
+[; ;user_interrupts.c: 125: }
+[e $U 597  ]
+"126
+[e :U 596 ]
+[; ;user_interrupts.c: 126: else if (channel == 1) {
+[e $ ! == _channel -> 1 `i 598  ]
+{
+[; ;user_interrupts.c: 127: adcbuffer[1] = roundDist;
+"127
+[e = *U + &U _adcbuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
+[; ;user_interrupts.c: 128: SetChanADC(0b10010111);
+"128
+[e ( _SetChanADC (1 -> -> 151 `i `uc ]
+"129
+}
+[; ;user_interrupts.c: 129: }
+[e $U 599  ]
+"130
+[e :U 598 ]
+[; ;user_interrupts.c: 130: else {
+{
+[; ;user_interrupts.c: 131: adcbuffer[2] = roundDist;
+"131
+[e = *U + &U _adcbuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
+[; ;user_interrupts.c: 132: SetChanADC(0b10011111);
+"132
+[e ( _SetChanADC (1 -> -> 159 `i `uc ]
+"133
+}
+[e :U 599 ]
+[e :U 597 ]
+[; ;user_interrupts.c: 133: }
+[; ;user_interrupts.c: 134: }
+"134
+[e :UE 591 ]
 }

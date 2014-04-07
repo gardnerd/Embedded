@@ -100,9 +100,9 @@ void InterruptHandlerHigh() {
     if (INTCONbits.TMR0IF) {
         INTCONbits.TMR0IF = 0; // clear this interrupt flag
         // call whatever handler you want (this is "user" defined)
-        PORTAbits.AN0 = 1;
+        PORTAbits.RA0 = 1;
         timer0_int_handler();
-        PORTAbits.AN0 = 0;
+        PORTAbits.RA0 = 0;
     }
 
     // here is where you would check other interrupt flags.
@@ -136,7 +136,10 @@ void InterruptHandlerLow() {
     // check to see if we have an interrupt on timer 1
     if (PIR1bits.TMR1IF) {
         PIR1bits.TMR1IF = 0; //clear interrupt flag
+        
+        PORTAbits.RA1 = 1;
         timer1_int_handler();
+        PORTAbits.RA1 = 0;
         
     }
 

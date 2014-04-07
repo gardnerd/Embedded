@@ -239,7 +239,7 @@ void main(void) {
 
     PORTA = 0x0;
     LATA = 0x0;
-    TRISA = 0x0F;
+    TRISA = 0x00;
 #endif
 
     // how to set up PORTA for input (for the V4 board with the PIC2680)
@@ -254,7 +254,7 @@ void main(void) {
     // initialize Timers
 
 #ifdef MOTORPIC  
-    OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_EXT & T0_EDGE_RISE & T0_PS_1_1);   
+    OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_EXT & T0_EDGE_RISE & T0_PS_1_1);
 #else
     OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_INT & T0_PS_1_64);
 #endif
@@ -266,7 +266,7 @@ void main(void) {
 #ifdef __USE18F46J50
     OpenTimer1(TIMER_INT_ON & T1_SOURCE_FOSC_4 & T1_PS_1_8 & T1_16BIT_RW & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF,0x0);
 #else
-    OpenTimer1(TIMER_INT_ON & T1_8BIT_RW & T1_PS_1_1 & T1_SOURCE_EXT & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF);
+    OpenTimer1(TIMER_INT_ON & T1_16BIT_RW & T1_PS_1_1 & T1_SOURCE_EXT & T1_OSC1EN_OFF & T1_SYNC_EXT_OFF);
     TRISC = 0xFF; // C as input
 #endif
 #endif

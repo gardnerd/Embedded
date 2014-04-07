@@ -239,7 +239,7 @@ void main(void) {
 
     PORTA = 0x0;
     LATA = 0x0;
-    TRISA = 0x0F;
+    TRISA = 0x00;
 #endif
 
     // how to set up PORTA for input (for the V4 board with the PIC2680)
@@ -254,9 +254,7 @@ void main(void) {
     // initialize Timers
 
 #ifdef MOTORPIC
-    PORTAbits.AN0 = 1;
     OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_EXT & T0_EDGE_RISE & T0_PS_1_1);
-    PORTAbits.AN0 = 0;
 #else
     OpenTimer0(TIMER_INT_ON & T0_8BIT & T0_SOURCE_INT & T0_PS_1_64);
 #endif
@@ -381,9 +379,23 @@ void main(void) {
       //uart_trans(2, msg);
       //WriteUSART(0xAA);
 
-      unsigned char motorcomm[2] = {0x9F, 0x1F};
-      uart_trans(2, motorcomm);
-      
+      // displayed on ports A 1-3
+      // 3-2-1
+#define STOPPED     0
+#define MOVING      1
+#define DISCMOVE    2
+#define FRONTCLEAR  3
+      //back clear  4
+      //corr L      5
+      //corr R      6
+
+
+      unsigned char lastMotors[2];
+      unsigned int state = STOPPED;
+      LATAbits.LA1 = 0;
+      LATAbits.LA2 = 0;
+      LATAbits.LA3 = 0;
+
     while (1) {
         // Call a routine that blocks until either on the incoming
         // messages queues has a message (this may put the processor into
@@ -419,8 +431,67 @@ void main(void) {
                 case MSGT_I2C_MASTER_RECV_COMPLETE:
                 {
                     //msgbuffer[0] = length;
-                    
-                    uart_trans(length, msgbuffer);
+                    if(msgbuffer[0] == 0x04){
+                        if(msgbuffer[1] == 0x01){
+                            state = STOPPED;
+                            LATAbits.LA1 = 0;
+                            LATAbits.LA2 = 0;
+                            LATAbits.LA3 = 0;
+                        }
+                    }
+
+                    unsigned char stop[6] = {0xBC, 0x00, 0x00, 0x00, 0x00, 0x00};
+                    unsigned char correct[6] = {0xBC, 0x00, 0x00, 0x00, 0x00};
+                    if(msgbuffer[0] == 0x01){   // sensors
+                        if(state == STOPPED){
+                            uart_trans(6, msgbuffer);
+                        }else if(state == FRONTCLEAR){ // back clear obstacle
+                            if(msgbuffer[3] >= 0x5A){
+                                i2c_master_send(6, 6, stop, 0xBE);
+                                state = STOPPED;
+                                LATAbits.LA1 = 0;
+                                LATAbits.LA2 = 0;
+                                LATAbits.LA3 = 1;
+                            }
+                        }else if(state == MOVING){
+                            if(msgbuffer[1] <= 0x20){ // stop
+                                i2c_master_send(6, 6, stop, 0xBE);
+                                state = STOPPED;
+                                LATAbits.LA1 = 0;
+                                LATAbits.LA2 = 0;
+                                LATAbits.LA3 = 0;
+
+                            }else if(msgbuffer[2] >= 0x5A){ // front clear obstacle
+                                state = FRONTCLEAR;
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 1;
+                                LATAbits.LA3 = 0;
+                            }
+//                            else if(msgbuffer[2] >= 0x3C && msgbuffer[3] >= 0x3C){ // front too far
+//                                correct[1] = lastMotors[0]; // left
+//                                correct[2] = lastMotors[1] + 20; // right (add to slow down)
+//                                i2c_master_send(6, 6, correct, 0xBE);
+//                                LATAbits.LA1 = 0;
+//                                LATAbits.LA2 = 1;
+//                                LATAbits.LA3 = 1;
+//                            }else if(msgbuffer[2] <= 0x1E && msgbuffer[3] <= 0x1E){ // back too far
+//                                correct[1] = lastMotors[0] + 20; // left
+//                                correct[2] = lastMotors[1]; // right
+//                                i2c_master_send(6, 6, correct, 0xBE);
+//                                LATAbits.LA1 = 1;
+//                                LATAbits.LA2 = 0;
+//                                LATAbits.LA3 = 1;
+//                            }
+                            else{
+                                correct[1] = lastMotors[0]; // left
+                                correct[2] = lastMotors[1]; // right
+                                i2c_master_send(6, 6, correct, 0xBE);
+                            }
+                        }
+
+                    } else if (msgbuffer[0] != 0x00){
+                        uart_trans(6, msgbuffer);
+                    }
                     
                     //i2c_master_send(1, 5, msg, 0x9E);
                     break;
@@ -451,22 +522,45 @@ void main(void) {
             switch (msgtype) {
                 case MSGT_TIMER1:
                 {
-                    timer1_lthread(&t1thread_data, msgtype, length, msgbuffer);
+                    LATAbits.LA0 = 1;
+                    unsigned char sensorMsg[1] = {0xAA};
+                    
+                    if(state == MOVING || state == FRONTCLEAR){
+                        i2c_master_send(1, 6, sensorMsg, 0x9E);
+                    }
+                    LATAbits.LA0 = 0;
                     break;
                 };
                 case MSGT_OVERRUN:
                 case MSGT_UART_DATA:
                 {
-                    //uart_trans(2, msgbuffer);
                     
-                    if(msgbuffer[0] == 0xBA){
+                    if(msgbuffer[0] == 0xBA || msgbuffer[0] == 0xCA || msgbuffer[0] == 0x0BC){
                         // motor command
-                        i2c_master_send(5, 5, msgbuffer, 0xBE);
-                        unsigned char motorAck[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
-                        uart_trans(5, motorAck);
+                        if(msgbuffer[0] == 0x0BA || msgbuffer[0] == 0xBC){
+
+                            lastMotors[0] = msgbuffer[1];
+                            lastMotors[1] = msgbuffer[2];
+
+                            if(msgbuffer[0] == 0xBA){
+                                state = DISCMOVE;
+                                LATAbits.LA1 = 0;
+                                LATAbits.LA2 = 1;
+                                LATAbits.LA3 = 0;
+                            } else if(msgbuffer[0] == 0xBC){
+                                state = MOVING;
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 0;
+                                LATAbits.LA3 = 0;
+                            }
+                            
+                        }
+                        i2c_master_send(6, 6, msgbuffer, 0xBE);
+                        //unsigned char motorAck[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
+                        //uart_trans(6, motorAck);
                     } else if(msgbuffer[0] == 0xAA){
                         // sensor command
-                        i2c_master_send(1, 5, msgbuffer, 0x9E);
+                        i2c_master_send(1, 6, msgbuffer, 0x9E);
                     }
                     
                     LATBbits.LATB2 = 0;

@@ -10879,9 +10879,9 @@ signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 
 # 10 "../src/my_uart.h"
 typedef struct __uart_comm {
-unsigned char buffer[5];
+unsigned char buffer[6];
 unsigned char buflen;
-unsigned char txBuff[5];
+unsigned char txBuff[6];
 unsigned char txBuflen;
 unsigned char txBufind;
 } uart_comm;
@@ -10934,17 +10934,21 @@ UART_timeout++;
 
 
 
+unsigned int t1Mult;
 void timer1_int_handler() {
 
-# 62
+# 59
+t1Mult++;
+
+if(t1Mult == 2){
+ToMainLow_sendmsg(0, 11, (void *) 0);
+t1Mult = 0;
+}
+
+
 WriteTimer1(0);
 }
 
 void adc_int_handler(){
 
-if(adcbuffer[0] < 27)
-adcbuffer[0] = adcbuffer[0] + 1;
-
-# 75
-adcbuffer[adcbuffer[0]] = ADRESH;
 }

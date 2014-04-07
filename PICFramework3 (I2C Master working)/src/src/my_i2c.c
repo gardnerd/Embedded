@@ -404,27 +404,50 @@ void i2c_slave_int_handler() {
         ic_ptr->error_count = 0;
     }
     if (msg_to_send) {
-        int length = 0;
+        int length = 6;
         
         // send to the queue to *ask* for the data to be sent out
         //ToMainHigh_sendmsg(0, MSGT_I2C_RQST, (void *) ic_ptr->buffer);
         if(ic_ptr->buffer[0] == 0xAA){
-            length = 5;
             
-            unsigned char sensormsg[5] = {0x01, 0x01, 0x02, 0x03, ((0x01 + 0x02 + 0x03) & 0x17)};
-            start_i2c_slave_reply(length, sensormsg);
-            //adcbuffer[0] = 0; // reset count after send
+            // Creates the message type and bitmask char values
+            unsigned char messageType = 0x01, bitmask = 0x17, checksum;
+
+            // This will hold the message that we want the slave to send
+            unsigned char message[6];
+
+            // Stores the appropriate values in the message to be sent
+            message[0] = messageType;
+            message[1] = adcbuffer[1];
+            message[2] = adcbuffer[2];
+            message[3] = adcbuffer[3];
+
+            // Creates the checksum
+            checksum = message[1] + message[2] + message[3];
+            message[4] = checksum & bitmask;
+            message[5] = 0x00;
+
+            start_i2c_slave_reply(length, message);
+            
         } else if(ic_ptr->buffer[0] == 0xBA){ // motor command
             // motor stuff
-            length = 5;
-            //unsigned char ack[5] = {0x03, 0x00, 0x00, 0x00, 0x00};
-            //start_i2c_slave_reply(length, ack)
-            motorMove(ic_ptr->buffer[1], ic_ptr->buffer[2], ic_ptr->buffer[3]);
+            unsigned char ack[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
+            start_i2c_slave_reply(length, ack);
+            rightEncoder = 0;
+            leftEncoder = 0;
+            motorMove(ic_ptr->buffer[1], ic_ptr->buffer[2], ic_ptr->buffer[3], ic_ptr->buffer[4]);
         }
-        else if(ic_ptr->buffer[0] == 0xBB) { // distance check
-            unsigned char dist[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
-            dist[1] = distMoved;
+        else if(ic_ptr->buffer[0] == 0xCA) { // distance check
+            unsigned char dist[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+            dist[1] = stopCond;
+            dist[2] = leftEncoder;
+            dist[3] = rightEncoder;
             start_i2c_slave_reply(length, dist);
+        }
+        else if(ic_ptr->buffer[0] == 0xBC) { // move with corrections
+            unsigned char ack[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00}; // ack
+            start_i2c_slave_reply(length, ack);
+            motorMove(ic_ptr->buffer[1], ic_ptr->buffer[2], ic_ptr->buffer[3], ic_ptr->buffer[4]);
         }
         msg_to_send = 0;
     }

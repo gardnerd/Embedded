@@ -5956,9 +5956,9 @@ signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 
 # 10 "../src/my_uart.h"
 typedef struct __uart_comm {
-unsigned char buffer[5];
+unsigned char buffer[6];
 unsigned char buflen;
-unsigned char txBuff[5];
+unsigned char txBuff[6];
 unsigned char txBuflen;
 unsigned char txBufind;
 } uart_comm;
@@ -5970,13 +5970,15 @@ void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
 # 15 "../src/motor.h"
-unsigned char distDesired;
+unsigned char stopCond;
+unsigned char leftDistDesired;
+unsigned char rightDistDesired;
 unsigned char distMoved;
 unsigned char leftEncoder;
 unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char, unsigned char);
+void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {
@@ -6009,23 +6011,24 @@ unsigned char adcbuffer[28];
 
 # 17 "../src/user_interrupts.c"
 void timer0_int_handler() {
-WriteTimer0(0);
+WriteTimer0(0x7F);
 
 # 36
-distMoved++;
-if(distMoved >= distDesired){
+rightEncoder++;
+if(rightEncoder >= rightDistDesired){
 
-unsigned char motormsg[5] = {0x04, 0x00, 0x00, 0x00, 0x00};
-motormsg[1] = distMoved;
-motormsg[2] = (distMoved & 0x17);
-start_i2c_slave_reply(5, motormsg);
+unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+motormsg[1] = rightEncoder;
+motormsg[2] = (rightEncoder & 0x17);
 
-distMoved = 0;
-unsigned char motorcomm[2] = {0x00, 0x00};
-motorMove(0x00, 0x00, 0);
+unsigned char motorcomm[2] = {0x40, 0x40};
+motorMove(0x40, 0x40, leftDistDesired, rightDistDesired);
+if(leftEncoder >= leftDistDesired){
+stopCond = 0x01;
+}
 }
 
-# 57
+# 60
 }
 
 
@@ -6033,15 +6036,62 @@ motorMove(0x00, 0x00, 0);
 
 void timer1_int_handler() {
 
-# 74
-WriteTimer1(0);
+# 77
+WriteTimer1(0xFF7F);
+
+leftEncoder++;
+if(leftEncoder >= leftDistDesired){
+
+unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+motormsg[1] = leftEncoder;
+motormsg[2] = (leftEncoder & 0x17);
+
+
+unsigned char motorcomm[2] = {0xC0, 0xC0};
+motorMove(0xC0, 0xC0, leftDistDesired, rightDistDesired);
+
+if(rightEncoder >= rightDistDesired){
+stopCond = 0x01;
+}
+}
 }
 
 void adc_int_handler(){
 
-if(adcbuffer[0] < 27)
-adcbuffer[0] = adcbuffer[0] + 1;
 
-# 87
-adcbuffer[adcbuffer[0]] = ADRESH;
+if(adcbuffer[0] < 3)
+adcbuffer[0] = adcbuffer[0] + 1;
+else
+adcbuffer[0] = 1;
+
+
+int k = (int)ADRESH;
+float voltage = 3.4*k/256;
+int roundDist;
+
+
+
+if (voltage > .5) {
+float dist = 24/(voltage - 0.1);
+roundDist = (int)(dist + 0.5);
+}
+
+else
+roundDist = 0xFF;
+
+
+
+int channel = (int)adcbuffer[0] % 3;
+if (channel == 0) {
+adcbuffer[3] = roundDist;
+SetChanADC(0b10001111);
+}
+else if (channel == 1) {
+adcbuffer[1] = roundDist;
+SetChanADC(0b10010111);
+}
+else {
+adcbuffer[2] = roundDist;
+SetChanADC(0b10011111);
+}
 }

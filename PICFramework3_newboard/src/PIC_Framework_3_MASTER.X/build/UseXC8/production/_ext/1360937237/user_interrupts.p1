@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "121 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib\timers.h
 [v _WriteTimer0 `(v ~T0 @X0 0 ef1`ui ]
-"188
+"58 ../src/messages.h
+[v _ToMainLow_sendmsg `(c ~T0 @X0 0 ef3`uc`uc`*v ]
+"188 C:\Program Files (x86)\Microchip\xc8\v1.30\include\plib\timers.h
 [v _WriteTimer1 `(v ~T0 @X0 0 ef1`ui ]
-"12562 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f46j50.h
-[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
 [; ;htc.h: 22: extern void __builtin_software_breakpoint(void);
 [; ;pic18f46j50.h: 44: extern volatile unsigned char RPOR0 @ 0xEC6;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f46j50.h
@@ -8338,9 +8338,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
 [; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
-[; ;my_uart.h: 11: unsigned char buffer[5];
+[; ;my_uart.h: 11: unsigned char buffer[6];
 [; ;my_uart.h: 12: unsigned char buflen;
-[; ;my_uart.h: 13: unsigned char txBuff[5];
+[; ;my_uart.h: 13: unsigned char txBuff[6];
 [; ;my_uart.h: 14: unsigned char txBuflen;
 [; ;my_uart.h: 15: unsigned char txBufind;
 [; ;my_uart.h: 16: } uart_comm;
@@ -8390,35 +8390,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1135 ]
 }
 "50
+[v _t1Mult `ui ~T0 @X0 1 e ]
+[; ;user_interrupts.c: 50: unsigned int t1Mult;
+"51
 [v _timer1_int_handler `(v ~T0 @X0 1 ef ]
 {
-[; ;user_interrupts.c: 50: void timer1_int_handler() {
+[; ;user_interrupts.c: 51: void timer1_int_handler() {
 [e :U _timer1_int_handler ]
 [f ]
-[; ;user_interrupts.c: 62: WriteTimer1(0);
+[; ;user_interrupts.c: 59: t1Mult++;
+"59
+[e ++ _t1Mult -> -> 1 `i `ui ]
+[; ;user_interrupts.c: 61: if(t1Mult == 2){
+"61
+[e $ ! == _t1Mult -> -> 2 `i `ui 1137  ]
+{
+[; ;user_interrupts.c: 62: ToMainLow_sendmsg(0, 11, (void *) 0);
 "62
-[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
-[; ;user_interrupts.c: 63: }
+[e ( _ToMainLow_sendmsg (3 , , -> -> 0 `i `uc -> -> 11 `i `uc -> -> 0 `i `*v ]
+[; ;user_interrupts.c: 63: t1Mult = 0;
 "63
+[e = _t1Mult -> -> 0 `i `ui ]
+"64
+}
+[e :U 1137 ]
+[; ;user_interrupts.c: 64: }
+[; ;user_interrupts.c: 67: WriteTimer1(0);
+"67
+[e ( _WriteTimer1 (1 -> -> 0 `i `ui ]
+[; ;user_interrupts.c: 68: }
+"68
 [e :UE 1136 ]
 }
-"65
+"70
 [v _adc_int_handler `(v ~T0 @X0 1 ef ]
 {
-[; ;user_interrupts.c: 65: void adc_int_handler(){
+[; ;user_interrupts.c: 70: void adc_int_handler(){
 [e :U _adc_int_handler ]
 [f ]
-[; ;user_interrupts.c: 67: if(adcbuffer[0] < 27)
-"67
-[e $ ! < -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 27 `i 1138  ]
-[; ;user_interrupts.c: 68: adcbuffer[0] = adcbuffer[0] + 1;
-"68
-[e = *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> + -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 1 `i `uc ]
-[e :U 1138 ]
-[; ;user_interrupts.c: 75: adcbuffer[adcbuffer[0]] = ADRESH;
-"75
-[e = *U + &U _adcbuffer * -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `ux -> -> # *U &U _adcbuffer `ui `ux _ADRESH ]
-[; ;user_interrupts.c: 76: }
-"76
-[e :UE 1137 ]
+[; ;user_interrupts.c: 72: }
+"72
+[e :UE 1138 ]
 }

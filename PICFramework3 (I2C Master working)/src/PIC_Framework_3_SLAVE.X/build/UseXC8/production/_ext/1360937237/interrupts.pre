@@ -5968,9 +5968,9 @@ signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 
 # 10 "../src/my_uart.h"
 typedef struct __uart_comm {
-unsigned char buffer[5];
+unsigned char buffer[6];
 unsigned char buflen;
-unsigned char txBuff[5];
+unsigned char txBuff[6];
 unsigned char txBuflen;
 unsigned char txBufind;
 } uart_comm;
@@ -5982,13 +5982,15 @@ void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
 # 15 "../src/motor.h"
-unsigned char distDesired;
+unsigned char stopCond;
+unsigned char leftDistDesired;
+unsigned char rightDistDesired;
 unsigned char distMoved;
 unsigned char leftEncoder;
 unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char, unsigned char);
+void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {
@@ -6077,9 +6079,9 @@ i2c_int_handler();
 if (INTCONbits.TMR0IF) {
 INTCONbits.TMR0IF = 0;
 
-PORTAbits.AN0 = 1;
+PORTAbits.RA0 = 1;
 timer0_int_handler();
-PORTAbits.AN0 = 0;
+PORTAbits.RA0 = 0;
 }
 
 # 115
@@ -6101,7 +6103,10 @@ adc_int_handler();
 
 if (PIR1bits.TMR1IF) {
 PIR1bits.TMR1IF = 0;
+
+PORTAbits.RA1 = 1;
 timer1_int_handler();
+PORTAbits.RA1 = 0;
 
 }
 

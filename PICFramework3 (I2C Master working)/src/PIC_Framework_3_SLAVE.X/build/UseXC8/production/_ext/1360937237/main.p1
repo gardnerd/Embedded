@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "10 ../src/my_uart.h
-[s S584 `uc -> 5 `i `uc 1 `uc -> 5 `i `uc 1 `uc 1 ]
+[s S584 `uc -> 6 `i `uc 1 `uc -> 6 `i `uc 1 `uc 1 ]
 [n S584 __uart_comm buffer buflen txBuff txBuflen txBufind ]
 "8 ../src/my_i2c.h
 [s S585 `uc -> 10 `i `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 10 `i `uc 1 `uc 1 `uc 1 ]
@@ -4769,9 +4769,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;messages.h: 79: signed char FromMainHigh_sendmsg(unsigned char,unsigned char,void *);
 [; ;messages.h: 80: signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 [; ;my_uart.h: 10: typedef struct __uart_comm {
-[; ;my_uart.h: 11: unsigned char buffer[5];
+[; ;my_uart.h: 11: unsigned char buffer[6];
 [; ;my_uart.h: 12: unsigned char buflen;
-[; ;my_uart.h: 13: unsigned char txBuff[5];
+[; ;my_uart.h: 13: unsigned char txBuff[6];
 [; ;my_uart.h: 14: unsigned char txBuflen;
 [; ;my_uart.h: 15: unsigned char txBufind;
 [; ;my_uart.h: 16: } uart_comm;
@@ -4780,18 +4780,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;my_uart.h: 21: void uart_trans(unsigned char, unsigned char *);
 [; ;my_uart.h: 22: void uart_trans_int_handler();
 "15 ../src/motor.h
-[v _distDesired `uc ~T0 @X0 1 e ]
-[; ;motor.h: 15: unsigned char distDesired;
+[v _stopCond `uc ~T0 @X0 1 e ]
+[; ;motor.h: 15: unsigned char stopCond;
 "16
-[v _distMoved `uc ~T0 @X0 1 e ]
-[; ;motor.h: 16: unsigned char distMoved;
+[v _leftDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 16: unsigned char leftDistDesired;
 "17
-[v _leftEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 17: unsigned char leftEncoder;
+[v _rightDistDesired `uc ~T0 @X0 1 e ]
+[; ;motor.h: 17: unsigned char rightDistDesired;
 "18
+[v _distMoved `uc ~T0 @X0 1 e ]
+[; ;motor.h: 18: unsigned char distMoved;
+"19
+[v _leftEncoder `uc ~T0 @X0 1 e ]
+[; ;motor.h: 19: unsigned char leftEncoder;
+"20
 [v _rightEncoder `uc ~T0 @X0 1 e ]
-[; ;motor.h: 18: unsigned char rightEncoder;
-[; ;motor.h: 21: void motorMove(unsigned char , unsigned char, unsigned char);
+[; ;motor.h: 20: unsigned char rightEncoder;
+[; ;motor.h: 23: void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 [; ;my_i2c.h: 8: typedef struct __i2c_comm {
 [; ;my_i2c.h: 9: unsigned char buffer[10];
 [; ;my_i2c.h: 10: unsigned char buflen;
@@ -4916,15 +4922,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 241: LATA = 0x0;
 "241
 [e = _LATA -> -> 0 `i `uc ]
-[; ;main.c: 242: TRISA = 0x0F;
+[; ;main.c: 242: TRISA = 0x00;
 "242
-[e = _TRISA -> -> 15 `i `uc ]
+[e = _TRISA -> -> 0 `i `uc ]
 [; ;main.c: 257: OpenTimer0(0b11111111 & 0b11111111 & 0b11111111 & 0b11101111 & 0b11111111);
 "257
 [e ( _OpenTimer0 (1 -> & & & & -> 255 `i -> 255 `i -> 255 `i -> 239 `i -> 255 `i `uc ]
-[; ;main.c: 269: OpenTimer1(0b11111111 & 0b10111111 & 0b11001111 & 0b11111111 & 0b11110111 & 0b11111111);
+[; ;main.c: 269: OpenTimer1(0b11111111 & 0b11111111 & 0b11001111 & 0b11111111 & 0b11110111 & 0b11111111);
 "269
-[e ( _OpenTimer1 (1 -> & & & & & -> 255 `i -> 191 `i -> 207 `i -> 255 `i -> 247 `i -> 255 `i `uc ]
+[e ( _OpenTimer1 (1 -> & & & & & -> 255 `i -> 255 `i -> 207 `i -> 255 `i -> 247 `i -> 255 `i `uc ]
 [; ;main.c: 270: TRISC = 0xFF;
 "270
 [e = _TRISC -> -> 255 `i `uc ]
@@ -4976,8 +4982,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 363: SetChanADC(0b10001111);
 "363
 [e ( _SetChanADC (1 -> -> 143 `i `uc ]
-[v F5220 `uc ~T0 @X0 -> 2 `i s ]
-[i F5220
+[v F5223 `uc ~T0 @X0 -> 2 `i s ]
+[i F5223
 :U ..
 "374
 -> -> 1 `i `uc
@@ -4986,7 +4992,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [v _msg `uc ~T0 @X0 -> 2 `i a ]
 [; ;main.c: 374: unsigned char msg[2] = {0x01, 0x02};
-[e = _msg F5220 ]
+[e = _msg F5223 ]
 [; ;main.c: 382: while (1) {
 "382
 [e :U 591 ]

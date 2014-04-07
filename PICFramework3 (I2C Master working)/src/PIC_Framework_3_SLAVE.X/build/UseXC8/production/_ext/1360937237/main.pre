@@ -6024,9 +6024,9 @@ signed char FromMainHigh_recvmsg(unsigned char,unsigned char *,void *);
 
 # 10 "../src/my_uart.h"
 typedef struct __uart_comm {
-unsigned char buffer[5];
+unsigned char buffer[6];
 unsigned char buflen;
-unsigned char txBuff[5];
+unsigned char txBuff[6];
 unsigned char txBuflen;
 unsigned char txBufind;
 } uart_comm;
@@ -6038,13 +6038,15 @@ void uart_trans(unsigned char, unsigned char *);
 void uart_trans_int_handler();
 
 # 15 "../src/motor.h"
-unsigned char distDesired;
+unsigned char stopCond;
+unsigned char leftDistDesired;
+unsigned char rightDistDesired;
 unsigned char distMoved;
 unsigned char leftEncoder;
 unsigned char rightEncoder;
 
 
-void motorMove(unsigned char , unsigned char, unsigned char);
+void motorMove(unsigned char , unsigned char, unsigned char, unsigned char);
 
 # 8 "../src/my_i2c.h"
 typedef struct __i2c_comm {
@@ -6160,13 +6162,13 @@ LATB = 0x0;
 
 PORTA = 0x0;
 LATA = 0x0;
-TRISA = 0x0F;
+TRISA = 0x00;
 
 # 257
 OpenTimer0(0b11111111 & 0b11111111 & 0b11111111 & 0b11101111 & 0b11111111);
 
 # 269
-OpenTimer1(0b11111111 & 0b10111111 & 0b11001111 & 0b11111111 & 0b11110111 & 0b11111111);
+OpenTimer1(0b11111111 & 0b11111111 & 0b11001111 & 0b11111111 & 0b11110111 & 0b11111111);
 TRISC = 0xFF;
 
 # 278
