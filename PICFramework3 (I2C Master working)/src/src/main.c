@@ -236,10 +236,14 @@ void main(void) {
     // set direction for PORTB to output
     TRISB = 0xFF; //input
     LATB = 0x0;
-
+#ifdef MOTORPIC
     PORTA = 0x0;
     LATA = 0x0;
     TRISA = 0x00;
+#else
+    TRISA = 0xFF; // input
+#endif
+
 #endif
 
     // how to set up PORTA for input (for the V4 board with the PIC2680)
@@ -280,7 +284,7 @@ void main(void) {
     // Timer1 interrupt
     IPR1bits.TMR1IP = 0;
     // Timer0 interrupt
-    INTCON2bits.TMR0IP = 1;
+    INTCON2bits.TMR0IP = 0;
     // USART RX interrupt
     IPR1bits.RCIP = 0;
     // USART TX interrupt

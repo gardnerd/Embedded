@@ -6164,20 +6164,20 @@ PORTA = 0x0;
 LATA = 0x0;
 TRISA = 0x00;
 
-# 257
+# 261
 OpenTimer0(0b11111111 & 0b11111111 & 0b11111111 & 0b11101111 & 0b11111111);
 
-# 269
+# 273
 OpenTimer1(0b11111111 & 0b11111111 & 0b11001111 & 0b11111111 & 0b11110111 & 0b11111111);
 TRISC = 0xFF;
 
-# 278
+# 282
 IPR1bits.ADIP = 0;
 PIE1bits.ADIE = 1;
 
 IPR1bits.TMR1IP = 0;
 
-INTCON2bits.TMR0IP = 1;
+INTCON2bits.TMR0IP = 0;
 
 IPR1bits.RCIP = 0;
 
@@ -6185,38 +6185,38 @@ IPR1bits.TXIP = 0;
 
 IPR1bits.SSPIP = 1;
 
-# 306
+# 310
 i2c_configure_slave(0xBE);
 
-# 325
+# 329
 PIE1bits.SSPIE = 1;
 
-# 336
+# 340
 OpenUSART(0b11111111 & 0b11111111 & 0b11111110 & 0b11111101 &
 0b11111111 & 0b11111111, 38);
 RCSTAbits.SPEN = 1;
 TRISC = 0xFF;
 
-# 346
+# 350
 enable_interrupts();
 
-# 360
+# 364
 OpenADC(0b11011111 & 0b01111111 & 0b11110011,
 0b10001111 & 0b01111111 & 0b11111110 & 0b11111101,
 0b1011);
 SetChanADC(0b10001111);
 
-# 374
+# 378
 unsigned char msg[2] = {0x01, 0x02};
 
-# 382
+# 386
 while (1) {
 
 
 
 block_on_To_msgqueues();
 
-# 393
+# 397
 length = ToMainHigh_recvmsg(10, &msgtype, (void *) msgbuffer);
 if (length < 0) {
 

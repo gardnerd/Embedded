@@ -6036,7 +6036,7 @@ stopCond = 0x01;
 
 void timer1_int_handler() {
 
-# 77
+# 78
 WriteTimer1(0xFF7F);
 
 leftEncoder++;
@@ -6054,6 +6054,8 @@ if(rightEncoder >= rightDistDesired){
 stopCond = 0x01;
 }
 }
+
+
 }
 
 void adc_int_handler(){

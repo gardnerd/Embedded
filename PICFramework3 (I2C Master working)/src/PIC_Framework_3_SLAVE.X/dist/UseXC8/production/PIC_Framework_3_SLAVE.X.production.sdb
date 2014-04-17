@@ -19,7 +19,7 @@
 [v _in_main in_main `(i  1 e 2 0 ]
 "84
 [v _InterruptHandlerHigh InterruptHandlerHigh `II(v  1 e 0 0 ]
-"128
+"119
 [v _InterruptHandlerLow InterruptHandlerLow `IIL(v  1 e 0 0 ]
 "186 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/main.c
 [v _main main `(v  1 e 0 0 ]
@@ -109,7 +109,7 @@
 [v _timer0_int_handler timer0_int_handler `(v  1 e 0 0 ]
 "65
 [v _timer1_int_handler timer1_int_handler `(v  1 e 0 0 ]
-"96
+"99
 [v _adc_int_handler adc_int_handler `(v  1 e 0 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -303,7 +303,7 @@
 [v _adcbuffer adcbuffer `[28]uc  1 e 28 0 ]
 "44 C:\Program Files (x86)\Microchip\xc8\v1.30\include\pic18f45j10.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
-[s S209 . 1 `uc 1 RA0 1 0 :1:0 
+[s S217 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -311,49 +311,49 @@
 `uc 1 RA5 1 0 :1:5 
 ]
 "111
-[s S216 . 1 `uc 1 AN0 1 0 :1:0 
+[s S224 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 AN4 1 0 :1:5 
 ]
-[s S223 . 1 `uc 1 . 1 0 :2:0 
+[s S231 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 SS1 1 0 :1:5 
 ]
-[s S229 . 1 `uc 1 . 1 0 :2:0 
+[s S237 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CVREF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 C2OUT 1 0 :1:5 
 ]
-[s S234 . 1 `uc 1 . 1 0 :5:0 
+[s S242 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS1 1 0 :1:5 
 ]
-[s S237 . 1 `uc 1 . 1 0 :5:0 
+[s S245 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nSS1 1 0 :1:5 
 ]
-[s S240 . 1 `uc 1 . 1 0 :5:0 
+[s S248 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S243 . 1 `uc 1 . 1 0 :4:0 
+[s S251 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 RA4 1 0 :1:4 
 ]
-[s S246 . 1 `uc 1 . 1 0 :6:0 
+[s S254 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RA6 1 0 :1:6 
 ]
-[s S249 . 1 `uc 1 . 1 0 :7:0 
+[s S257 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RA7 1 0 :1:7 
 ]
-[s S252 . 1 `uc 1 . 1 0 :7:0 
+[s S260 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[s S255 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S263 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 ]
-[u S257 . 1 `S209 1 . 1 0 `S216 1 . 1 0 `S223 1 . 1 0 `S229 1 . 1 0 `S234 1 . 1 0 `S237 1 . 1 0 `S240 1 . 1 0 `S243 1 . 1 0 `S246 1 . 1 0 `S249 1 . 1 0 `S252 1 . 1 0 `S255 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES257  1 e 1 @3968 ]
+[u S265 . 1 `S217 1 . 1 0 `S224 1 . 1 0 `S231 1 . 1 0 `S237 1 . 1 0 `S242 1 . 1 0 `S245 1 . 1 0 `S248 1 . 1 0 `S251 1 . 1 0 `S254 1 . 1 0 `S257 1 . 1 0 `S260 1 . 1 0 `S263 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES265  1 e 1 @3968 ]
 "1941
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "2065
@@ -968,7 +968,7 @@
 [s S423 __timer0_thread_struct 2 `i 1 data 2 0 ]
 "197
 [v main@t0thread_data t0thread_data `S423  1 a 2 52 ]
-"374
+"378
 [v main@msg msg `[2]uc  1 a 2 38 ]
 "188
 [v main@length length `c  1 a 1 57 ]
@@ -976,9 +976,9 @@
 [v main@msgtype msgtype `uc  1 a 1 56 ]
 "190
 [v main@last_reg_recvd last_reg_recvd `uc  1 a 1 40 ]
-"363
+"367
 [v main@F5223 F5223 `[2]uc  1 s 2 F5223 ]
-"478
+"482
 } 0
 "61 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c
 [v _uart_trans uart_trans `(v  1 e 0 0 ]
@@ -1268,7 +1268,7 @@
 [v OpenADC@config config `uc  1 a 1 4 ]
 "89
 } 0
-"128 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c
+"119 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c
 [v _InterruptHandlerLow InterruptHandlerLow `IIL(v  1 e 0 0 ]
 {
 "158
@@ -1328,15 +1328,28 @@
 "65 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
 [v _timer1_int_handler timer1_int_handler `(v  1 e 0 0 ]
 {
-"82
+"83
 [v timer1_int_handler@motormsg motormsg `[6]uc  1 a 6 15 ]
-"87
+"88
 [v timer1_int_handler@motorcomm motorcomm `[2]uc  1 a 2 13 ]
-"80
+"81
 [v timer1_int_handler@F5122 F5122 `[6]uc  1 s 6 F5122 ]
-"84
+"85
 [v timer1_int_handler@F5124 F5124 `[2]uc  1 s 2 F5124 ]
-"94
+"97
+} 0
+"17
+[v _timer0_int_handler timer0_int_handler `(v  1 e 0 0 ]
+{
+"39
+[v timer0_int_handler@motormsg motormsg `[6]uc  1 a 6 15 ]
+"43
+[v timer0_int_handler@motorcomm motorcomm `[2]uc  1 a 2 13 ]
+"37
+[v timer0_int_handler@F5118 F5118 `[6]uc  1 s 6 F5118 ]
+"41
+[v timer0_int_handler@F5120 F5120 `[2]uc  1 s 2 F5120 ]
+"60
 } 0
 "5 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/motor.c
 [v _motorMove motorMove `(v  1 e 0 0 ]
@@ -1383,20 +1396,20 @@
 [v WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
 } 0
-"96 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
+"99 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
 [v _adc_int_handler adc_int_handler `(v  1 e 0 0 ]
 {
-"112
+"115
 [v adc_int_handler@dist dist `f  1 a 3 54 ]
-"106
+"109
 [v adc_int_handler@voltage voltage `f  1 a 3 59 ]
-"107
+"110
 [v adc_int_handler@roundDist roundDist `i  1 a 2 64 ]
-"121
+"124
 [v adc_int_handler@channel channel `i  1 a 2 62 ]
-"105
+"108
 [v adc_int_handler@k k `i  1 a 2 57 ]
-"134
+"137
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c
 [v i1___awmod __awmod `(i  1 e 2 0 ]
@@ -1495,20 +1508,7 @@
 "84 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/interrupts.c
 [v _InterruptHandlerHigh InterruptHandlerHigh `II(v  1 e 0 0 ]
 {
-"116
-} 0
-"17 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
-[v _timer0_int_handler timer0_int_handler `(v  1 e 0 0 ]
-{
-"39
-[v timer0_int_handler@motormsg motormsg `[6]uc  1 a 6 15 ]
-"43
-[v timer0_int_handler@motorcomm motorcomm `[2]uc  1 a 2 13 ]
-"37
-[v timer0_int_handler@F5118 F5118 `[6]uc  1 s 6 F5118 ]
-"41
-[v timer0_int_handler@F5120 F5120 `[2]uc  1 s 2 F5120 ]
-"60
+"107
 } 0
 "139 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_i2c.c
 [v _i2c_int_handler i2c_int_handler `(v  1 e 0 0 ]

@@ -74,6 +74,7 @@ void timer1_int_handler() {
     //ToMainLow_sendmsg(0, MSGT_TIMER1, (void *) 0);
 
     // reset the timer
+#ifdef MOTORPIC
     WriteTimer1(0xFF7F);
 
     leftEncoder++;
@@ -91,6 +92,8 @@ void timer1_int_handler() {
             stopCond = 0x01; // I've stopped
         }
     }
+#endif
+    
 }
 
 void adc_int_handler(){

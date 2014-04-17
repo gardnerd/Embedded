@@ -5945,7 +5945,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i F5143
 :U ..
 "434
--> -> 3 `i `uc
+-> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
@@ -5954,7 +5954,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ]
 [v _ack `uc ~T0 @X0 -> 6 `i a ]
-[; ;my_i2c.c: 434: unsigned char ack[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
+[; ;my_i2c.c: 434: unsigned char ack[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 [e = _ack F5143 ]
 [; ;my_i2c.c: 435: start_i2c_slave_reply(length, ack);
 "435

@@ -11139,7 +11139,7 @@ SetChanADC(0b10001111);
 # 375
 unsigned char msg[2] = {0x01, 0x02};
 
-# 393
+# 394
 unsigned char lastMotors[2];
 unsigned int state = 0;
 LATAbits.LA1 = 0;
@@ -11152,7 +11152,7 @@ while (1) {
 
 block_on_To_msgqueues();
 
-# 410
+# 411
 length = ToMainHigh_recvmsg(10, &msgtype, (void *) msgbuffer);
 if (length < 0) {
 
@@ -11180,9 +11180,9 @@ case 45:
 if(msgbuffer[0] == 0x04){
 if(msgbuffer[1] == 0x01){
 state = 0;
-LATAbits.LA1 = 0;
-LATAbits.LA2 = 0;
-LATAbits.LA3 = 0;
+
+
+
 }
 }
 
@@ -11203,9 +11203,9 @@ LATAbits.LA3 = 1;
 if(msgbuffer[1] <= 0x20){
 i2c_master_send(6, 6, stop, 0xBE);
 state = 0;
-LATAbits.LA1 = 0;
+LATAbits.LA1 = 1;
 LATAbits.LA2 = 0;
-LATAbits.LA3 = 0;
+LATAbits.LA3 = 1;
 
 }else if(msgbuffer[2] >= 0x5A){
 state = 3;
@@ -11213,12 +11213,28 @@ LATAbits.LA1 = 1;
 LATAbits.LA2 = 1;
 LATAbits.LA3 = 0;
 }
-
-# 485
+else if(msgbuffer[2] >= 0x20 || msgbuffer[3] >= 0x20){
+correct[1] = lastMotors[0];
+correct[2] = lastMotors[1] + 10;
+i2c_master_send(6, 6, correct, 0xBE);
+LATAbits.LA1 = 1;
+LATAbits.LA2 = 1;
+LATAbits.LA3 = 1;
+}else if(msgbuffer[2] <= 0x1E || msgbuffer[3] <= 0x1E){
+correct[1] = lastMotors[0] + 10;
+correct[2] = lastMotors[1];
+i2c_master_send(6, 6, correct, 0xBE);
+LATAbits.LA1 = 0;
+LATAbits.LA2 = 1;
+LATAbits.LA3 = 1;
+}
 else{
 correct[1] = lastMotors[0];
 correct[2] = lastMotors[1];
 i2c_master_send(6, 6, correct, 0xBE);
+LATAbits.LA1 = 1;
+LATAbits.LA2 = 0;
+LATAbits.LA3 = 0;
 }
 }
 
@@ -11272,6 +11288,9 @@ if(msgbuffer[0] == 0xBA || msgbuffer[0] == 0xCA || msgbuffer[0] == 0x0BC){
 
 if(msgbuffer[0] == 0x0BA || msgbuffer[0] == 0xBC){
 
+unsigned char motorAck[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
+uart_trans(6, motorAck);
+
 lastMotors[0] = msgbuffer[1];
 lastMotors[1] = msgbuffer[2];
 
@@ -11289,7 +11308,6 @@ LATAbits.LA3 = 0;
 
 }
 i2c_master_send(6, 6, msgbuffer, 0xBE);
-
 
 } else if(msgbuffer[0] == 0xAA){
 

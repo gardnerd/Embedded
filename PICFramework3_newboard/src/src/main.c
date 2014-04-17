@@ -386,8 +386,9 @@ void main(void) {
 #define DISCMOVE    2
 #define FRONTCLEAR  3
       //back clear  4
-      //corr L      5
+      //fwd stop    5
       //corr R      6
+      //corr L      7
 
 
       unsigned char lastMotors[2];
@@ -434,9 +435,9 @@ void main(void) {
                     if(msgbuffer[0] == 0x04){
                         if(msgbuffer[1] == 0x01){
                             state = STOPPED;
-                            LATAbits.LA1 = 0;
-                            LATAbits.LA2 = 0;
-                            LATAbits.LA3 = 0;
+//                            LATAbits.LA1 = 0;
+//                            LATAbits.LA2 = 0;
+//                            LATAbits.LA3 = 0;
                         }
                     }
 
@@ -457,9 +458,9 @@ void main(void) {
                             if(msgbuffer[1] <= 0x20){ // stop
                                 i2c_master_send(6, 6, stop, 0xBE);
                                 state = STOPPED;
-                                LATAbits.LA1 = 0;
+                                LATAbits.LA1 = 1;
                                 LATAbits.LA2 = 0;
-                                LATAbits.LA3 = 0;
+                                LATAbits.LA3 = 1;
 
                             }else if(msgbuffer[2] >= 0x5A){ // front clear obstacle
                                 state = FRONTCLEAR;
@@ -467,25 +468,28 @@ void main(void) {
                                 LATAbits.LA2 = 1;
                                 LATAbits.LA3 = 0;
                             }
-//                            else if(msgbuffer[2] >= 0x3C && msgbuffer[3] >= 0x3C){ // front too far
-//                                correct[1] = lastMotors[0]; // left
-//                                correct[2] = lastMotors[1] + 20; // right (add to slow down)
-//                                i2c_master_send(6, 6, correct, 0xBE);
-//                                LATAbits.LA1 = 0;
-//                                LATAbits.LA2 = 1;
-//                                LATAbits.LA3 = 1;
-//                            }else if(msgbuffer[2] <= 0x1E && msgbuffer[3] <= 0x1E){ // back too far
-//                                correct[1] = lastMotors[0] + 20; // left
-//                                correct[2] = lastMotors[1]; // right
-//                                i2c_master_send(6, 6, correct, 0xBE);
-//                                LATAbits.LA1 = 1;
-//                                LATAbits.LA2 = 0;
-//                                LATAbits.LA3 = 1;
-//                            }
+                            else if(msgbuffer[2] >= 0x20 || msgbuffer[3] >= 0x20){ // too far
+                                correct[1] = lastMotors[0]; // left
+                                correct[2] = lastMotors[1] + 10; // right (add to slow down)
+                                i2c_master_send(6, 6, correct, 0xBE);
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 1;
+                                LATAbits.LA3 = 1;
+                            }else if(msgbuffer[2] <= 0x1E || msgbuffer[3] <= 0x1E){ // too close
+                                correct[1] = lastMotors[0] + 10; // left
+                                correct[2] = lastMotors[1]; // right
+                                i2c_master_send(6, 6, correct, 0xBE);
+                                LATAbits.LA1 = 0;
+                                LATAbits.LA2 = 1;
+                                LATAbits.LA3 = 1;
+                            }
                             else{
                                 correct[1] = lastMotors[0]; // left
                                 correct[2] = lastMotors[1]; // right
                                 i2c_master_send(6, 6, correct, 0xBE);
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 0;
+                                LATAbits.LA3 = 0;
                             }
                         }
 
@@ -539,6 +543,9 @@ void main(void) {
                         // motor command
                         if(msgbuffer[0] == 0x0BA || msgbuffer[0] == 0xBC){
 
+                            unsigned char motorAck[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
+                            uart_trans(6, motorAck);
+                            
                             lastMotors[0] = msgbuffer[1];
                             lastMotors[1] = msgbuffer[2];
 
@@ -556,8 +563,7 @@ void main(void) {
                             
                         }
                         i2c_master_send(6, 6, msgbuffer, 0xBE);
-                        //unsigned char motorAck[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
-                        //uart_trans(6, motorAck);
+
                     } else if(msgbuffer[0] == 0xAA){
                         // sensor command
                         i2c_master_send(1, 6, msgbuffer, 0x9E);
