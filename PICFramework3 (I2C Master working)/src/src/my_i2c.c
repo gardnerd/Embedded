@@ -429,7 +429,7 @@ void i2c_slave_int_handler() {
 
             start_i2c_slave_reply(length, message);
             
-        } else if(ic_ptr->buffer[0] == 0xBA){ // motor command
+        } else if(ic_ptr->buffer[0] == 0xBA || ic_ptr->buffer[0] == 0xBD){ // motor command
             // motor stuff
             unsigned char ack[6] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
             start_i2c_slave_reply(length, ack);

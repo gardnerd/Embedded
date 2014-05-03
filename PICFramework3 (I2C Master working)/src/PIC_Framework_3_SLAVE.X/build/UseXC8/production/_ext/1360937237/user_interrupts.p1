@@ -4672,239 +4672,197 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;user_interrupts.c: 18: WriteTimer0(0x7F);
 "18
 [e ( _WriteTimer0 (1 -> -> 127 `i `ui ]
-[; ;user_interrupts.c: 36: rightEncoder++;
-"36
-[e ++ _rightEncoder -> -> 1 `i `uc ]
-[; ;user_interrupts.c: 37: if(rightEncoder >= rightDistDesired){
+[; ;user_interrupts.c: 37: rightEncoder++;
 "37
+[e ++ _rightEncoder -> -> 1 `i `uc ]
+[; ;user_interrupts.c: 39: if( rightEncoder >= rightDistDesired){
+"39
 [e $ ! >= -> _rightEncoder `i -> _rightDistDesired `i 586  ]
 {
-[v F5118 `uc ~T0 @X0 -> 6 `i s ]
+[v F5118 `uc ~T0 @X0 -> 2 `i s ]
 [i F5118
 :U ..
-"39
--> -> 4 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
+"46
+-> -> 64 `i `uc
+-> -> 64 `i `uc
 ..
 ]
-[v _motormsg `uc ~T0 @X0 -> 6 `i a ]
-[; ;user_interrupts.c: 39: unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
-[e = _motormsg F5118 ]
-[; ;user_interrupts.c: 40: motormsg[1] = rightEncoder;
-"40
-[e = *U + &U _motormsg * -> -> -> 1 `i `ui `ux -> -> # *U &U _motormsg `ui `ux _rightEncoder ]
-[; ;user_interrupts.c: 41: motormsg[2] = (rightEncoder & 0x17);
-"41
-[e = *U + &U _motormsg * -> -> -> 2 `i `ui `ux -> -> # *U &U _motormsg `ui `ux -> & -> _rightEncoder `i -> 23 `i `uc ]
+[v _motorcomm `uc ~T0 @X0 -> 2 `i a ]
+[; ;user_interrupts.c: 46: unsigned char motorcomm[2] = {0x40, 0x40};
+[e = _motorcomm F5118 ]
+[; ;user_interrupts.c: 47: motorMove(0x40, 0x40, 0, 0);
+"47
+[e ( _motorMove (4 , , , -> -> 64 `i `uc -> -> 64 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;user_interrupts.c: 48: if(leftEncoder >= leftDistDesired){
+"48
+[e $ ! >= -> _leftEncoder `i -> _leftDistDesired `i 587  ]
+{
+[; ;user_interrupts.c: 49: stopCond = 0x01;
+"49
+[e = _stopCond -> -> 1 `i `uc ]
+"50
+}
+[e :U 587 ]
+"51
+}
+[e :U 586 ]
+[; ;user_interrupts.c: 50: }
+[; ;user_interrupts.c: 51: }
+[; ;user_interrupts.c: 64: }
+"64
+[e :UE 585 ]
+}
+"69
+[v _timer1_int_handler `(v ~T0 @X0 1 ef ]
+{
+[; ;user_interrupts.c: 69: void timer1_int_handler() {
+[e :U _timer1_int_handler ]
+[f ]
+[; ;user_interrupts.c: 82: WriteTimer1(0xFF7F);
+"82
+[e ( _WriteTimer1 (1 -> 65407 `ui ]
+[; ;user_interrupts.c: 84: leftEncoder++;
+"84
+[e ++ _leftEncoder -> -> 1 `i `uc ]
+[; ;user_interrupts.c: 86: if(leftEncoder >= leftDistDesired){
+"86
+[e $ ! >= -> _leftEncoder `i -> _leftDistDesired `i 589  ]
+{
 [v F5120 `uc ~T0 @X0 -> 2 `i s ]
 [i F5120
 :U ..
-"43
--> -> 64 `i `uc
--> -> 64 `i `uc
+"93
+-> -> 192 `i `uc
+-> -> 192 `i `uc
 ..
 ]
 [v _motorcomm `uc ~T0 @X0 -> 2 `i a ]
-[; ;user_interrupts.c: 43: unsigned char motorcomm[2] = {0x40, 0x40};
+[; ;user_interrupts.c: 93: unsigned char motorcomm[2] = {0xC0, 0xC0};
 [e = _motorcomm F5120 ]
-[; ;user_interrupts.c: 44: motorMove(0x40, 0x40, leftDistDesired, rightDistDesired);
-"44
-[e ( _motorMove (4 , , , -> -> 64 `i `uc -> -> 64 `i `uc _leftDistDesired _rightDistDesired ]
-[; ;user_interrupts.c: 45: if(leftEncoder >= leftDistDesired){
-"45
-[e $ ! >= -> _leftEncoder `i -> _leftDistDesired `i 587  ]
-{
-[; ;user_interrupts.c: 46: stopCond = 0x01;
-"46
-[e = _stopCond -> -> 1 `i `uc ]
-"47
-}
-[e :U 587 ]
-"48
-}
-[e :U 586 ]
-[; ;user_interrupts.c: 47: }
-[; ;user_interrupts.c: 48: }
-[; ;user_interrupts.c: 60: }
-"60
-[e :UE 585 ]
-}
-"65
-[v _timer1_int_handler `(v ~T0 @X0 1 ef ]
-{
-[; ;user_interrupts.c: 65: void timer1_int_handler() {
-[e :U _timer1_int_handler ]
-[f ]
-[; ;user_interrupts.c: 78: WriteTimer1(0xFF7F);
-"78
-[e ( _WriteTimer1 (1 -> 65407 `ui ]
-[; ;user_interrupts.c: 80: leftEncoder++;
-"80
-[e ++ _leftEncoder -> -> 1 `i `uc ]
-[; ;user_interrupts.c: 81: if(leftEncoder >= leftDistDesired){
-"81
-[e $ ! >= -> _leftEncoder `i -> _leftDistDesired `i 589  ]
-{
-[v F5122 `uc ~T0 @X0 -> 6 `i s ]
-[i F5122
-:U ..
-"83
--> -> 4 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-]
-[v _motormsg `uc ~T0 @X0 -> 6 `i a ]
-[; ;user_interrupts.c: 83: unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
-[e = _motormsg F5122 ]
-[; ;user_interrupts.c: 84: motormsg[1] = leftEncoder;
-"84
-[e = *U + &U _motormsg * -> -> -> 1 `i `ui `ux -> -> # *U &U _motormsg `ui `ux _leftEncoder ]
-[; ;user_interrupts.c: 85: motormsg[2] = (leftEncoder & 0x17);
-"85
-[e = *U + &U _motormsg * -> -> -> 2 `i `ui `ux -> -> # *U &U _motormsg `ui `ux -> & -> _leftEncoder `i -> 23 `i `uc ]
-[v F5124 `uc ~T0 @X0 -> 2 `i s ]
-[i F5124
-:U ..
-"88
--> -> 192 `i `uc
--> -> 192 `i `uc
-..
-]
-[v _motorcomm `uc ~T0 @X0 -> 2 `i a ]
-[; ;user_interrupts.c: 88: unsigned char motorcomm[2] = {0xC0, 0xC0};
-[e = _motorcomm F5124 ]
-[; ;user_interrupts.c: 89: motorMove(0xC0, 0xC0, leftDistDesired, rightDistDesired);
-"89
-[e ( _motorMove (4 , , , -> -> 192 `i `uc -> -> 192 `i `uc _leftDistDesired _rightDistDesired ]
-[; ;user_interrupts.c: 91: if(rightEncoder >= rightDistDesired){
-"91
+[; ;user_interrupts.c: 94: motorMove(0xC0, 0xC0, 0, 0);
+"94
+[e ( _motorMove (4 , , , -> -> 192 `i `uc -> -> 192 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;user_interrupts.c: 96: if(rightEncoder >= rightDistDesired){
+"96
 [e $ ! >= -> _rightEncoder `i -> _rightDistDesired `i 590  ]
 {
-[; ;user_interrupts.c: 92: stopCond = 0x01;
-"92
+[; ;user_interrupts.c: 97: stopCond = 0x01;
+"97
 [e = _stopCond -> -> 1 `i `uc ]
-"93
+"98
 }
 [e :U 590 ]
-"94
+"99
 }
 [e :U 589 ]
-[; ;user_interrupts.c: 93: }
-[; ;user_interrupts.c: 94: }
-[; ;user_interrupts.c: 97: }
-"97
+[; ;user_interrupts.c: 98: }
+[; ;user_interrupts.c: 99: }
+[; ;user_interrupts.c: 102: }
+"102
 [e :UE 588 ]
 }
-"99
+"104
 [v _adc_int_handler `(v ~T0 @X0 1 ef ]
 {
-[; ;user_interrupts.c: 99: void adc_int_handler(){
+[; ;user_interrupts.c: 104: void adc_int_handler(){
 [e :U _adc_int_handler ]
 [f ]
-[; ;user_interrupts.c: 102: if(adcbuffer[0] < 3)
-"102
+[; ;user_interrupts.c: 107: if(adcbuffer[0] < 3)
+"107
 [e $ ! < -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 3 `i 592  ]
-[; ;user_interrupts.c: 103: adcbuffer[0] = adcbuffer[0] + 1;
-"103
+[; ;user_interrupts.c: 108: adcbuffer[0] = adcbuffer[0] + 1;
+"108
 [e = *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> + -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 1 `i `uc ]
 [e $U 593  ]
-"104
+"109
 [e :U 592 ]
-[; ;user_interrupts.c: 104: else
-[; ;user_interrupts.c: 105: adcbuffer[0] = 1;
-"105
+[; ;user_interrupts.c: 109: else
+[; ;user_interrupts.c: 110: adcbuffer[0] = 1;
+"110
 [e = *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> -> 1 `i `uc ]
 [e :U 593 ]
-"108
+"113
 [v _k `i ~T0 @X0 1 a ]
-[; ;user_interrupts.c: 108: int k = (int)ADRESH;
+[; ;user_interrupts.c: 113: int k = (int)ADRESH;
 [e = _k -> _ADRESH `i ]
-"109
-[v _voltage `f ~T0 @X0 1 a ]
-[; ;user_interrupts.c: 109: float voltage = 3.4*k/256;
-[e = _voltage -> / * .3.4 -> _k `d -> -> 256 `i `d `f ]
-"110
-[v _roundDist `i ~T0 @X0 1 a ]
-[; ;user_interrupts.c: 110: int roundDist;
-[; ;user_interrupts.c: 114: if (voltage > .5) {
 "114
+[v _voltage `f ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 114: float voltage = 3.4*k/256;
+[e = _voltage -> / * .3.4 -> _k `d -> -> 256 `i `d `f ]
+"115
+[v _roundDist `i ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 115: int roundDist;
+[; ;user_interrupts.c: 119: if (voltage > .5) {
+"119
 [e $ ! > -> _voltage `d .0.5 594  ]
 {
-"115
-[v _dist `f ~T0 @X0 1 a ]
-[; ;user_interrupts.c: 115: float dist = 24/(voltage - 0.1);
-[e = _dist -> / -> -> 24 `i `d - -> _voltage `d .0.1 `f ]
-[; ;user_interrupts.c: 116: roundDist = (int)(dist + 0.5);
-"116
-[e = _roundDist -> + -> _dist `d .0.5 `i ]
-"117
-}
-[; ;user_interrupts.c: 117: }
-[e $U 595  ]
-"119
-[e :U 594 ]
-[; ;user_interrupts.c: 119: else
-[; ;user_interrupts.c: 120: roundDist = 0xFF;
 "120
-[e = _roundDist -> 255 `i ]
-[e :U 595 ]
+[v _dist `f ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 120: float dist = 24/(voltage - 0.1);
+[e = _dist -> / -> -> 24 `i `d - -> _voltage `d .0.1 `f ]
+[; ;user_interrupts.c: 121: roundDist = (int)(dist + 0.5);
+"121
+[e = _roundDist -> + -> _dist `d .0.5 `i ]
+"122
+}
+[; ;user_interrupts.c: 122: }
+[e $U 595  ]
 "124
-[v _channel `i ~T0 @X0 1 a ]
-[; ;user_interrupts.c: 124: int channel = (int)adcbuffer[0] % 3;
-[e = _channel % -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 3 `i ]
-[; ;user_interrupts.c: 125: if (channel == 0) {
+[e :U 594 ]
+[; ;user_interrupts.c: 124: else
+[; ;user_interrupts.c: 125: roundDist = 0xFE;
 "125
+[e = _roundDist -> 254 `i ]
+[e :U 595 ]
+"129
+[v _channel `i ~T0 @X0 1 a ]
+[; ;user_interrupts.c: 129: int channel = (int)adcbuffer[0] % 3;
+[e = _channel % -> *U + &U _adcbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux `i -> 3 `i ]
+[; ;user_interrupts.c: 130: if (channel == 0) {
+"130
 [e $ ! == _channel -> 0 `i 596  ]
 {
-[; ;user_interrupts.c: 126: adcbuffer[3] = roundDist;
-"126
+[; ;user_interrupts.c: 131: adcbuffer[3] = roundDist;
+"131
 [e = *U + &U _adcbuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
-[; ;user_interrupts.c: 127: SetChanADC(0b10001111);
-"127
+[; ;user_interrupts.c: 132: SetChanADC(0b10001111);
+"132
 [e ( _SetChanADC (1 -> -> 143 `i `uc ]
-"128
+"133
 }
-[; ;user_interrupts.c: 128: }
+[; ;user_interrupts.c: 133: }
 [e $U 597  ]
-"129
+"134
 [e :U 596 ]
-[; ;user_interrupts.c: 129: else if (channel == 1) {
+[; ;user_interrupts.c: 134: else if (channel == 1) {
 [e $ ! == _channel -> 1 `i 598  ]
 {
-[; ;user_interrupts.c: 130: adcbuffer[1] = roundDist;
-"130
-[e = *U + &U _adcbuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
-[; ;user_interrupts.c: 131: SetChanADC(0b10010111);
-"131
-[e ( _SetChanADC (1 -> -> 151 `i `uc ]
-"132
-}
-[; ;user_interrupts.c: 132: }
-[e $U 599  ]
-"133
-[e :U 598 ]
-[; ;user_interrupts.c: 133: else {
-{
-[; ;user_interrupts.c: 134: adcbuffer[2] = roundDist;
-"134
-[e = *U + &U _adcbuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
-[; ;user_interrupts.c: 135: SetChanADC(0b10011111);
+[; ;user_interrupts.c: 135: adcbuffer[1] = roundDist;
 "135
-[e ( _SetChanADC (1 -> -> 159 `i `uc ]
+[e = *U + &U _adcbuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
+[; ;user_interrupts.c: 136: SetChanADC(0b10010111);
 "136
+[e ( _SetChanADC (1 -> -> 151 `i `uc ]
+"137
+}
+[; ;user_interrupts.c: 137: }
+[e $U 599  ]
+"138
+[e :U 598 ]
+[; ;user_interrupts.c: 138: else {
+{
+[; ;user_interrupts.c: 139: adcbuffer[2] = roundDist;
+"139
+[e = *U + &U _adcbuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _adcbuffer `ui `ux -> _roundDist `uc ]
+[; ;user_interrupts.c: 140: SetChanADC(0b10011111);
+"140
+[e ( _SetChanADC (1 -> -> 159 `i `uc ]
+"141
 }
 [e :U 599 ]
 [e :U 597 ]
-[; ;user_interrupts.c: 136: }
-[; ;user_interrupts.c: 137: }
-"137
+[; ;user_interrupts.c: 141: }
+[; ;user_interrupts.c: 142: }
+"142
 [e :UE 591 ]
 }

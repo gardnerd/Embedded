@@ -6013,22 +6013,20 @@ unsigned char adcbuffer[28];
 void timer0_int_handler() {
 WriteTimer0(0x7F);
 
-# 36
+# 37
 rightEncoder++;
-if(rightEncoder >= rightDistDesired){
 
-unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
-motormsg[1] = rightEncoder;
-motormsg[2] = (rightEncoder & 0x17);
+if( rightEncoder >= rightDistDesired){
 
+# 46
 unsigned char motorcomm[2] = {0x40, 0x40};
-motorMove(0x40, 0x40, leftDistDesired, rightDistDesired);
+motorMove(0x40, 0x40, 0, 0);
 if(leftEncoder >= leftDistDesired){
 stopCond = 0x01;
 }
 }
 
-# 60
+# 64
 }
 
 
@@ -6036,19 +6034,16 @@ stopCond = 0x01;
 
 void timer1_int_handler() {
 
-# 78
+# 82
 WriteTimer1(0xFF7F);
 
 leftEncoder++;
+
 if(leftEncoder >= leftDistDesired){
 
-unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
-motormsg[1] = leftEncoder;
-motormsg[2] = (leftEncoder & 0x17);
-
-
+# 93
 unsigned char motorcomm[2] = {0xC0, 0xC0};
-motorMove(0xC0, 0xC0, leftDistDesired, rightDistDesired);
+motorMove(0xC0, 0xC0, 0, 0);
 
 if(rightEncoder >= rightDistDesired){
 stopCond = 0x01;
@@ -6079,7 +6074,7 @@ roundDist = (int)(dist + 0.5);
 }
 
 else
-roundDist = 0xFF;
+roundDist = 0xFE;
 
 
 

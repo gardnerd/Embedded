@@ -19,7 +19,7 @@
 [v _in_main in_main `(i  1 e 2 0 ]
 "84
 [v _InterruptHandlerHigh InterruptHandlerHigh `II(v  1 e 0 0 ]
-"126
+"121
 [v _InterruptHandlerLow InterruptHandlerLow `IIL(v  1 e 0 0 ]
 "186 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/main.c
 [v _main main `(v  1 e 0 0 ]
@@ -1001,14 +1001,14 @@
 "186 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"546
+"570
 [v main@motorAck motorAck `[6]uc  1 a 6 0 ]
-"530
+"554
 [v main@sensorMsg sensorMsg `[1]uc  1 a 1 19 ]
 "445
 [v main@correct correct `[6]uc  1 a 6 20 ]
 "444
-[v main@stop stop `[6]uc  1 a 6 8 ]
+[v main@stop stop `[6]uc  1 a 6 9 ]
 [s S289 __i2c_comm 29 `[10]uc 1 buffer 10 0 `uc 1 buflen 1 10 `uc 1 bufind 1 11 `uc 1 event_count 1 12 `uc 1 status 1 13 `uc 1 error_code 1 14 `uc 1 error_count 1 15 `[10]uc 1 outbuffer 10 16 `uc 1 outbuflen 1 26 `uc 1 outbufind 1 27 `uc 1 slave_addr 1 28 ]
 "192
 [v main@ic ic `S289  1 a 29 58 ]
@@ -1034,18 +1034,18 @@
 "188
 [v main@length length `c  1 a 1 39 ]
 "190
-[v main@last_reg_recvd last_reg_recvd `uc  1 a 1 14 ]
+[v main@last_reg_recvd last_reg_recvd `uc  1 a 1 8 ]
 "364
 [v main@F9242 F9242 `[2]uc  1 s 2 F9242 ]
 "442
 [v main@F9247 F9247 `[6]uc  1 s 6 F9247 ]
 "444
 [v main@F9249 F9249 `[6]uc  1 s 6 F9249 ]
-"529
+"553
 [v main@F9252 F9252 `[1]uc  1 s 1 F9252 ]
-"544
+"568
 [v main@F9254 F9254 `[6]uc  1 s 6 F9254 ]
-"585
+"614
 } 0
 "61 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/my_uart.c
 [v _uart_trans uart_trans `(v  1 e 0 0 ]
@@ -1280,10 +1280,10 @@
 [v Open1USART@config config `uc  1 a 1 50 ]
 "169
 } 0
-"126 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/interrupts.c
+"121 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/interrupts.c
 [v _InterruptHandlerLow InterruptHandlerLow `IIL(v  1 e 0 0 ]
 {
-"153
+"154
 } 0
 "73 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/my_uart.c
 [v _uart_trans_int_handler uart_trans_int_handler `(v  1 e 0 0 ]
@@ -1365,16 +1365,6 @@
 [v i1___awmod@divisor divisor `i  1 p 2 2 ]
 "35
 } 0
-"70 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/user_interrupts.c
-[v _adc_int_handler adc_int_handler `(v  1 e 0 0 ]
-{
-"72
-} 0
-"84 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/interrupts.c
-[v _InterruptHandlerHigh InterruptHandlerHigh `II(v  1 e 0 0 ]
-{
-"114
-} 0
 "16 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/user_interrupts.c
 [v _timer0_int_handler timer0_int_handler `(v  1 e 0 0 ]
 {
@@ -1389,6 +1379,16 @@
 "16
 [v WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
+} 0
+"70 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/user_interrupts.c
+[v _adc_int_handler adc_int_handler `(v  1 e 0 0 ]
+{
+"72
+} 0
+"84 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/interrupts.c
+[v _InterruptHandlerHigh InterruptHandlerHigh `II(v  1 e 0 0 ]
+{
+"109
 } 0
 "139 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3_newboard\src/src/my_i2c.c
 [v _i2c_int_handler i2c_int_handler `(v  1 e 0 0 ]

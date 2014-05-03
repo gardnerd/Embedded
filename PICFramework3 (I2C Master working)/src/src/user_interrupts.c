@@ -33,19 +33,23 @@ void timer0_int_handler() {
 
     //unsigned char motorcomm[2] = {0x9F, 0x1F};
 #ifdef MOTORPIC
-    rightEncoder++;
-    if(rightEncoder >= rightDistDesired){
+    
+        rightEncoder++;
 
-        unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
-        motormsg[1] = rightEncoder;
-        motormsg[2] = (rightEncoder & 0x17);
-        //start_i2c_slave_reply(6, motormsg);
-        unsigned char motorcomm[2] = {0x40, 0x40};
-        motorMove(0x40, 0x40, leftDistDesired, rightDistDesired);
+    if( rightEncoder >= rightDistDesired){
+
+//        unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+//        motormsg[1] = rightEncoder;
+//        motormsg[2] = (rightEncoder & 0x17);
+//        start_i2c_slave_reply(6, motormsg);
+
+//        unsigned char motorcomm[2] = {0x40, 0x40};
+        motorMove(0x40, 0x40, 0, 0);
         if(leftEncoder >= leftDistDesired){
             stopCond = 0x01; // I've stopped
         }
     }
+
 #endif
 
 #ifdef SENSORPIC
@@ -77,16 +81,17 @@ void timer1_int_handler() {
 #ifdef MOTORPIC
     WriteTimer1(0xFF7F);
 
-    leftEncoder++;
+        leftEncoder++;
+    
     if(leftEncoder >= leftDistDesired){
 
-        unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
-        motormsg[1] = leftEncoder;
-        motormsg[2] = (leftEncoder & 0x17);
-        //start_i2c_slave_reply(6, motormsg);
+//        unsigned char motormsg[6] = {0x04, 0x00, 0x00, 0x00, 0x00, 0x00};
+//        motormsg[1] = leftEncoder;
+//        motormsg[2] = (leftEncoder & 0x17);
+//        start_i2c_slave_reply(6, motormsg);
 
-        unsigned char motorcomm[2] = {0xC0, 0xC0};
-        motorMove(0xC0, 0xC0, leftDistDesired, rightDistDesired);
+//        unsigned char motorcomm[2] = {0xC0, 0xC0};
+        motorMove(0xC0, 0xC0, 0, 0);
 
         if(rightEncoder >= rightDistDesired){
             stopCond = 0x01; // I've stopped
@@ -117,7 +122,7 @@ void adc_int_handler(){
     }
     // If the voltage is too small then the object is assumed to be too far away so we send back 0xFF
     else
-        roundDist = 0xFF;
+        roundDist = 0xFE;
 
     // Reads the current channel from the count of the adcbuffer[0]
     // Puts the current distance of the respective sensor in the adcbuffer then changes to the next channel

@@ -50,7 +50,7 @@
         <targetDevice>PIC18F45J10</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.30</languageToolchainVersion>
         <platform>3</platform>
@@ -136,6 +136,8 @@
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
       </HI-TECH-LINK>
+      <PICkit3PlatformTool>
+      </PICkit3PlatformTool>
       <XC8-config-global>
         <property key="output-file-format" value="-mcof,+elf"/>
       </XC8-config-global>
@@ -219,6 +221,8 @@
         <property key="stack-analysis-mcc18" value="true"/>
         <property key="stack-analysis-mplink" value="true"/>
       </C18LanguageToolchain>
+      <Simulator>
+      </Simulator>
     </conf>
   </confs>
 </configurationDescriptor>

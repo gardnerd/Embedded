@@ -3987,49 +3987,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;motor.c: 9: rightDistDesired = rightDistance;
 "9
 [e = _rightDistDesired _rightDistance ]
+[; ;motor.c: 10: leftEncoder = 0;
 "10
+[e = _leftEncoder -> -> 0 `i `uc ]
+[; ;motor.c: 11: rightEncoder = 0;
+"11
+[e = _rightEncoder -> -> 0 `i `uc ]
+"12
 }
 [e :U 550 ]
-[; ;motor.c: 10: }
-[; ;motor.c: 12: if(left != 0x00 && right != 0x00){
-"12
+[; ;motor.c: 12: }
+[; ;motor.c: 14: if(left != 0x00 && right != 0x00){
+"14
 [e $ ! && != -> _left `i -> 0 `i != -> _right `i -> 0 `i 551  ]
 {
-[; ;motor.c: 13: stopCond = 0x00;
-"13
+[; ;motor.c: 15: stopCond = 0x00;
+"15
 [e = _stopCond -> -> 0 `i `uc ]
-"14
+"16
 }
-[; ;motor.c: 14: } else {
+[; ;motor.c: 16: } else {
 [e $U 552  ]
 [e :U 551 ]
 {
-[; ;motor.c: 15: stopCond = 0x01;
-"15
+[; ;motor.c: 17: stopCond = 0x01;
+"17
 [e = _stopCond -> -> 1 `i `uc ]
-"16
+"18
 }
 [e :U 552 ]
-[; ;motor.c: 16: }
-[; ;motor.c: 18: WriteTimer0(0x7F);
-"18
-[e ( _WriteTimer0 (1 -> -> 127 `i `ui ]
-[; ;motor.c: 19: WriteTimer1(0xFF7F);
-"19
-[e ( _WriteTimer1 (1 -> 65407 `ui ]
-"20
-[v _direction `uc ~T0 @X0 -> 2 `i a ]
-[; ;motor.c: 20: unsigned char direction[2];
-[; ;motor.c: 21: direction[0] = left;
+[; ;motor.c: 18: }
+[; ;motor.c: 21: WriteTimer0(0x7F);
 "21
-[e = *U + &U _direction * -> -> -> 0 `i `ui `ux -> -> # *U &U _direction `ui `ux _left ]
-[; ;motor.c: 22: direction[1] = right;
+[e ( _WriteTimer0 (1 -> -> 127 `i `ui ]
+[; ;motor.c: 22: WriteTimer1(0xFF7F);
 "22
+[e ( _WriteTimer1 (1 -> 65407 `ui ]
+"25
+[v _direction `uc ~T0 @X0 -> 2 `i a ]
+[; ;motor.c: 25: unsigned char direction[2];
+[; ;motor.c: 26: direction[0] = left;
+"26
+[e = *U + &U _direction * -> -> -> 0 `i `ui `ux -> -> # *U &U _direction `ui `ux _left ]
+[; ;motor.c: 27: direction[1] = right;
+"27
 [e = *U + &U _direction * -> -> -> 1 `i `ui `ux -> -> # *U &U _direction `ui `ux _right ]
-[; ;motor.c: 23: uart_trans(2, direction);
-"23
+[; ;motor.c: 28: uart_trans(2, direction);
+"28
 [e ( _uart_trans (2 , -> -> 2 `i `uc &U _direction ]
-[; ;motor.c: 24: }
-"24
+[; ;motor.c: 29: }
+"29
 [e :UE 549 ]
 }

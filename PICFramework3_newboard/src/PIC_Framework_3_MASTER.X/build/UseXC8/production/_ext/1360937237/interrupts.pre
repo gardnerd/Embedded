@@ -10986,22 +10986,14 @@ i2c_int_handler();
 
 }
 
-
-
-if (INTCONbits.TMR0IF) {
-INTCONbits.TMR0IF = 0;
-
-timer0_int_handler();
-}
-
-# 113
+# 108
 SleepIfOkay();
 }
 
-# 121
+# 116
 interrupt low_priority
 
-# 126
+# 121
 void InterruptHandlerLow() {
 
 if(PIR1bits.ADIF){
@@ -11029,5 +11021,11 @@ uart_recv_int_handler();
 
 }
 
+
+if (INTCONbits.TMR0IF) {
+INTCONbits.TMR0IF = 0;
+
+timer0_int_handler();
+}
 }
 

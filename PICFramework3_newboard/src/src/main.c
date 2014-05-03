@@ -279,7 +279,7 @@ void main(void) {
     // Timer1 interrupt
     IPR1bits.TMR1IP = 0;
     // Timer0 interrupt
-    INTCON2bits.TMR0IP = 1;
+    INTCON2bits.TMR0IP = 0;
     // USART RX interrupt
     IPR1bits.RCIP = 0;
     // USART TX interrupt
@@ -381,11 +381,11 @@ void main(void) {
 
       // displayed on ports A 1-3
       // 3-2-1
-#define STOPPED     0
+#define STOPPED     0 // against object
 #define MOVING      1
 #define DISCMOVE    2
-#define FRONTCLEAR  3
-      //back clear  4
+#define CLEARING    3
+      //side clear  4  or start stop line
       //fwd stop    5
       //corr R      6
       //corr L      7
@@ -442,51 +442,75 @@ void main(void) {
                     }
 
                     unsigned char stop[6] = {0xBC, 0x00, 0x00, 0x00, 0x00, 0x00};
-                    unsigned char correct[6] = {0xBC, 0x00, 0x00, 0x00, 0x00};
+                    unsigned char correct[6] = {0xBC, 0x00, 0x00, 0x00, 0x00, 0x00};
                     if(msgbuffer[0] == 0x01){   // sensors
                         if(state == STOPPED){
                             uart_trans(6, msgbuffer);
-                        }else if(state == FRONTCLEAR){ // back clear obstacle
-                            if(msgbuffer[3] >= 0x5A){
-                                i2c_master_send(6, 6, stop, 0xBE);
-                                state = STOPPED;
-                                LATAbits.LA1 = 0;
-                                LATAbits.LA2 = 0;
-                                LATAbits.LA3 = 1;
-                            }
+//                        }else if(state == FRONTCLEAR){ // back clear obstacle
+//                            if(msgbuffer[3] == 0x4){
+//                                i2c_master_send(6, 6, stop, 0xBE);
+//                                state = STOPPED;
+//                                LATAbits.LA1 = 0;
+//                                LATAbits.LA2 = 0;
+//                                LATAbits.LA3 = 1;
+//                            }
                         }else if(state == MOVING){
-                            if(msgbuffer[1] <= 0x20){ // stop
+                            if(msgbuffer[1] == 0x1){ // front too close
                                 i2c_master_send(6, 6, stop, 0xBE);
                                 state = STOPPED;
                                 LATAbits.LA1 = 1;
                                 LATAbits.LA2 = 0;
                                 LATAbits.LA3 = 1;
 
-                            }else if(msgbuffer[2] >= 0x5A){ // front clear obstacle
-                                state = FRONTCLEAR;
+                            }else if(msgbuffer[4] == 0x1) { // start stop line
+                                i2c_master_send(6, 6, stop, 0xBE);
+                                state = STOPPED;
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 1;
+                                LATAbits.LA3 = 0;
+                            }else if(msgbuffer[2] == 0x4 && msgbuffer[3] == 0x4){ //both sides clear
+                                i2c_master_send(6, 6, stop, 0xBE);
+                                state = STOPPED;
                                 LATAbits.LA1 = 1;
                                 LATAbits.LA2 = 1;
                                 LATAbits.LA3 = 0;
                             }
-                            else if(msgbuffer[2] >= 0x20 || msgbuffer[3] >= 0x20){ // too far
+                            else if(msgbuffer[2] == 0x3 || msgbuffer[3] == 0x3){ // too far horizontal
                                 correct[1] = lastMotors[0]; // left
-                                correct[2] = lastMotors[1] + 10; // right (add to slow down)
+                                correct[2] = (0x2A - lastMotors[1]) + lastMotors[1]; // right (add to slow down)
                                 i2c_master_send(6, 6, correct, 0xBE);
                                 LATAbits.LA1 = 1;
                                 LATAbits.LA2 = 1;
                                 LATAbits.LA3 = 1;
-                            }else if(msgbuffer[2] <= 0x1E || msgbuffer[3] <= 0x1E){ // too close
-                                correct[1] = lastMotors[0] + 10; // left
+                            }else if(msgbuffer[2] == 0x1 || msgbuffer[3] == 0x1){ // too close horizontal
+                                correct[1] = (0xAA - lastMotors[0]) + lastMotors[0]; // left
                                 correct[2] = lastMotors[1]; // right
                                 i2c_master_send(6, 6, correct, 0xBE);
                                 LATAbits.LA1 = 0;
                                 LATAbits.LA2 = 1;
                                 LATAbits.LA3 = 1;
                             }
-                            else{
+                            else{                       // moving normally
                                 correct[1] = lastMotors[0]; // left
                                 correct[2] = lastMotors[1]; // right
                                 i2c_master_send(6, 6, correct, 0xBE);
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 0;
+                                LATAbits.LA3 = 0;
+                            }
+                        } else if( state == CLEARING){
+                            if(msgbuffer[1] == 0x1){ // front too close
+                                i2c_master_send(6, 6, stop, 0xBE);
+                                state = STOPPED;
+                                LATAbits.LA1 = 1;
+                                LATAbits.LA2 = 0;
+                                LATAbits.LA3 = 1;
+
+                            }
+
+                            if(msgbuffer[2] != 0x4 && msgbuffer[3] != 0x4){ // sides on obstacle
+                                i2c_master_send(6, 6, stop, 0xBE);
+                                state = STOPPED;
                                 LATAbits.LA1 = 1;
                                 LATAbits.LA2 = 0;
                                 LATAbits.LA3 = 0;
@@ -529,7 +553,7 @@ void main(void) {
                     LATAbits.LA0 = 1;
                     unsigned char sensorMsg[1] = {0xAA};
                     
-                    if(state == MOVING || state == FRONTCLEAR){
+                    if(state == MOVING || state == CLEARING){
                         i2c_master_send(1, 6, sensorMsg, 0x9E);
                     }
                     LATAbits.LA0 = 0;
@@ -539,9 +563,9 @@ void main(void) {
                 case MSGT_UART_DATA:
                 {
                     
-                    if(msgbuffer[0] == 0xBA || msgbuffer[0] == 0xCA || msgbuffer[0] == 0x0BC){
+                    if(msgbuffer[0] == 0xBA || msgbuffer[0] == 0xCA || msgbuffer[0] == 0xBC || msgbuffer[0] == 0xBD){
                         // motor command
-                        if(msgbuffer[0] == 0x0BA || msgbuffer[0] == 0xBC){
+                        if(msgbuffer[0] == 0x0BA || msgbuffer[0] == 0xBC || msgbuffer[0] == 0xBD){
 
                             unsigned char motorAck[6] = {0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
                             uart_trans(6, motorAck);
@@ -559,6 +583,11 @@ void main(void) {
                                 LATAbits.LA1 = 1;
                                 LATAbits.LA2 = 0;
                                 LATAbits.LA3 = 0;
+                            } else if(msgbuffer[0] == 0xBD){
+                                state = CLEARING;
+                                LATAbits.LA1 = 0;
+                                LATAbits.LA2 = 1;
+                                LATAbits.LA3 = 1;
                             }
                             
                         }

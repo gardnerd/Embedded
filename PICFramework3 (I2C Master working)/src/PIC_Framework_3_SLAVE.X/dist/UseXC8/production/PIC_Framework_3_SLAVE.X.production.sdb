@@ -107,9 +107,9 @@
 [v _uart_lthread uart_lthread `(i  1 e 2 0 ]
 "17 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
 [v _timer0_int_handler timer0_int_handler `(v  1 e 0 0 ]
-"65
+"69
 [v _timer1_int_handler timer1_int_handler `(v  1 e 0 0 ]
-"99
+"104
 [v _adc_int_handler adc_int_handler `(v  1 e 0 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -535,15 +535,15 @@
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "5736
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S2070 . 1 `uc 1 . 1 0 :1:0 
+[s S2066 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "5786
-[s S2073 . 1 `uc 1 ADON 1 0 :1:0 
+[s S2069 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :4:2 
 ]
-[s S2080 . 1 `uc 1 . 1 0 :1:0 
+[s S2076 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -552,23 +552,23 @@
 `uc 1 . 1 0 :1:6 
 `uc 1 ADCAL 1 0 :1:7 
 ]
-[s S2089 . 1 `uc 1 . 1 0 :1:0 
+[s S2085 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S2092 . 1 `uc 1 . 1 0 :1:0 
+[s S2088 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 ]
-[s S2095 . 1 `uc 1 . 1 0 :1:0 
+[s S2091 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S2098 . 1 `uc 1 . 1 0 :1:0 
+[s S2094 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S2101 . 1 `uc 1 . 1 0 :1:0 
+[s S2097 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S2104 . 1 `S2070 1 . 1 0 `S2073 1 . 1 0 `S2070 1 . 1 0 `S2080 1 . 1 0 `S2089 1 . 1 0 `S2092 1 . 1 0 `S2095 1 . 1 0 `S2098 1 . 1 0 `S2101 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES2104  1 e 1 @4034 ]
+[u S2100 . 1 `S2066 1 . 1 0 `S2069 1 . 1 0 `S2066 1 . 1 0 `S2076 1 . 1 0 `S2085 1 . 1 0 `S2088 1 . 1 0 `S2091 1 . 1 0 `S2094 1 . 1 0 `S2097 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES2100  1 e 1 @4034 ]
 "5877
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 "5883
@@ -781,11 +781,11 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
 "7806
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
-[s S2262 . 1 `uc 1 . 1 0 :2:0 
+[s S2258 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "7845
-[s S2265 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2261 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -793,23 +793,23 @@
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S2273 . 1 `uc 1 . 1 0 :2:0 
+[s S2269 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S2279 . 1 `uc 1 . 1 0 :2:0 
+[s S2275 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 ]
-[s S2282 . 1 `uc 1 . 1 0 :3:0 
+[s S2278 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 ]
-[s S2285 . 1 `uc 1 . 1 0 :7:0 
+[s S2281 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S2288 . 1 `S2262 1 . 1 0 `S2265 1 . 1 0 `S2273 1 . 1 0 `S2279 1 . 1 0 `S2282 1 . 1 0 `S2285 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES2288  1 e 1 @4045 ]
+[u S2284 . 1 `S2258 1 . 1 0 `S2261 1 . 1 0 `S2269 1 . 1 0 `S2275 1 . 1 0 `S2278 1 . 1 0 `S2281 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2284  1 e 1 @4045 ]
 "7925
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "7931
@@ -861,7 +861,7 @@
 [v _OSCCONbits OSCCONbits `VES916  1 e 1 @4051 ]
 "8137
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S2217 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2213 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -869,12 +869,12 @@
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "8157
-[s S2224 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2220 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S2228 . 1 `S2217 1 . 1 0 `S2224 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2228  1 e 1 @4053 ]
+[u S2224 . 1 `S2213 1 . 1 0 `S2220 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2224  1 e 1 @4053 ]
 "8212
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "8218
@@ -1325,37 +1325,29 @@
 [v ReadUSART@data data `uc  1 a 1 0 ]
 "37
 } 0
-"65 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
+"69 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
 [v _timer1_int_handler timer1_int_handler `(v  1 e 0 0 ]
 {
-"83
-[v timer1_int_handler@motormsg motormsg `[6]uc  1 a 6 15 ]
-"88
-[v timer1_int_handler@motorcomm motorcomm `[2]uc  1 a 2 13 ]
-"81
-[v timer1_int_handler@F5122 F5122 `[6]uc  1 s 6 F5122 ]
-"85
-[v timer1_int_handler@F5124 F5124 `[2]uc  1 s 2 F5124 ]
-"97
+"93
+[v timer1_int_handler@motorcomm motorcomm `[2]uc  1 a 2 15 ]
+"86
+[v timer1_int_handler@F5120 F5120 `[2]uc  1 s 2 F5120 ]
+"102
 } 0
 "17
 [v _timer0_int_handler timer0_int_handler `(v  1 e 0 0 ]
 {
+"46
+[v timer0_int_handler@motorcomm motorcomm `[2]uc  1 a 2 15 ]
 "39
-[v timer0_int_handler@motormsg motormsg `[6]uc  1 a 6 15 ]
-"43
-[v timer0_int_handler@motorcomm motorcomm `[2]uc  1 a 2 13 ]
-"37
-[v timer0_int_handler@F5118 F5118 `[6]uc  1 s 6 F5118 ]
-"41
-[v timer0_int_handler@F5120 F5120 `[2]uc  1 s 2 F5120 ]
-"60
+[v timer0_int_handler@F5118 F5118 `[2]uc  1 s 2 F5118 ]
+"64
 } 0
 "5 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/motor.c
 [v _motorMove motorMove `(v  1 e 0 0 ]
 {
 [v motorMove@left left `uc  1 a 1 wreg ]
-"20
+"25
 [v motorMove@direction direction `[2]uc  1 a 2 9 ]
 "5
 [v motorMove@left left `uc  1 a 1 wreg ]
@@ -1364,7 +1356,7 @@
 [v motorMove@rightDistance rightDistance `uc  1 p 1 7 ]
 "7
 [v motorMove@left left `uc  1 a 1 11 ]
-"24
+"29
 } 0
 "61 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c
 [v i1_uart_trans uart_trans `(v  1 e 0 0 ]
@@ -1379,9 +1371,9 @@
 "14 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c
 [v _WriteTimer1 WriteTimer1 `(v  1 e 0 0 ]
 {
-[u S2251 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[u S2247 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "16
-[v WriteTimer1@timer timer `S2251  1 a 2 2 ]
+[v WriteTimer1@timer timer `S2247  1 a 2 2 ]
 "14
 [v WriteTimer1@timer1 timer1 `ui  1 p 2 0 ]
 "22
@@ -1389,27 +1381,27 @@
 "16 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c
 [v _WriteTimer0 WriteTimer0 `(v  1 e 0 0 ]
 {
-[u S2251 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[u S2247 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
 "18
-[v WriteTimer0@timer timer `S2251  1 a 2 2 ]
+[v WriteTimer0@timer timer `S2247  1 a 2 2 ]
 "16
 [v WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
 } 0
-"99 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
+"104 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/user_interrupts.c
 [v _adc_int_handler adc_int_handler `(v  1 e 0 0 ]
 {
-"115
+"120
 [v adc_int_handler@dist dist `f  1 a 3 54 ]
-"109
+"114
 [v adc_int_handler@voltage voltage `f  1 a 3 59 ]
-"110
+"115
 [v adc_int_handler@roundDist roundDist `i  1 a 2 64 ]
-"124
+"129
 [v adc_int_handler@channel channel `i  1 a 2 62 ]
-"108
+"113
 [v adc_int_handler@k k `i  1 a 2 57 ]
-"137
+"142
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\common\awmod.c
 [v i1___awmod __awmod `(i  1 e 2 0 ]
@@ -1565,7 +1557,7 @@
 [v i2motorMove@rightDistance rightDistance `uc  1 p 1 7 ]
 "7
 [v i2motorMove@left left `uc  1 a 1 11 ]
-"24
+"29
 } 0
 "61 C:\Users\Devon\Documents\GitHub\Embedded\PICFramework3 (I2C Master working)\src/src/my_uart.c
 [v i2_uart_trans uart_trans `(v  1 e 0 0 ]
@@ -1580,16 +1572,16 @@
 "14 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t1write.c
 [v i2_WriteTimer1 WriteTimer1 `(v  1 e 0 0 ]
 {
-[u S2251 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
-[v i2WriteTimer1@timer WriteTimer1 `S2251  1 a 2 2 ]
+[u S2247 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[v i2WriteTimer1@timer WriteTimer1 `S2247  1 a 2 2 ]
 [v i2WriteTimer1@timer1 timer1 `ui  1 p 2 0 ]
 "22
 } 0
 "16 C:\Program Files (x86)\Microchip\xc8\v1.30\sources\pic18\plib\Timers\t0write.c
 [v i2_WriteTimer0 WriteTimer0 `(v  1 e 0 0 ]
 {
-[u S2251 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
-[v i2WriteTimer0@timer WriteTimer0 `S2251  1 a 2 2 ]
+[u S2247 Timers 2 `ui 1 lt 2 0 `[2]uc 1 bt 2 0 ]
+[v i2WriteTimer0@timer WriteTimer0 `S2247  1 a 2 2 ]
 [v i2WriteTimer0@timer0 timer0 `ui  1 p 2 0 ]
 "24
 } 0

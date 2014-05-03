@@ -5936,10 +5936,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _start_i2c_slave_reply (2 , -> _length `uc &U _message ]
 "432
 }
-[; ;my_i2c.c: 432: } else if(ic_ptr->buffer[0] == 0xBA){
+[; ;my_i2c.c: 432: } else if(ic_ptr->buffer[0] == 0xBA || ic_ptr->buffer[0] == 0xBD){
 [e $U 672  ]
 [e :U 671 ]
-[e $ ! == -> *U + &U . *U _ic_ptr 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 186 `i 673  ]
+[e $ ! || == -> *U + &U . *U _ic_ptr 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 186 `i == -> *U + &U . *U _ic_ptr 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _ic_ptr 0 `ui `ux `i -> 189 `i 673  ]
 {
 [v F5143 `uc ~T0 @X0 -> 6 `i s ]
 [i F5143
